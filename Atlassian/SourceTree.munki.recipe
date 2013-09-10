@@ -23,7 +23,7 @@
                 <string>testing</string>
             </array>
             <key>description</key>
-	        <string>SourceTree is a free Mercurial and Git client for Windows and Mac that provides a graphical interface for your Hg and Git repositories.</string>
+            <string>SourceTree is a free Mercurial and Git client for Windows and Mac that provides a graphical interface for your Hg and Git repositories.</string>
             <key>display_name</key>
             <string>SourceTree</string>
             <key>name</key>
