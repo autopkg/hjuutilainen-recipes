@@ -20,7 +20,6 @@
             </array>
             <key>catalogs</key>
             <array>
-                <string>production</string>
                 <string>testing</string>
             </array>
             <key>description</key>
