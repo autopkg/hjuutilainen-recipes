@@ -20,11 +20,10 @@
             </array>
             <key>catalogs</key>
             <array>
-                <string>production</string>
                 <string>testing</string>
             </array>
             <key>description</key>
-	        <string>Subler is an Mac OS X app created to mux mp4 files.</string>
+            <string>Subler is an Mac OS X app created to mux mp4 files.</string>
             <key>display_name</key>
             <string>Subler</string>
             <key>name</key>
