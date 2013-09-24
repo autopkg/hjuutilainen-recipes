@@ -27,8 +27,8 @@ __all__ = ["OpenOfficeURLProvider"]
 LANGUAGE_CODE = "en-US"
 LOCATOR_URL = "http://www.apache.org/dyn/aoo-closer.cgi/openoffice/"
 re_URL = re.compile(r'\<strong\>(?P<the_url>http://.+)\</strong\>')
-re_link = re.compile(r'alt="\[DIR\]"> <a href="(.*?)">.*?</a>')
-re_dmg = re.compile(r'a[^>]* href="(?P<filename>[^"]+install[^"]+\.dmg)"')
+re_link = re.compile(r'<a href="(.*?)">.*?</a>', re.IGNORECASE)
+re_dmg = re.compile(r'a[^>]* href="(?P<filename>[^"]+install[^"]+\.dmg)"', re.IGNORECASE)
 re_version = re.compile(r'(?P<version>[0-9]+\.[0-9]+\.[0-9]+).*')
 
 
