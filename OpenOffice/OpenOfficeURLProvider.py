@@ -39,9 +39,9 @@ class OpenOfficeURLProvider(Processor):
             "required": False,
             "description": "Default is to use the closest mirror. List of apache mirrors: http://www.apache.org/mirrors/",
         },
-        "country_code": {
+        "language_code": {
             "required": False,
-            "description": "Default is en_US",
+            "description": "Default is en-US",
         },
     }
     output_variables = {
