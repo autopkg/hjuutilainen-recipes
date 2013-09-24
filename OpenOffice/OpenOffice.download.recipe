@@ -20,16 +20,16 @@
 	<key>Process</key>
 	<array>
 		<dict>
-            <key>Processor</key>
-            <string>OpenOfficeURLProvider</string>
-            <key>Arguments</key>
-            <dict>
-            	<key>base_url</key>
-            	<string>%BASE_URL%</string>
-            	<key>language_code</key>
-            	<string>%LANGUAGE%</string>
-            </dict>
-        </dict>
+			<key>Processor</key>
+			<string>OpenOfficeURLProvider</string>
+			<key>Arguments</key>
+			<dict>
+				<key>base_url</key>
+				<string>%BASE_URL%</string>
+				<key>language_code</key>
+				<string>%LANGUAGE%</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
