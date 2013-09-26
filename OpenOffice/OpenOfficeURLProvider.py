@@ -112,6 +112,7 @@ class OpenOfficeURLProvider(Processor):
         except BaseException as e:
             # Don't raise anything since this url might not exist.
             # Return None instead and the requester will move on to the next URL
+            self.output("Can't download %s: %s" % (url, e))
             return None
         
         m = re_dmg.search(html)
@@ -136,6 +137,10 @@ class OpenOfficeURLProvider(Processor):
         # Get a list of available versions from the mirror
         versions = self.versions_at_url(closest_mirror)
         
+        # Did we get anything?
+        if len(versions) == 0:
+            raise ProcessorError("Couldn't find any versions")
+        
         # Go through each version and check if there's something to download. The versions
         # list is already sorted by version with the latest version at index 0.
         for version in versions:
@@ -149,6 +154,16 @@ class OpenOfficeURLProvider(Processor):
             dmg_url = self.dmg_link_at_url(version_url)
             if dmg_url:
                 return dmg_url
+        
+        # If we got this far, the following happened:
+        #   - We succesfully resolved a mirror link
+        #   - We found one or more versions from the mirror
+        #   ...but...
+        #   - The mirror doesn't contain anything for the version and requested language.
+        #     Usually this means a new version has been released but it hasn't yet fully
+        #     propagated to all mirrors.
+        raise ProcessorError(
+            "Found one or more versions but couldn't find any download links for language %s" % language_code)
     
     
     def main(self):
