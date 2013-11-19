@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the current release version of Packages and imports into Munki.</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.munki.Packages</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Packages</string>
+		<key>MUNKIIMPORT_PKG_NAME</key>
+		<string>packages/Packages.pkg</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/Packages</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>description</key>
+			<string>Whenever you need to create an installation package or distribution for Mac OS X 10.5 or later, Packages is the powerful and flexible solution you're looking for.</string>
+			<key>display_name</key>
+			<string>Packages</string>
+			<key>minimum_os_version</key>
+			<string>10.5</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>#!/bin/sh
+
+## Uninstall script taken from the original Packages disk image with
+## sudo calls removed since this script is already running as root.
+## Original script can be found in Extras/uninstall.sh
+
+## Remove application
+/bin/rm -r /Applications/Packages.app
+
+## stop and unload dispatcher
+/bin/launchctl unload /Library/LaunchDaemons/fr.whitebox.packages_dispatcher.plist
+
+## remove launchdaemons
+/bin/rm /Library/LaunchDaemons/fr.whitebox.packages_dispatcher.plist
+
+## Remove Priviledged tools
+/bin/rm -r /Library/PrivilegedHelperTools/fr.whitebox.packages
+
+## Remove Application Support files
+/bin/rm -r /Library/Application\ Support/fr.whitebox.packages
+
+## Remove tools
+/bin/rm /usr/local/bin/goldin_64
+/bin/rm /usr/local/bin/packagesbuild
+/bin/rm /usr/local/bin/packagesutil
+
+## Forget we ever got installed
+/usr/sbin/pkgutil --forget fr.whitebox.pkg.Packages
+
+exit 0
+</string>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.2.0</string>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.Packages</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>flat_pkg_path</key>
+				<string>%pathname%/packages/*.pkg</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack</string>
+			</dict>
+			<key>Processor</key>
+			<string>FlatPkgUnpacker</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_payload_path</key>
+				<string>%RECIPE_CACHE_DIR%/unpack/Packages.pkg/Payload</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload</string>
+			</dict>
+			<key>Processor</key>
+			<string>PkgPayloadUnpacker</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>faux_root</key>
+				<string>%RECIPE_CACHE_DIR%/payload</string>
+				<key>installs_item_paths</key>
+				<array>
+					<string>/Applications/Packages.app</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/packages_builder</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/packages_dispatcher</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Locators/JavaScript.plugin</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Locators/Standard.plugin</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/CPU.plugin</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/Disk Space.plugin</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/Files.plugin</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/JavaScript.plugin</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/OS.plugin</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/RAM.plugin</string>
+					<string>/Library/PrivilegedHelperTools/fr.whitebox.packages/Requirements/Scripts.plugin</string>
+					<string>/usr/local/bin/packagesbuild</string>
+					<string>/usr/local/bin/packagesutil</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiInstallsItemsCreator</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+            </dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/Packages.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+                <key>additional_pkginfo</key>
+                <dict>
+                    <key>version</key>
+                    <string>%version%</string>
+                </dict>
+            </dict>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+					<string>%RECIPE_CACHE_DIR%/payload</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>munkiimport_pkgname</key>
+                <string>%MUNKIIMPORT_PKG_NAME%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
