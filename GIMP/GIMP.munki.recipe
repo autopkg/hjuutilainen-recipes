@@ -10,6 +10,8 @@
 	<dict>
 		<key>FLAVOUR</key>
 		<string>lisanet.de</string>
+		<key>SYSTEM_VERSION</key>
+		<string>MountainLion</string>
 		<key>NAME</key>
 		<string>GIMP</string>
 		<key>MUNKI_REPO_SUBDIR</key>

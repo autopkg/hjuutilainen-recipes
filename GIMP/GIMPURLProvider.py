@@ -26,10 +26,7 @@ __all__ = ["GIMPURLProvider"]
 MAIN_DOWNLOAD_URL_GIMP = "http://www.gimp.org/downloads/"
 MAIN_DOWNLOAD_URL_LISANET = "http://gimp.lisanet.de/Website/Download.html"
 DEFAULT_FLAVOUR = "lisanet.de"
-
-re_downloadlink = re.compile(r'<a href="(?P<download_url>ftp://ftp.gimp.org/pub/gimp/.*\.dmg)".*</a>', re.IGNORECASE)
-
-re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/.*-MountainLion\.dmg/download)".*', re.IGNORECASE)
+DEFAULT_SYSTEM_VERSION = "MountainLion"
 
 class GIMPURLProvider(Processor):
     """Provides a download URL for the latest GIMP"""
@@ -39,6 +36,10 @@ class GIMPURLProvider(Processor):
             "description": "Specify 'gimp.org' or 'lisanet.de'. This corresponds to the two "
                             "download options on http://www.gimp.org/downloads/. "
                             "If not defined, the default is 'lisanet.de'.",
+        },
+        "system_version": {
+            "required": False,
+            "description": "Specify 'Mavericks' or 'MountainLion'. If not defined, the default is 'MountainLion'.",
         },
     }
     output_variables = {
@@ -57,6 +58,7 @@ class GIMPURLProvider(Processor):
             f.close()
         except BaseException as e:
             raise ProcessorError("Can't download %s: %s" % (base_url, e))
+        re_downloadlink = re.compile(r'<a href="(?P<download_url>ftp://ftp.gimp.org/pub/gimp/.*\.dmg)".*</a>', re.IGNORECASE)
         m = re_downloadlink.search(html)
         if not m:
             raise ProcessorError(
@@ -66,7 +68,7 @@ class GIMPURLProvider(Processor):
         return download_url
     
     
-    def get_GIMP_dmg_url_lisanet(self, base_url):
+    def get_GIMP_dmg_url_lisanet(self, base_url, system_version):
         """Checks the given URL for a link to GIMP download"""
         try:
             f = urllib2.urlopen(base_url)
@@ -74,6 +76,7 @@ class GIMPURLProvider(Processor):
             f.close()
         except BaseException as e:
             raise ProcessorError("Can't download %s: %s" % (base_url, e))
+        re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/.*-%s\.dmg/download)".*' % system_version, re.IGNORECASE)
         m = re_downloadlink_lisanet.search(html)
         if not m:
             raise ProcessorError(
@@ -84,12 +87,13 @@ class GIMPURLProvider(Processor):
     
     def main(self):
         flavour = self.env.get("flavour", DEFAULT_FLAVOUR)
+        system_version = self.env.get("system_version", DEFAULT_SYSTEM_VERSION)
         if flavour == "gimp.org":
             base_url = self.env.get("base_url", MAIN_DOWNLOAD_URL_GIMP)
             self.env["url"] = self.get_GIMP_dmg_url(base_url)
         elif flavour == "lisanet.de":
             base_url = self.env.get("base_url", MAIN_DOWNLOAD_URL_LISANET)
-            self.env["url"] = self.get_GIMP_dmg_url_lisanet(base_url)
+            self.env["url"] = self.get_GIMP_dmg_url_lisanet(base_url, system_version)
         else:
             raise ProcessorError("Unknown flavour '%s'" % flavour)
         self.output("Found URL %s" % self.env["url"])

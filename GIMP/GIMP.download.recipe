@@ -10,6 +10,8 @@
 	<dict>
 		<key>FLAVOUR</key>
 		<string>lisanet.de</string>
+		<key>SYSTEM_VERSION</key>
+		<string>MountainLion</string>
 		<key>NAME</key>
 		<string>GIMP</string>
 	</dict>
@@ -24,6 +26,8 @@
 			<dict>
 				<key>flavour</key>
 				<string>%FLAVOUR%</string>
+				<key>system_version</key>
+				<string>%SYSTEM_VERSION%</string>
 			</dict>
 		</dict>
 		<dict>
