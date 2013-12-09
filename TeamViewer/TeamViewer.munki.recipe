@@ -10,8 +10,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>TeamViewer</string>
-		<key>MAJOR_VERSION</key>
-		<string>8</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/TeamViewer</string>
 		<key>pkginfo</key>
@@ -25,7 +23,7 @@
 			<key>display_name</key>
 			<string>TeamViewer</string>
 			<key>minimum_os_version</key>
-			<string>10.5</string>
+			<string>10.6</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -55,7 +53,7 @@
             <key>Arguments</key>
             <dict>
                 <key>pkgroot</key>
-                <string>%RECIPE_CACHE_DIR%/payload/root/Applications/TeamViewer %MAJOR_VERSION%</string>
+                <string>%RECIPE_CACHE_DIR%/payload/root/Applications</string>
                 <key>pkgdirs</key>
                 <dict/>
             </dict>
@@ -64,13 +62,13 @@
         </dict>
 		<dict>
 		    <key>Comment</key>
-		    <string>TeamViewer seems to install in /Applications/TeamViewer %MAJOR_VERSION%/TeamViewer.app so extract accordingly</string>
+		    <string>TeamViewer 9 installs in /Applications/TeamViewer.app so extract accordingly</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_payload_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack/TeamViewerApp.pkg/Payload</string>
 				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload/root/Applications/TeamViewer %MAJOR_VERSION%</string>
+				<string>%RECIPE_CACHE_DIR%/payload/root/Applications</string>
 			</dict>
 			<key>Processor</key>
 			<string>PkgPayloadUnpacker</string>
@@ -82,7 +80,7 @@
 				<string>%RECIPE_CACHE_DIR%/payload/root</string>
 				<key>installs_item_paths</key>
 				<array>
-					<string>/Applications/TeamViewer %MAJOR_VERSION%/TeamViewer.app</string>
+					<string>/Applications/TeamViewer.app</string>
 				</array>
 			</dict>
 			<key>Processor</key>
