@@ -39,7 +39,10 @@ class GIMPURLProvider(Processor):
         },
         "system_version": {
             "required": False,
-            "description": "Specify 'Mavericks' or 'MountainLion'. If not defined, the default is 'MountainLion'.",
+            "description": "Specify 'Mavericks', 'MountainLion', 'Lion' or 'SnowLeopard'. "
+                            "If not defined, the default is 'Mavericks'. This variable is "
+                            "only used if we're using lisanet.de for the download. "
+                            "Also note that 'MountainLion', 'Lion' and 'SnowLeopard' currently point to the same download.",
         },
     }
     output_variables = {
@@ -64,7 +67,6 @@ class GIMPURLProvider(Processor):
             raise ProcessorError(
                 "Couldn't find download url in %s" % base_url)
         download_url = m.group("download_url")
-        print download_url
         return download_url
     
     
@@ -76,7 +78,19 @@ class GIMPURLProvider(Processor):
             f.close()
         except BaseException as e:
             raise ProcessorError("Can't download %s: %s" % (base_url, e))
-        re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/.*-%s\.dmg/download)".*' % system_version, re.IGNORECASE)
+        
+        if system_version.lower() == "mavericks":
+            re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Mavericks/.*\.dmg/download)".*', re.IGNORECASE)
+        elif system_version.lower() == "mountainlion":
+            re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Snow%20Leopard/.*\.dmg/download)".*', re.IGNORECASE)
+        elif system_version.lower() == "lion":
+            re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Snow%20Leopard/.*\.dmg/download)".*', re.IGNORECASE)
+        elif system_version.lower() == "snowleopard":
+            re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Snow%20Leopard/.*\.dmg/download)".*', re.IGNORECASE)
+        else:
+            raise ProcessorError(
+                "Don't know how to handle system version: %s" % system_version)
+        
         m = re_downloadlink_lisanet.search(html)
         if not m:
             raise ProcessorError(
