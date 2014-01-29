@@ -23,7 +23,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>appcast_url</key>
-				<string>http://iterm2.googlecode.com/svn/trunk/appcasts/%RELEASE%.xml</string>
+				<string>http://www.iterm2.com/appcasts/%RELEASE%.xml</string>
 			</dict>
 		</dict>
 		<dict>
