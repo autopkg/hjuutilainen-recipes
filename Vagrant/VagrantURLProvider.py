@@ -25,7 +25,7 @@ __all__ = ["VagrantURLProvider"]
 
 MAIN_DOWNLOAD_URL = "http://www.vagrantup.com/downloads.html"
 
-re_dmg_url = re.compile(r'<a href=[\'\"](?P<dmg_url>https://dl.bintray.com/mitchellh/vagrant/Vagrant-[0-9\.]+\.dmg)[\'\"]>', re.IGNORECASE)
+re_dmg_url = re.compile(r'<a href=[\'\"](?P<dmg_url>https://dl.bintray.com/mitchellh/vagrant/Vagrant[-_][0-9\.]+\.dmg)[\'\"]>', re.IGNORECASE)
 
 class VagrantURLProvider(Processor):
     """Provides a download URL for the latest Vagrant"""
