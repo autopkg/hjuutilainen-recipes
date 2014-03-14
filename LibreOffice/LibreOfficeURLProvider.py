@@ -26,9 +26,9 @@ __all__ = ["LibreOfficeURLProvider"]
 
 LANGUAGE_CODE = "en-US"
 TYPE = "mac-x86"
-MAIN_DOWNLOAD_URL = "http://www.libreoffice.org/download/"
+MAIN_DOWNLOAD_URL = "http://www.libreoffice.org/download/libreoffice-fresh/"
 
-re_mirrorlist = re.compile(r'<a href=\'(?P<mirrorlist_url>.*\.dmg\.mirrorlist)\'.*</a>', re.IGNORECASE)
+re_mirrorlist = re.compile(r'<a href=[\'\"](?P<mirrorlist_url>\S*\.dmg\.mirrorlist)[\'\"].*</a>', re.IGNORECASE)
 re_metalink = re.compile(r'<a href="(?P<meta4_url>.*\.dmg\.meta4)".*</a>', re.IGNORECASE)
 
 
