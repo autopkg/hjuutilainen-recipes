@@ -30,7 +30,7 @@ re_URL = re.compile(r'\<strong\>(?P<the_url>http://.+)\</strong\>')
 re_link = re.compile(r'<a href="(.*?)">.*?</a>', re.IGNORECASE)
 
 # Download link format: Apache_OpenOffice_<version>_MacOS_x86_install_en-US.dmg
-re_dmg = re.compile(r'a[^>]* href="(?P<filename>Apache_OpenOffice_[\d]+.*_MacOS_x86_install.+\.dmg)"', re.IGNORECASE)
+re_dmg = re.compile(r'a[^>]* href="(?P<filename>Apache_OpenOffice_[\d]+.*_MacOS_x86-64_install.+\.dmg)"', re.IGNORECASE)
 re_version = re.compile(r'(?P<version>[0-9]+\.[0-9]+\.[0-9]+).*')
 
 
