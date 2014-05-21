@@ -16,16 +16,16 @@
 		<string>testing</string>
         <key>pkginfo</key>
         <dict>
-        	<key>blocking_applications</key>
-			<array>
-				<string>iTerm</string>
-			</array>
             <key>catalogs</key>
             <array>
                 <string>testing</string>
             </array>
+            <key>category</key>
+			<string>Utilities</string>
             <key>description</key>
             <string>iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Macs with OS 10.5 (Leopard) or newer. Its focus is on performance, internationalization, and supporting innovative features that make your life better.</string>
+            <key>developer</key>
+			<string>George Nachman</string>
             <key>display_name</key>
             <string>%NAME%</string>
             <key>minimum_os_version</key>

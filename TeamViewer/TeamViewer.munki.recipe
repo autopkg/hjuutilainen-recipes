@@ -18,8 +18,12 @@
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>Internet</string>
 			<key>description</key>
 			<string>All-In-One Solution for Remote Access and Support over the Internet.</string>
+			<key>developer</key>
+			<string>TeamViewer GmbH</string>
 			<key>display_name</key>
 			<string>TeamViewer</string>
 			<key>minimum_os_version</key>

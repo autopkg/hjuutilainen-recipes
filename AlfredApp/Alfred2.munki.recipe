@@ -23,8 +23,12 @@
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>Utilities</string>
 			<key>description</key>
-	        <string>Alfred is a productivity application for Mac OS X, which aims to save you time in searching your local computer and the web.</string>
+			<string>Alfred is a productivity application for Mac OS X, which aims to save you time in searching your local computer and the web.</string>
+			<key>developer</key>
+			<string>Running with Crayons Ltd</string>
 			<key>display_name</key>
 			<string>Alfred 2</string>
 			<key>name</key>
@@ -41,7 +45,7 @@
 	<string>io.github.hjuutilainen.download.Alfred2</string>
 	<key>Process</key>
 	<array>
-	    <dict>
+		<dict>
 			<key>Processor</key>
 			<string>Unarchiver</string>
 			<key>Arguments</key>

@@ -14,16 +14,16 @@
 		<string>apps/BibDesk</string>
 		<key>pkginfo</key>
 		<dict>
-			<key>blocking_applications</key>
-			<array>
-				<string>BibDesk</string>
-			</array>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>TeX</string>
 			<key>description</key>
 			<string>Use BibDesk to edit and manage your bibliography. It will keep track of both the bibliographic information and the associated files or web links for you. BibDesk’s services will simplify using your bibliography in other applications and are particularly well suited for LATEX users.</string>
+			<key>developer</key>
+			<string>Michael O. McCracken</string>
 			<key>display_name</key>
 			<string>BibDesk</string>
 			<key>name</key>

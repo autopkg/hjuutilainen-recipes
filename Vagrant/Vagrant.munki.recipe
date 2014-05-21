@@ -22,8 +22,12 @@
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>Virtualization</string>
 			<key>description</key>
-	        <string>Create and configure lightweight, reproducible, and portable development environments.</string>
+			<string>Create and configure lightweight, reproducible, and portable development environments.</string>
+			<key>developer</key>
+			<string>HashiCorp</string>
 			<key>display_name</key>
 			<string>Vagrant</string>
 			<key>name</key>

@@ -14,16 +14,16 @@
 		<string>apps</string>
 		<key>pkginfo</key>
 		<dict>
-			<key>blocking_applications</key>
-			<array>
-				<string>TeXShop</string>
-			</array>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>TeX</string>
 			<key>description</key>
 			<string>TeXShop is a TeX previewer for Mac OS X, written in Cocoa. Since pdf is a native file format on OS X, TeXShop uses "pdftex" and "pdflatex" rather than "tex" and "latex" to typeset in its default configuration; these programs in the standard TeX Live distribution of TeX produce pdf output instead of dvi output.</string>
+			<key>developer</key>
+			<string>Richard Koch</string>
 			<key>display_name</key>
 			<string>TeXShop</string>
 			<key>name</key>
@@ -62,6 +62,8 @@
 				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				<key>dmg_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+				<key>dmg_megabytes</key>
+				<string>120</string>
 			</dict>
 		</dict>
 		<dict>

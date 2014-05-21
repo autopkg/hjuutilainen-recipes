@@ -14,16 +14,16 @@
 		<string>apps/Atlassian</string>
 		<key>pkginfo</key>
 		<dict>
-			<key>blocking_applications</key>
-			<array>
-				<string>SourceTree</string>
-			</array>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>Developer</string>
 			<key>description</key>
 			<string>SourceTree is a free Mercurial and Git client for Windows and Mac that provides a graphical interface for your Hg and Git repositories.</string>
+			<key>developer</key>
+			<string>Atlassian</string>
 			<key>display_name</key>
 			<string>SourceTree</string>
 			<key>name</key>

@@ -22,8 +22,12 @@
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>Utilities</string>
 			<key>description</key>
 			<string>With the iLok License Manager, you can view your account, add licenses to your iLok, move your licenses between iLoks, and receive new licenses from participating software publishers.</string>
+			<key>developer</key>
+			<string>PACE Anti-Piracy, Inc.</string>
 			<key>display_name</key>
 			<string>iLok License Manager</string>
 			<key>name</key>
