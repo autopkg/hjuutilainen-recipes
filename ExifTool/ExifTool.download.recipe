@@ -15,26 +15,26 @@
 	<string>0.2.9</string>
 	<key>Process</key>
 	<array>
-	    <dict>
-	        <key>Processor</key>
-	        <string>URLTextSearcher</string>
-	        <key>Arguments</key>
-	        <dict>
-	            <key>url</key>
-	            <string>http://owl.phy.queensu.ca/~phil/exiftool/</string>
-	            <key>re_pattern</key>
-                <string>(ExifTool-[0-9\.]+\.dmg)</string>
-                <key>result_output_var_name</key>
-                <string>dmg</string>
-	        </dict>
-	    </dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://owl.phy.queensu.ca/~phil/exiftool/</string>
+				<key>re_pattern</key>
+				<string>(ExifTool-[0-9\.]+\.dmg)</string>
+				<key>result_output_var_name</key>
+				<string>dmg</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
-			    <key>url</key>
-                <string>http://owl.phy.queensu.ca/~phil/exiftool/%dmg%</string>
+				<key>url</key>
+				<string>http://owl.phy.queensu.ca/~phil/exiftool/%dmg%</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>

@@ -34,14 +34,29 @@
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
-            <dict>
+			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
-            </dict>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/Gimp.app</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Application: Simone Lehmann</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+			</dict>
 		</dict>
 	</array>
 </dict>
