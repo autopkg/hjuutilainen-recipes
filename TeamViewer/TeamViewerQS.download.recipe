@@ -30,6 +30,21 @@
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/TeamViewerQS.app</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Application: TeamViewer GmbH</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

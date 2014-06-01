@@ -127,7 +127,7 @@ exit 0
 			<string>MunkiPkginfoMerger</string>
 			<key>Arguments</key>
 			<dict>
-            </dict>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
@@ -145,12 +145,12 @@ exit 0
 			<string>MunkiPkginfoMerger</string>
 			<key>Arguments</key>
 			<dict>
-                <key>additional_pkginfo</key>
-                <dict>
-                    <key>version</key>
-                    <string>%version%</string>
-                </dict>
-            </dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
 		</dict>
 		<dict>
 			<key>Arguments</key>
@@ -170,7 +170,7 @@ exit 0
 				<key>pkg_path</key>
 				<string>%pathname%</string>
 				<key>munkiimport_pkgname</key>
-                <string>%MUNKIIMPORT_PKG_NAME%</string>
+				<string>%MUNKIIMPORT_PKG_NAME%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
