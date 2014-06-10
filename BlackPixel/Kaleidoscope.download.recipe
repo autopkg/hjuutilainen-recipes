@@ -14,7 +14,7 @@
 		<string>https://updates.blackpixel.com/updates?app=ks</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.3.1</string>
 	<key>Process</key>
 	<array>
 		<dict>

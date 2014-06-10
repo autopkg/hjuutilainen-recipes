@@ -12,23 +12,23 @@
 		<string>AppCode</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.9</string>
+	<string>0.3.1</string>
 	<key>Process</key>
 	<array>
-	    <dict>
-	        <key>Processor</key>
-	        <string>URLTextSearcher</string>
-	        <key>Arguments</key>
-	        <dict>
-	            <key>url</key>
-	            <string>http://www.jetbrains.com/objc/download/download_thanks.jsp?os=mac</string>
-	            <key>re_pattern</key>
-	            <!-- http://download.jetbrains.com/objc/AppCode-2.5.5.dmg -->
-                <string>(http://.*/AppCode-[0-9\.]+\.dmg)</string>
-                <key>result_output_var_name</key>
-                <string>url</string>
-	        </dict>
-	    </dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://www.jetbrains.com/objc/download/download_thanks.jsp?os=mac</string>
+				<key>re_pattern</key>
+				<!-- http://download.jetbrains.com/objc/AppCode-2.5.5.dmg -->
+				<string>(http://.*/AppCode-[0-9\.]+\.dmg)</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>

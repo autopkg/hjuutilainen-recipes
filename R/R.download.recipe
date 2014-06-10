@@ -14,7 +14,7 @@
 		<string>http://cran.at.r-project.org/bin/macosx/R-latest.pkg</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.3.1</string>
 	<key>Process</key>
 	<array>
 		<dict>
