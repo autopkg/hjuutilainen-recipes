@@ -14,7 +14,7 @@
 		<string>http://download.teamviewer.com/download/TeamViewer.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.3.1</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -29,6 +29,21 @@
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%pathname%/Install TeamViewer.pkg</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Installer: TeamViewer GmbH (H7UGFBUGV6)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+			</dict>
 		</dict>
 	</array>
 </dict>

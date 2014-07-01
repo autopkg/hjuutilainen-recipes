@@ -14,22 +14,22 @@
 		<string>x86_64</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.9</string>
+	<string>0.3.1</string>
 	<key>Process</key>
 	<array>
-	    <dict>
-	        <key>Processor</key>
-	        <string>URLTextSearcher</string>
-	        <key>Arguments</key>
-	        <dict>
-	            <key>url</key>
-	            <string>http://www.blender.org/download/</string>
-	            <key>re_pattern</key>
-                <string>(http://.*/blender-[0-9\.]+[a-z]??-OSX_[0-9\.]+-%ARCH%.zip)</string>
-                <key>result_output_var_name</key>
-                <string>url</string>
-	        </dict>
-	    </dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://www.blender.org/download/</string>
+				<key>re_pattern</key>
+				<string>(http://.*/blender-[0-9\.]+[a-z]??-OSX_[0-9\.]+-%ARCH%.zip)</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
@@ -42,6 +42,34 @@
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Blender/blender.app</string>
+				<key>expected_authority_names</key>
+				<array>
+					<string>Developer ID Application: Stichting Blender Foundation (68UA947AUU)</string>
+					<string>Developer ID Certification Authority</string>
+					<string>Apple Root CA</string>
+				</array>
+			</dict>
 		</dict>
 	</array>
 </dict>

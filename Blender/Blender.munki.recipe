@@ -34,67 +34,54 @@
 	<string>io.github.hjuutilainen.download.Blender</string>
 	<key>Process</key>
 	<array>
-	    <dict>
+		<dict>
 			<key>Processor</key>
-			<string>Unarchiver</string>
+			<string>PkgRootCreator</string>
 			<key>Arguments</key>
 			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
+				<key>pkgroot</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				<key>pkgdirs</key>
+				<dict>
+					<key>Blender</key>
+					<string>0755</string>
+				</dict>
 			</dict>
 		</dict>
-	    <dict>
-            <key>Processor</key>
-            <string>PkgRootCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>pkgroot</key>
-                <string>%RECIPE_CACHE_DIR%/pkgroot</string>
-                <key>pkgdirs</key>
-                <dict>
-                    <key>Blender</key>
-                    <string>0755</string>
-                </dict>
-            </dict>
-        </dict>
 		<dict>
-            <key>Arguments</key>
-            <dict>
-                <key>source_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%/Blender/blender.app</string>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/pkgroot/Blender/blender.app</string>
-                <key>overwrite</key>
-                <string>true</string>
-            </dict>
-            <key>Processor</key>
-            <string>Copier</string>
-        </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>input_plist_path</key>
-                <string>%RECIPE_CACHE_DIR%/pkgroot/Blender/blender.app/Contents/Info.plist</string>
-            </dict>
-            <key>Processor</key>
-            <string>Versioner</string>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>MunkiPkginfoMerger</string>
-            <key>Arguments</key>
-            <dict>
-                <key>additional_pkginfo</key>
-                <dict>
-                    <key>version</key>
-                    <string>%version%</string>
-                </dict>
-            </dict>
-        </dict>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Blender/blender.app</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Blender/blender.app</string>
+				<key>overwrite</key>
+				<string>true</string>
+			</dict>
+			<key>Processor</key>
+			<string>Copier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Blender/blender.app/Contents/Info.plist</string>
+			</dict>
+			<key>Processor</key>
+			<string>Versioner</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>DmgCreator</string>
