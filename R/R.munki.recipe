@@ -3,13 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of R and imports into Munki.</string>
+	<string>Downloads the current release version of R and imports into Munki. Set OS_RELEASE to either "snowleopard" or "mavericks".</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.munki.R</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>R</string>
+		<key>OS_RELEASE</key>
+		<string>snowleopard</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/R</string>
 		<key>pkginfo</key>
@@ -26,8 +28,6 @@
 			<string>R Foundation</string>
 			<key>display_name</key>
 			<string>R for Mac OS X</string>
-			<key>minimum_os_version</key>
-			<string>10.6</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
