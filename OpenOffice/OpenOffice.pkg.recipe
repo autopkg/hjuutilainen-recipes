@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads the latest OpenOffice version and creates a package.</string>
 	<key>Identifier</key>
-	<string>com.github.cgerke.pkg.OpenOffice</string>
+	<string>io.github.hjuutilainen.pkg.OpenOffice</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
