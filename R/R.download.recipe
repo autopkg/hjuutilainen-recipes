@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest R installer package.</string>
+	<string>Downloads the latest R installer package. Set OS_RELEASE to either "snowleopard" or "mavericks".</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.R</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>R</string>
-		<key>DOWNLOAD_URL</key>
-		<string>http://cran.at.r-project.org/bin/macosx/R-latest.pkg</string>
+		<key>OS_RELEASE</key>
+		<string>snowleopard</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
@@ -19,13 +19,26 @@
 	<array>
 		<dict>
 			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://cran.at.r-project.org/bin/macosx/</string>
+				<key>re_pattern</key>
+				<string>R-([0-9\.]+)-%OS_RELEASE%.pkg</string>
+				<key>result_output_var_name</key>
+				<string>CURRENT_VERSION</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>http://cran.at.r-project.org/bin/macosx/R-%CURRENT_VERSION%-%OS_RELEASE%.pkg</string>
 				<key>filename</key>
-				<string>%NAME%.pkg</string>
+				<string>%NAME%-%CURRENT_VERSION%-%OS_RELEASE%.pkg</string>
 			</dict>
 		</dict>
 		<dict>
