@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ParentRecipe</key>
+	<string>com.github.cgerke.pkg.OpenOffice</string>
+	<key>Description</key>
+	<string>Downloads the latest OpenOffice version and creates a package, then creates an SCCM cmmac file.</string>
+	<key>Identifier</key>
+	<string>com.github.cgerke.sccm.OpenOffice</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>OpenOffice</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.2.9</string>
+	<key>Process</key>
+	<array>
+		<dict>
+				<key>Processor</key>
+				<string>AppDmgVersioner</string>
+				<key>Arguments</key>
+				<dict>
+						<key>dmg_path</key>
+						<string>%pathname%</string>
+				</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Create a cmmac file for SCCM.</string>
+			<key>Processor</key>
+			<string>cmmacCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_pkg</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+				<key>destination_folder</key>
+				<string>%RECIPE_CACHE_DIR%</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
