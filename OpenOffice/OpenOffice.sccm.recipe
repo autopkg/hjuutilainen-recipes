@@ -33,9 +33,9 @@
 			<string>cmmacCreator</string>
 			<key>Arguments</key>
 			<dict>
-				<key>source_pkg</key>
+				<key>source_file</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
-				<key>destination_folder</key>
+				<key>destination_directory</key>
 				<string>%RECIPE_CACHE_DIR%</string>
 			</dict>
 		</dict>
