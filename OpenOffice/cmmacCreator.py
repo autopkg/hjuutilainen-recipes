@@ -50,6 +50,9 @@ class cmmacCreator(Processor):
 
     def cmmacConvert(self):
         # CMAppUtil is required http://www.microsoft.com/en-us/download/details.aspx?id=36212
+        # THINGS TO DO :
+        # need to detect the source_file type and append -a option to cmmacmd if the file is a dmg
+        # think about extracting the cmmac via tar -xvf then altering the detection.xml for version info if req
         if os.path.exists('/usr/local/bin/CMAppUtil'):
             try:
                 self.output("Found binary %s" % '/usr/local/bin/CMAppUtil')
