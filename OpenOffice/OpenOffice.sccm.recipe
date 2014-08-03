@@ -14,7 +14,7 @@
 		<string>OpenOffice</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.9</string>
+	<string>0.4.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -28,9 +28,9 @@
 		</dict>
 		<dict>
 			<key>Comment</key>
-			<string>Create a cmmac file for SCCM.</string>
+			<string>Create a cmmac file for SCCM using a shared processor.</string>
 			<key>Processor</key>
-			<string>cmmacCreator</string>
+			<string>com.github.cgerke.cgerke-recipes.SharedProcessorCmmacCreator/CmmacCreator</string>
 			<key>Arguments</key>
 			<dict>
 				<key>source_file</key>
@@ -38,6 +38,8 @@
 				<key>destination_directory</key>
 				<string>%RECIPE_CACHE_DIR%</string>
 			</dict>
+			<key>SharedProcessorRepoURL</key>
+			<string>https://github.com/cgerke/cgerke-recipes</string>
 		</dict>
 	</array>
 </dict>
