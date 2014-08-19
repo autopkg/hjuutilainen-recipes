@@ -39,6 +39,12 @@ class LibreOfficeURLProvider(Processor):
             "required": False,
             "description": "Default is en-US. This is only used for the language packs so it has currently no effect.",
         },
+        "type": {
+            "required": False,
+            "description": (
+                "Set the system/architecture. Accepted values are mac-x86 and mac-x86_64. "
+                "If not defined, mac-x86 is used."),
+        },
     }
     output_variables = {
         "url": {
@@ -120,7 +126,8 @@ class LibreOfficeURLProvider(Processor):
         """Creates the main download URL"""
         base_url_start = self.env.get("base_url", MAIN_DOWNLOAD_URL)
         language_code = self.env.get("language_code", LANGUAGE_CODE)
-        type_component = '='.join(['type', TYPE])
+        type = self.env.get("type", TYPE)
+        type_component = '='.join(['type', type])
         lang_component = '='.join(['lang', language_code])
         request_string = '&'.join([type_component, lang_component])
         return '?'.join([base_url_start, request_string])
