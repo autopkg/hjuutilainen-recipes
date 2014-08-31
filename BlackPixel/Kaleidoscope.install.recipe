@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Downloads and installs the current release version of Kaleidoscope.</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.munki.Kaleidoscope</string>
+	<string>io.github.hjuutilainen.install.Kaleidoscope</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
