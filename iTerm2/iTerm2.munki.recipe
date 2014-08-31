@@ -13,7 +13,7 @@
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
 		<key>RELEASE</key>
-		<string>testing</string>
+		<string>final</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -42,19 +42,6 @@
 	<string>io.github.hjuutilainen.download.iTerm2</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>DmgCreator</string>
