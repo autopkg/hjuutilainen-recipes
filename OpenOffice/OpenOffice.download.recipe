@@ -12,13 +12,16 @@
 		<string>OpenOffice</string>
 		<key>LANGUAGE</key>
 		<string>en-US</string>
+		<!--
 		<key>BASE_URL</key>
 		<string>http://www.apache.org/dyn/aoo-closer.cgi/openoffice/</string>
+		-->
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.2.9</string>
 	<key>Process</key>
 	<array>
+		<!-- Custom URL provider disabled for now.
 		<dict>
 			<key>Processor</key>
 			<string>OpenOfficeURLProvider</string>
@@ -30,9 +33,41 @@
 				<string>%LANGUAGE%</string>
 			</dict>
 		</dict>
+		-->
+		<dict>
+			<key>Comment</key>
+			<string>First determine the latest version</string>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://sourceforge.net/projects/openofficeorg.mirror/rss?limit=1</string>
+				<key>re_pattern</key>
+				<string>http://sourceforge.net/projects/openofficeorg.mirror/files/(?P&lt;version&gt;[0-9\.]+)/binaries</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Now use the latest version to request links to a specific language</string>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://sourceforge.net/projects/openofficeorg.mirror/rss?path=/%version%/binaries/%LANGUAGE%</string>
+				<key>re_pattern</key>
+				<string>(?P&lt;url&gt;http://.*/%version%/binaries/%LANGUAGE%/.*_MacOS_x86-64_install_%LANGUAGE%\.dmg/download)</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
