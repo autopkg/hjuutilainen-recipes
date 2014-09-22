@@ -52,6 +52,7 @@
 				<true/>
 			</dict>
 		</dict>
+		<!--
 		<dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -67,6 +68,7 @@
 				</array>
 			</dict>
 		</dict>
+		-->
 	</array>
 </dict>
 </plist>
