@@ -10,8 +10,6 @@
     <dict>
         <key>NAME</key>
         <string>CitrixReceiver</string>
-		<key>PKG_ID</key>
-		<string>com.citrix.receiver.nomas</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.9</string>
