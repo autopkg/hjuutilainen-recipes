@@ -29,7 +29,7 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.9</string>
+	<string>0.3.1</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.Blender</string>
 	<key>Process</key>
@@ -87,6 +87,8 @@
 			<string>DmgCreator</string>
 			<key>Arguments</key>
 			<dict>
+				<key>dmg_megabytes</key>
+				<string>300</string>
 				<key>dmg_root</key>
 				<string>%RECIPE_CACHE_DIR%/pkgroot/Blender</string>
 				<key>dmg_path</key>
