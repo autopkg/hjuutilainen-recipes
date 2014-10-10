@@ -47,12 +47,8 @@
 			<dict>
 				<key>input_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%/Alfred 2.app</string>
-				<key>expected_authority_names</key>
-				<array>
-					<string>Developer ID Application: Running with Crayons Ltd</string>
-					<string>Developer ID Certification Authority</string>
-					<string>Apple Root CA</string>
-				</array>
+				<key>requirement</key>
+				<string>identifier "com.runningwithcrayons.Alfred-2" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = XZZXE9SED4</string>
 			</dict>
 		</dict>
 	</array>

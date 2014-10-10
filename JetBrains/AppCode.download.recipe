@@ -49,12 +49,8 @@
 			<dict>
 				<key>input_path</key>
 				<string>%pathname%/AppCode.app</string>
-				<key>expected_authority_names</key>
-				<array>
-					<string>Developer ID Application: JetBrains s.r.o.</string>
-					<string>Developer ID Certification Authority</string>
-					<string>Apple Root CA</string>
-				</array>
+				<key>requirement</key>
+				<string>identifier "com.jetbrains.AppCode" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2ZEFAR8TH3"</string>
 			</dict>
 		</dict>
 	</array>
