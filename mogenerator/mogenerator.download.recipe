@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest mogenerator.</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.download.mogenerator</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>mogenerator</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.2.9</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://rentzsch.github.io/mogenerator/</string>
+				<key>re_pattern</key>
+				<string>(https://github.com/rentzsch/mogenerator/releases/download/[0-9\.]+/mogenerator-[0-9\.]+\.dmg)</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+	</array>
+</dict>
+</plist>
