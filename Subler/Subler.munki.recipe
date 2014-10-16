@@ -12,14 +12,20 @@
 		<string>Subler</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Media Utilities</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Subler is an Mac OS X app created to mux mp4 files.</string>
+			<key>developer</key>
+			<string>The Subler Project</string>
 			<key>display_name</key>
 			<string>Subler</string>
 			<key>name</key>

@@ -16,6 +16,8 @@
 		<string>GIMP</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/GIMP</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Image Manipulation</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -27,8 +29,12 @@
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>GIMP is the GNU Image Manipulation Program. It is a freely distributed piece of software for such tasks as photo retouching, image composition and image authoring. It works on many operating systems, in many languages.</string>
+			<key>developer</key>
+			<string>The GIMP Team</string>
 			<key>display_name</key>
 			<string>GIMP</string>
 			<key>name</key>

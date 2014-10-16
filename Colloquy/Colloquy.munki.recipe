@@ -12,14 +12,20 @@
 		<string>Colloquy</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/Colloquy</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Communication</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Traditionally, chat clients on the Mac have been anything but glamorous. Colloquy is an advanced IRC, SILC &amp; ICB client which aims to fill this void. By adhering to Mac OS X interface conventions, Colloquy has the look and feel of a quality Mac application.</string>
+			<key>developer</key>
+			<string>javelin</string>
 			<key>display_name</key>
 			<string>%NAME%</string>
 			<key>name</key>

@@ -12,14 +12,20 @@
 		<string>MPlayerX</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Media Players</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>MPlayerX provides you a super easy way to enjoy your favorite multimedia collection, without losing any functionalities.</string>
+			<key>developer</key>
+			<string>Zongyao Qu</string>
 			<key>display_name</key>
 			<string>MPlayerX</string>
 			<key>name</key>

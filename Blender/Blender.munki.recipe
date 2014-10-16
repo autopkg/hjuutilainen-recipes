@@ -12,14 +12,20 @@
 		<string>Blender</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Graphics &amp; Rendering</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Blender is the open source, cross platform suite of tools for 3D creation.</string>
+			<key>developer</key>
+			<string>The Blender Foundation</string>
 			<key>display_name</key>
 			<string>Blender</string>
 			<key>name</key>

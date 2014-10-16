@@ -12,14 +12,20 @@
 		<string>LibreOffice</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/LibreOffice</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Office</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>LibreOffice is the free power-packed Open Source personal productivity suite for Windows, Macintosh and Linux, that gives you six feature-rich applications for all your document production and data processing needs: Writer, Calc, Impress, Draw, Math and Base.</string>
+			<key>developer</key>
+			<string>The Document Foundation</string>
 			<key>display_name</key>
 			<string>LibreOffice</string>
 			<key>name</key>
