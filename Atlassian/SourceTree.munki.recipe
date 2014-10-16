@@ -12,6 +12,8 @@
 		<string>SourceTree</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/Atlassian</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Developer</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -19,7 +21,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>Developer</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>SourceTree is a free Mercurial and Git client for Windows and Mac that provides a graphical interface for your Hg and Git repositories.</string>
 			<key>developer</key>

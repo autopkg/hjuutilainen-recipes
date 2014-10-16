@@ -12,6 +12,8 @@
 		<string>TeXShop</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>TeX</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -19,7 +21,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>TeX</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>TeXShop is a TeX previewer for Mac OS X, written in Cocoa. Since pdf is a native file format on OS X, TeXShop uses "pdftex" and "pdflatex" rather than "tex" and "latex" to typeset in its default configuration; these programs in the standard TeX Live distribution of TeX produce pdf output instead of dvi output.</string>
 			<key>developer</key>
