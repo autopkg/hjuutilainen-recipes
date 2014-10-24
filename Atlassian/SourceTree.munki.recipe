@@ -31,8 +31,8 @@
 			<key>postuninstall_script</key>
 			<string>#!/bin/sh
 
-if [ -e /usr/local/bin/stree ]; then
-	rm -f /usr/local/bin/stree
+if [[ -e /usr/local/bin/stree ]]; then
+    /bin/rm -f /usr/local/bin/stree
 fi
 
 exit 0
@@ -40,7 +40,7 @@ exit 0
 			<key>postinstall_script</key>
 			<string>#!/bin/sh
 
-cp -f /Applications/SourceTree.app/Contents/Resources/stree /usr/local/bin/stree
+/bin/cp -f /Applications/SourceTree.app/Contents/Resources/stree /usr/local/bin/stree
 exit 0
 			</string>
 			<key>unattended_install</key>
