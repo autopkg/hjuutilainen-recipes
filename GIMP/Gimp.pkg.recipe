@@ -5,14 +5,14 @@
 	<key>Description</key>
 	<string>Downloads the current release version of Gimp and builds a package.</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.pkg.Gimp</string>
+	<string>io.github.hjuutilainen.pkg.GIMP</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>Gimp</string>
 	</dict>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.Gimp</string>
+	<string>io.github.hjuutilainen.download.GIMP</string>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
 	<key>Process</key>

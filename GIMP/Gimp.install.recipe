@@ -5,7 +5,7 @@
 	<key>Description</key>
 	<string>Installs the current release version of Gimp.</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.install.Gimp</string>
+	<string>io.github.hjuutilainen.install.GIMP</string>
 	<key>Input</key>
 	<dict>
 		<key>Name</key>
@@ -14,7 +14,7 @@
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.Gimp</string>
+	<string>io.github.hjuutilainen.download.GIMP</string>
 	<key>Process</key>
 	<array>
 		<dict>
