@@ -45,16 +45,21 @@
 			</dict>
 		</dict>
 		<dict>
-			<key>Comment</key>
-			<string>Get version from the app</string>
 			<key>Processor</key>
-			<string>Versioner</string>
+			<string>PlistReader</string>
 			<key>Arguments</key>
 			<dict>
-				<key>input_plist_path</key>
-				<string>%pkgroot%/Applications/CheatSheet.app/Contents/Info.plist</string>
-				<key>plist_version_key</key>
-				<string>CFBundleShortVersionString</string>
+				<key>info_path</key>
+				<string>%pkgroot%/Applications/CheatSheet.app</string>
+				<key>plist_keys</key>
+				<dict>
+					<key>CFBundleShortVersionString</key>
+					<string>version</string>
+					<key>CFBundleIdentifier</key>
+					<string>bundleid</string>
+					<key>CFBundleName</key>
+					<string>app_name</string>
+				</dict>
 			</dict>
 		</dict>
 		<dict>
@@ -62,14 +67,14 @@
 			<string>PkgCreator</string>
 			<key>Arguments</key>
 			<dict>
+				<key>pkgname</key>
+				<string>%NAME%-%version%</string>
 				<key>pkg_request</key>
 				<dict>
-					<key>pkgname</key>
-					<string>%NAME%-%version%</string>
-					<key>version</key>
-					<string>%version%</string>
+					<key>pkgdir</key>
+					<string>%RECIPE_CACHE_DIR%</string>
 					<key>id</key>
-					<string>com.mediaatelier.CheatSheet</string>
+					<string>%bundleid%</string>
 					<key>options</key>
 					<string>purge_ds_store</string>
 					<key>chown</key>
