@@ -12,7 +12,7 @@
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.CoRD</string>
+	<string>io.github.hjuutilainen.pkg.CoRD</string>
 	<key>Process</key>
 	<array>
 		<dict>

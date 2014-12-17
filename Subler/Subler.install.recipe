@@ -12,7 +12,7 @@
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.Subler</string>
+	<string>io.github.hjuutilainen.pkg.Subler</string>
 	<key>Process</key>
 	<array>
 		<dict>
