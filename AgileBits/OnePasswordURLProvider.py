@@ -22,13 +22,26 @@ from autopkglib import Processor, ProcessorError
 
 __all__ = ["OnePasswordURLProvider"]
 
-UPDATE_URL = "https://app-updates.agilebits.com/check/1/13.0.0/OPM4/en/400600"
+# Variables for the update URL:
+# - https://app-updates.agilebits.com/check/1/
+# - Kernel version
+# - String "OPM4"
+# - Locale
+# - The 1Password build number to update from
+UPDATE_URL_FOUR = "https://app-updates.agilebits.com/check/1/13.0.0/OPM4/en/400600"
+UPDATE_URL_FIVE = "https://app-updates.agilebits.com/check/1/14.0.0/OPM4/en/500000"
 DEFAULT_SOURCE = "Amazon CloudFront"
+DEFAULT_MAJOR_VERSION = "4"
 
 
 class OnePasswordURLProvider(Processor):
     """Provides a download URL for the latest 1Password"""
     input_variables = {
+        "major_version": {
+            "required": False,
+            "description": "The 1Password major version to get. "
+            "Possible values are '4' or '5' and the default is '4'",
+        },
         "base_url": {
             "required": False,
             "description": "The 1Password update check URL",
@@ -79,6 +92,13 @@ class OnePasswordURLProvider(Processor):
             raise ProcessorError("No download source for %s" % preferred_source)
     
     def main(self):
+        major_version = self.env.get("major_version", DEFAULT_MAJOR_VERSION)
+        if int(major_version) == 4:
+            UPDATE_URL = UPDATE_URL_FOUR
+        elif int(major_version) == 5:
+            UPDATE_URL = UPDATE_URL_FIVE
+        else:
+            raise ProcessorError("Unsupported value for major version: %s" % major_version)
         base_url = self.env.get("base_url", UPDATE_URL)
         source = self.env.get("source", DEFAULT_SOURCE)
         self.env["url"] = self.get_1Password_dmg_url(base_url, source)

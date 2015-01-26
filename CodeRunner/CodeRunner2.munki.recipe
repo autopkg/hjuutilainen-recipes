@@ -3,17 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of SourceTree and imports into Munki.</string>
+	<string>Downloads the latest CodeRunner 2 and imports into Munki.</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.munki.SourceTree</string>
+	<string>io.github.hjuutilainen.munki.CodeRunner2</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>SourceTree</string>
+		<string>CodeRunner</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/Atlassian</string>
-		<key>MUNKI_CATEGORY</key>
-		<string>Developer</string>
+		<string>apps/CodeRunner</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -21,45 +19,43 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>%MUNKI_CATEGORY%</string>
+			<string>Developer</string>
 			<key>description</key>
-			<string>SourceTree is a free Mercurial and Git client for Windows and Mac that provides a graphical interface for your Hg and Git repositories.</string>
+			<string>CodeRunner is the easiest way to write code on your Mac. You can run code in almost any language instantly, and you'll be surprised by the powerful set of features in such a lightweight and easy-to-use editor.</string>
 			<key>developer</key>
-			<string>Atlassian</string>
+			<string>Nikolai Krill</string>
 			<key>display_name</key>
-			<string>SourceTree</string>
+			<string>CodeRunner 2</string>
 			<key>name</key>
 			<string>%NAME%</string>
-			<key>postuninstall_script</key>
-			<string>#!/bin/sh
-
-if [[ -e /usr/local/bin/stree ]]; then
-    /bin/rm -f /usr/local/bin/stree
-fi
-
-exit 0
-			</string>
-			<key>postinstall_script</key>
-			<string>#!/bin/sh
-
-/bin/cp -f /Applications/SourceTree.app/Contents/Resources/stree /usr/local/bin/stree
-exit 0
-			</string>
 			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
 			<true/>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.SourceTree</string>
+	<string>io.github.hjuutilainen.download.CodeRunner2</string>
 	<key>Process</key>
 	<array>
+		<dict>
+			<key>Processor</key>
+			<string>DmgCreator</string>
+			<key>Arguments</key>
+			<dict>
+				<key>dmg_root</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>dmg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%pathname%</string>
+				<string>%dmg_path%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>

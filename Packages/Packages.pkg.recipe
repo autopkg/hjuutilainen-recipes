@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the current release version of Packages and extracts the installer package.</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.pkg.Packages</string>
+	<key>Input</key>
+	<dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.4.0</string>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.Packages</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Comment</key>
+			<string>Copy the package out of the disk image.</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_pkg</key>
+				<string>%pathname%/packages/Packages.pkg</string>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
+			</dict>
+			<key>Processor</key>
+			<string>PkgCopier</string>
+		</dict>
+	</array>
+</dict>
+</plist>
