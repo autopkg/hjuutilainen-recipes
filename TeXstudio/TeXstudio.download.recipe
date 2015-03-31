@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest TeXstudio.</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.download.TeXstudio</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>TeXstudio</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.2.9</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Comment</key>
+			<string>First determine the latest version</string>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>http://sourceforge.net/projects/texstudio/rss?limit=1</string>
+				<key>re_pattern</key>
+				<string>http://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%20(?P&lt;version&gt;[0-9\.]+)/texstudio</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Now use the latest version to request links to a specific language</string>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<!--    http://sourceforge.net/projects/texstudio/rss?path=/texstudio/TeXstudio%202.9.4 -->
+				<string>http://sourceforge.net/projects/texstudio/rss?path=/texstudio/TeXstudio%20%version%</string>
+				<key>re_pattern</key>
+				<!-- http://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%202.9.4/texstudio_2.9.4_osx_qt5.zip/download -->
+				<string>(?P&lt;url&gt;http://.*/TeXstudio%20%version%/texstudio_%version%.*_osx_qt5\.zip/download)</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
