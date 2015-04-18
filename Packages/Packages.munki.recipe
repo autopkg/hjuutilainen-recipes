@@ -14,14 +14,20 @@
 		<string>packages/Packages.pkg</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/Packages</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Utilities</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Whenever you need to create an installation package or distribution for Mac OS X 10.5 or later, Packages is the powerful and flexible solution you're looking for.</string>
+			<key>developer</key>
+			<string>Stéphane Sudre</string>
 			<key>display_name</key>
 			<string>Packages</string>
 			<key>minimum_os_version</key>

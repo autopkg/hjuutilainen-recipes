@@ -12,6 +12,8 @@
 		<string>mogenerator</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Developer</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -19,7 +21,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>Developer</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>mogenerator generates Objective-C code for your Core Data custom classes. Unlike Xcode, mogenerator manages two classes per entity: one for machines, one for humans. The machine class can always be overwritten to match the data model, with humans’ work effortlessly preserved</string>
 			<key>developer</key>

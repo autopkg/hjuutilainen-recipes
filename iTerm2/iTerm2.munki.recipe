@@ -12,6 +12,8 @@
 		<string>iTerm2</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Utilities</string>
 		<key>RELEASE</key>
 		<string>final</string>
 		<key>pkginfo</key>
@@ -21,7 +23,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>Utilities</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Macs with OS 10.5 (Leopard) or newer. Its focus is on performance, internationalization, and supporting innovative features that make your life better.</string>
 			<key>developer</key>

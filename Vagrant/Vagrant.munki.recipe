@@ -12,6 +12,8 @@
 		<string>Vagrant</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/Vagrant</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Virtualization</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -23,7 +25,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>Virtualization</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Create and configure lightweight, reproducible, and portable development environments.</string>
 			<key>developer</key>

@@ -12,14 +12,20 @@
 		<string>Kaleidoscope</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>dev</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Utilities</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Easily spot the differences in text and image files. Review changes in seconds with the world's most advanced Mac diff tool.</string>
+			<key>developer</key>
+			<string>Black Pixel</string>
 			<key>display_name</key>
 			<string>Kaleidoscope</string>
 			<key>name</key>

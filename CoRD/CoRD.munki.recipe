@@ -12,14 +12,20 @@
 		<string>CoRD</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Networking</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>CoRD is a Mac OS X remote desktop client for Microsoft Windows computers using the RDP protocol. It's easy to use, fast, and free for anyone to use or modify.</string>
+			<key>developer</key>
+			<string>Dorian Johnson</string>
 			<key>display_name</key>
 			<string>CoRD</string>
 			<key>name</key>
