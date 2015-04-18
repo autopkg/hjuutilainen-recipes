@@ -12,14 +12,20 @@
 		<string>AppCode</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/JetBrains</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Developer</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>AppCode is an intelligent Objective-C IDE that helps iOS/OS X developers create outstanding apps with ease and pleasure.</string>
+			<key>developer</key>
+			<string>JetBrains s.r.o.</string>
 			<key>display_name</key>
 			<string>AppCode</string>
 			<key>name</key>
@@ -35,15 +41,17 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
+				<key>munkiimport_appname</key>
+				<string>AppCode.app</string>
 				<key>pkg_path</key>
 				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 		</dict>
 	</array>
 </dict>

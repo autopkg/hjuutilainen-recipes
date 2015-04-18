@@ -12,6 +12,8 @@
 		<string>CitrixReceiver</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/Citrix</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Internet</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -23,8 +25,12 @@
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Citrix Receiver is an easy-to-install client software that lets you access enterprise data, applications and desktops from any computing device including smartphones, tablets and PCs. Workers today typically use multiple computing devices and crave a consistent computing experience across all of them. Organizations everywhere are struggling to cope with the rapid proliferation of these devices and give users the mobile, high-definition experience they demand. Working in tandem with a Citrix-enabled IT infrastructure, Citrix Receiver gives workers consistent, secure, high-performance access from any device without introducing layers of management complexity for IT.</string>
+			<key>developer</key>
+			<string>Citrix Systems, Inc.</string>
 			<key>display_name</key>
 			<string>Citrix Receiver</string>
 			<key>minimum_os_version</key>
@@ -99,15 +105,17 @@
 			<string>PathDeleter</string>
 		</dict>
 		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
+				<key>munkiimport_pkgname</key>
+				<string>Install Citrix Receiver.pkg</string>
 				<key>pkg_path</key>
 				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 		</dict>
 	</array>
 </dict>
