@@ -12,16 +12,22 @@
 		<string>CheatSheet</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Utilities</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Know your short cuts.
 
 Just hold the command key a bit longer to get a list of all active short cuts of the current application. It's as simple as that.</string>
+			<key>developer</key>
+			<string>Stefan Furst</string>
 			<key>display_name</key>
 			<string>CheatSheet</string>
 			<key>name</key>

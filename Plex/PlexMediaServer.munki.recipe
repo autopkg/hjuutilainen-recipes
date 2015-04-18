@@ -12,14 +12,20 @@
 		<string>PlexMediaServer</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Media Players</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
 			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Organize all your videos, photos, and music.</string>
+			<key>developer</key>
+			<string>Plex</string>
 			<key>display_name</key>
 			<string>Plex Media Server</string>
 			<key>name</key>

@@ -12,6 +12,8 @@
 		<string>TeamViewer</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/TeamViewer</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Internet</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -19,7 +21,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>Internet</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>All-In-One Solution for Remote Access and Support over the Internet.</string>
 			<key>developer</key>

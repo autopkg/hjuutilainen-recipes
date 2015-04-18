@@ -12,6 +12,8 @@
 		<string>iLokLicenseManager</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/iLok</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Utilities</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>blocking_applications</key>
@@ -23,7 +25,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>Utilities</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>With the iLok License Manager, you can view your account, add licenses to your iLok, move your licenses between iLoks, and receive new licenses from participating software publishers.</string>
 			<key>developer</key>

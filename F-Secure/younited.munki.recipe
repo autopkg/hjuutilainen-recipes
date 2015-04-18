@@ -12,6 +12,8 @@
 		<string>younited</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/F-Secure</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>File Sharing</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -19,7 +21,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>File Sharing</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>With younited, you'll always have your stuff with you. Your music, movies and photos, younited on your mobile phone, computer or tablet.</string>
 			<key>developer</key>

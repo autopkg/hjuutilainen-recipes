@@ -12,6 +12,8 @@
 		<string>BibDesk</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/BibDesk</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>TeX</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -19,7 +21,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>TeX</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>Use BibDesk to edit and manage your bibliography. It will keep track of both the bibliographic information and the associated files or web links for you. BibDesk’s services will simplify using your bibliography in other applications and are particularly well suited for LATEX users.</string>
 			<key>developer</key>

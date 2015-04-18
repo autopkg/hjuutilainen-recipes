@@ -12,6 +12,8 @@
 		<string>Atom</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Text Editors</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -19,7 +21,7 @@
 				<string>testing</string>
 			</array>
 			<key>category</key>
-			<string>Text Editors</string>
+			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
 			<string>A hackable text editor for the 21st Century</string>
 			<key>developer</key>
