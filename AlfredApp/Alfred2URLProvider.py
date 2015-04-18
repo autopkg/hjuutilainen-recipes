@@ -22,7 +22,8 @@ from autopkglib import Processor, ProcessorError
 
 __all__ = ["Alfred2URLProvider"]
 
-UPDATE_INFO_PLIST_URL = "http://media.alfredapp.com/v2update/info.plist"
+# Found in "Alfred 2.app/Contents/Frameworks/Alfred Framework.framework/Versions/A/Alfred Framework"
+UPDATE_INFO_PLIST_URL = "https://cachefly.alfredapp.com/updater/info.plist"
 
 class Alfred2URLProvider(Processor):
     """Provides a download URL for the latest Alfred"""
