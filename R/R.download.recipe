@@ -11,12 +11,21 @@
 		<key>NAME</key>
 		<string>R</string>
 		<key>OS_RELEASE</key>
-		<string>snowleopard</string>
+		<string>mavericks</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
 	<key>Process</key>
 	<array>
+		<dict>
+			<key>Processor</key>
+			<string>RRegexProvider</string>
+			<key>Arguments</key>
+			<dict>
+				<key>os_release</key>
+				<string>%OS_RELEASE%</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
@@ -25,9 +34,7 @@
 				<key>url</key>
 				<string>http://cran.at.r-project.org/bin/macosx/</string>
 				<key>re_pattern</key>
-				<string>R-([0-9\.]+)-%OS_RELEASE%.pkg</string>
-				<key>result_output_var_name</key>
-				<string>CURRENT_VERSION</string>
+				<string>%r_regex%</string>
 			</dict>
 		</dict>
 		<dict>
@@ -36,9 +43,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>http://cran.at.r-project.org/bin/macosx/R-%CURRENT_VERSION%-%OS_RELEASE%.pkg</string>
+				<string>http://cran.at.r-project.org/bin/macosx/%r_filename%</string>
 				<key>filename</key>
-				<string>%NAME%-%CURRENT_VERSION%-%OS_RELEASE%.pkg</string>
+				<string>%NAME%.pkg</string>
 			</dict>
 		</dict>
 		<dict>
