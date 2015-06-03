@@ -23,7 +23,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>http://sourceforge.net/projects/texstudio/rss?limit=1</string>
+				<string>http://sourceforge.net/projects/texstudio/rss?limit=10</string>
 				<key>re_pattern</key>
 				<string>http://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%20(?P&lt;version&gt;[0-9\.]+)/texstudio</string>
 			</dict>
