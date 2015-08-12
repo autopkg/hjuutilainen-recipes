@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of PlexMediaServer and builds a package.</string>
+	<string>Downloads the current release version of Plex Media Server and builds a package.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.pkg.PlexMediaServer</string>
 	<key>Input</key>
