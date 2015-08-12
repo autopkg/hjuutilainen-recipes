@@ -10,8 +10,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>PlexMediaServer</string>
-		<key>SPARKLE_FEED_URL</key>
-		<string>https://www.plexapp.com/appcast/mac/pms.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
@@ -19,16 +17,25 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>SparkleUpdateInfoProvider</string>
+			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
-				<key>appcast_url</key>
-				<string>%SPARKLE_FEED_URL%</string>
+				<key>url</key>
+				<string>https://plex.tv/downloads</string>
+				<key>re_pattern</key>
+				<string>(https://downloads.plex.tv/plex-media-server/[0-9\.]+-[a-z0-9]+/PlexMediaServer-[0-9\.]+-[a-z0-9]+-OSX.zip)</string>
+				<key>result_output_var_name</key>
+				<string>url</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
