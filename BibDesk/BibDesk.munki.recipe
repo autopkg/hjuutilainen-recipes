@@ -23,7 +23,7 @@
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
-			<string>Use BibDesk to edit and manage your bibliography. It will keep track of both the bibliographic information and the associated files or web links for you. BibDesk’s services will simplify using your bibliography in other applications and are particularly well suited for LATEX users.</string>
+			<string>Use BibDesk to edit and manage your bibliography. It will keep track of both the bibliographic information and the associated files or web links for you. BibDesk's services will simplify using your bibliography in other applications and are particularly well suited for LATEX users.</string>
 			<key>developer</key>
 			<string>Michael O. McCracken</string>
 			<key>display_name</key>
