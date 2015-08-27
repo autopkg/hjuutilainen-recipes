@@ -23,8 +23,8 @@
 				<key>url</key>
 				<string>http://www.jetbrains.com/objc/download/download_thanks.jsp?os=mac</string>
 				<key>re_pattern</key>
-				<!-- http://download.jetbrains.com/objc/AppCode-2.5.5.dmg -->
-				<string>(http://.*/AppCode-[0-9\.]+\.dmg)</string>
+				<!-- https://download.jetbrains.com/objc/AppCode-3.2.dmg -->
+				<string>(https://download.jetbrains.com/objc/AppCode-[0-9\.]+\.dmg)</string>
 				<key>result_output_var_name</key>
 				<string>url</string>
 			</dict>
