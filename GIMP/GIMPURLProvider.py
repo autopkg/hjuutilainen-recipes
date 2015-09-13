@@ -61,7 +61,7 @@ class GIMPURLProvider(Processor):
             f.close()
         except BaseException as e:
             raise ProcessorError("Can't download %s: %s" % (base_url, e))
-        re_downloadlink = re.compile(r'<a href="(?P<download_url>ftp://ftp.gimp.org/pub/gimp/.*\.dmg)".*</a>', re.IGNORECASE)
+        re_downloadlink = re.compile(r'.*href="(?P<download_url>http://download.gimp.org/pub/gimp/v[0-9\.]+/osx/gimp-[0-9\.]+\.dmg)".*', re.IGNORECASE)
         m = re_downloadlink.search(html)
         if not m:
             raise ProcessorError(
@@ -79,12 +79,10 @@ class GIMPURLProvider(Processor):
         except BaseException as e:
             raise ProcessorError("Can't download %s: %s" % (base_url, e))
         
-        if system_version.lower() == "mavericks":
-            re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Mavericks/.*\.dmg/download)".*', re.IGNORECASE)
-        elif system_version.lower() == "mountainlion":
-            re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Snow%20Leopard/.*\.dmg/download)".*', re.IGNORECASE)
-        elif system_version.lower() == "lion":
-            re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Snow%20Leopard/.*\.dmg/download)".*', re.IGNORECASE)
+        if system_version.lower() == "yosemite" or system_version.lower() == "mavericks":
+            re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Mavericks/Gimp-[0-9\.p]+.*-Mavericks-Yosemite\.dmg/download)".*', re.IGNORECASE)
+        elif system_version.lower() == "mountainlion" or system_version.lower() == "lion":
+            re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Lion/Gimp-[0-9\.p]+.*-Lion-MountainLion\.dmg/download)".*', re.IGNORECASE)
         elif system_version.lower() == "snowleopard":
             re_downloadlink_lisanet = re.compile(r'.*href="(?P<download_url>http://sourceforge.net/projects/gimponosx/files/GIMP%20Snow%20Leopard/.*\.dmg/download)".*', re.IGNORECASE)
         else:
@@ -105,6 +103,8 @@ class GIMPURLProvider(Processor):
         if flavour == "gimp.org":
             base_url = self.env.get("base_url", MAIN_DOWNLOAD_URL_GIMP)
             self.env["url"] = self.get_GIMP_dmg_url(base_url)
+            self.output("Disabling code signature verification since the downloads at gimp.org are unsigned...")
+            self.env["DISABLE_CODE_SIGNATURE_VERIFICATION"] = True
         elif flavour == "lisanet.de":
             base_url = self.env.get("base_url", MAIN_DOWNLOAD_URL_LISANET)
             self.env["url"] = self.get_GIMP_dmg_url_lisanet(base_url, system_version)
