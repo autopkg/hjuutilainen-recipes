@@ -47,7 +47,6 @@
 				<true/>
 			</dict>
 		</dict>
-		<!-- Disabled because Kaleidoscope still uses a version 1 signature
 		<dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -59,7 +58,6 @@
 				<string>identifier "com.blackpixel.kaleidoscope" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "432ZXYXDNY"</string>
 			</dict>
 		</dict>
-		-->
 	</array>
 </dict>
 </plist>
