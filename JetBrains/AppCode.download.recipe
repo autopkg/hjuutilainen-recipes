@@ -21,7 +21,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>http://www.jetbrains.com/objc/download/download_thanks.jsp?os=mac</string>
+				<string>https://www.jetbrains.com/objc/download/download_thanks.jsp?os=mac</string>
 				<key>re_pattern</key>
 				<!-- https://download.jetbrains.com/objc/AppCode-3.2.dmg -->
 				<string>(https://download.jetbrains.com/objc/AppCode-[0-9\.]+\.dmg)</string>
