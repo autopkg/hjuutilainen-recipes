@@ -14,7 +14,7 @@
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.Blender</string>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.4.2</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -41,7 +41,7 @@
 				<key>archive_path</key>
 				<string>%pathname%</string>
 				<key>destination_path</key>
-				<string>%pkgroot%/Applications</string>
+				<string>%pkgroot%/Applications/%NAME%</string>
 				<key>purge_destination</key>
 				<true/>
 			</dict>
@@ -52,7 +52,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>info_path</key>
-				<string>%pkgroot%/Applications/Blender/Blender.app</string>
+				<string>%pkgroot%/Applications/Blender/blender.app</string>
 				<key>plist_keys</key>
 				<dict>
 					<key>CFBundleShortVersionString</key>
