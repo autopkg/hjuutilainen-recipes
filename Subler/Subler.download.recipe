@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>Subler</string>
 		<key>SPARKLE_FEED_URL</key>
-		<string>http://subler.googlecode.com/svn/doc/appcast.xml</string>
+		<string>http://subler.org/appcast/appcast.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
