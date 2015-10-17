@@ -3,18 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest Blender. Set ARCH to either x86_64 or i386, if not defined the default is x86_64.</string>
+	<string>Downloads the latest Blender. The only supported architecture is (since v2.72) x86_64.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.Blender</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>Blender</string>
-		<key>ARCH</key>
-		<string>x86_64</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.3.1</string>
+	<string>0.4.2</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -25,7 +23,7 @@
 				<key>url</key>
 				<string>http://www.blender.org/download/</string>
 				<key>re_pattern</key>
-				<string>(http://.*/blender-[0-9\.]+[a-z]??-OSX_[0-9\.]+-.*?%ARCH%.zip)</string>
+				<string>(http://.*/blender-(?:[^"']*)-OSX_(?:[^"']+)-x86_64.zip)</string>
 				<key>result_output_var_name</key>
 				<string>url</string>
 			</dict>
@@ -62,9 +60,20 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Blender/blender.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/blender.app</string>
 				<key>requirement</key>
 				<string>identifier "org.blenderfoundation.blender" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "68UA947AUU"</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/blenderplayer.app</string>
+				<key>requirement</key>
+				<string>identifier "org.blenderfoundation.blenderplayer" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "68UA947AUU"</string>
 			</dict>
 		</dict>
 	</array>
