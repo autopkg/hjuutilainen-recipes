@@ -17,15 +17,13 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>CURLTextSearcher</string>
+			<string>HashiCorpURLProvider</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>https://www.vagrantup.com/downloads.html</string>
-				<key>re_pattern</key>
-				<string>https://releases.hashicorp.com/vagrant/[0-9\.]+/vagrant[-_][0-9\.]+\.dmg</string>
-				<key>result_output_var_name</key>
-				<string>url</string>
+				<key>project_name</key>
+				<string>vagrant</string>
+				<key>os</key>
+				<string>darwin</string>
 			</dict>
 		</dict>
 		<dict>
