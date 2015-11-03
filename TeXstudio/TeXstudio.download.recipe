@@ -36,11 +36,11 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<!--    http://sourceforge.net/projects/texstudio/rss?path=/texstudio/TeXstudio%202.9.4 -->
+				<!--    http://sourceforge.net/projects/texstudio/rss?path=/texstudio/TeXstudio%202.10.4 -->
 				<string>http://sourceforge.net/projects/texstudio/rss?path=/texstudio/TeXstudio%20%version%</string>
 				<key>re_pattern</key>
-				<!-- http://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%202.9.4/texstudio_2.9.4_osx_qt5.zip/download -->
-				<string>(?P&lt;url&gt;http://.*/TeXstudio%20%version%/texstudio_%version%.*_osx_qt5\.zip/download)</string>
+				<!-- http://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%202.10.4/texstudio-2.10.4-osx-qt5.5.1.zip/download -->
+				<string>(?P&lt;url&gt;http://.*/TeXstudio%20%version%/texstudio[_\-]%version%[_\-]osx[_\-]qt[0-9\.]+\.zip/download)</string>
 			</dict>
 		</dict>
 		<dict>
