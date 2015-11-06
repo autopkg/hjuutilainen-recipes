@@ -28,18 +28,16 @@
 				<dict>
 					<key>Applications</key>
 					<string>0775</string>
-					<key>Applications/Blender</key>
-					<string>0775</string>
 				</dict>
 			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>Unarchiver</string>
+			<string>Copier</string>
 			<key>Arguments</key>
 			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
+				<key>source_path</key>
+				<string>%found_filename%</string>
 				<key>destination_path</key>
 				<string>%pkgroot%/Applications/%NAME%</string>
 				<key>purge_destination</key>
@@ -83,11 +81,13 @@
 					<array>
 						<dict>
 							<key>path</key>
-							<string>Applications/%NAME%</string>
+							<string>Applications</string>
 							<key>user</key>
 							<string>root</string>
 							<key>group</key>
 							<string>admin</string>
+							<key>mode</key>
+							<string>0755</string>
 						</dict>
 					</array>
 				</dict>
