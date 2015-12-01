@@ -10,8 +10,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>R</string>
-		<key>OS_RELEASE</key>
-		<string>snowleopard</string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/R</string>
 		<key>MUNKI_CATEGORY</key>
