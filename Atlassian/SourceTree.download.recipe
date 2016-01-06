@@ -24,7 +24,7 @@
 				<string>https://www.sourcetreeapp.com/download/</string>
 				<key>re_pattern</key>
 				<!-- http://downloads.atlassian.com/software/sourcetree/SourceTree_2.0.5.3.dmg -->
-				<string>(http://downloads.atlassian.com/software/sourcetree/SourceTree_[0-9\.]+\.dmg)</string>
+				<string>(https://downloads.atlassian.com/software/sourcetree/SourceTree_[0-9\.]+\.dmg)</string>
 				<key>result_output_var_name</key>
 				<string>url</string>
 			</dict>
