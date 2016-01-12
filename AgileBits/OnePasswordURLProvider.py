@@ -30,8 +30,9 @@ __all__ = ["OnePasswordURLProvider"]
 # - The 1Password build number to update from
 UPDATE_URL_FOUR = "https://app-updates.agilebits.com/check/1/13.0.0/OPM4/en/400600"
 UPDATE_URL_FIVE = "https://app-updates.agilebits.com/check/1/14.0.0/OPM4/en/500000"
+UPDATE_URL_SIX = "https://app-updates.agilebits.com/check/1/14.0.0/OPM4/en/553001"
 DEFAULT_SOURCE = "Amazon CloudFront"
-DEFAULT_MAJOR_VERSION = "4"
+DEFAULT_MAJOR_VERSION = "6"
 
 
 class OnePasswordURLProvider(Processor):
@@ -40,7 +41,7 @@ class OnePasswordURLProvider(Processor):
         "major_version": {
             "required": False,
             "description": "The 1Password major version to get. "
-            "Possible values are '4' or '5' and the default is '4'",
+            "Possible values are '4', '5' or '6' and the default is '6'",
         },
         "base_url": {
             "required": False,
@@ -97,6 +98,8 @@ class OnePasswordURLProvider(Processor):
             UPDATE_URL = UPDATE_URL_FOUR
         elif int(major_version) == 5:
             UPDATE_URL = UPDATE_URL_FIVE
+        elif int(major_version) == 6:
+            UPDATE_URL = UPDATE_URL_SIX
         else:
             raise ProcessorError("Unsupported value for major version: %s" % major_version)
         base_url = self.env.get("base_url", UPDATE_URL)
