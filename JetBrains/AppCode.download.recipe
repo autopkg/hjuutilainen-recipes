@@ -11,36 +11,36 @@
 		<key>NAME</key>
 		<string>AppCode</string>
 		<key>SEARCH_URL</key>
-        <string>https://data.services.jetbrains.com/products/releases?code=AC</string>
-        <key>SEARCH_PATTERN</key>
-        <string>mac":{"link":"(.+?dmg)"</string>
+		<string>https://data.services.jetbrains.com/products/releases?code=AC</string>
+		<key>SEARCH_PATTERN</key>
+		<string>mac":{"link":"(.+?dmg)"</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
 	<key>Process</key>
 	<array>
 		<dict>
-            <key>Processor</key>
-            <string>CURLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%SEARCH_URL%</string>
-                <key>re_pattern</key>
-                <string>%SEARCH_PATTERN%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%match%</string>
-                <key>filename</key>
-                <string>%NAME%.dmg</string>
-            </dict>
-        </dict>
+			<key>Processor</key>
+			<string>CURLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%SEARCH_URL%</string>
+				<key>re_pattern</key>
+				<string>%SEARCH_PATTERN%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%match%</string>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
