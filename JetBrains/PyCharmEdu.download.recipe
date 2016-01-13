@@ -10,6 +10,10 @@
 	<dict>
 		<key>NAME</key>
 		<string>PyCharmEdu</string>
+		<key>SEARCH_URL</key>
+		<string>https://data.services.jetbrains.com/products/releases?code=PCE</string>
+		<key>SEARCH_PATTERN</key>
+		<string>mac":{"link":"(.+?dmg)"</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
@@ -17,16 +21,13 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>CURLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://www.jetbrains.com/pycharm-edu/download/download_thanks.jsp?os=mac</string>
+				<string>%SEARCH_URL%</string>
 				<key>re_pattern</key>
-				<!-- https://download.jetbrains.com/python/pycharm-edu-2.dmg -->
-				<string>(https://download.jetbrains.com/python/pycharm-edu-[0-9\.]+\.dmg)</string>
-				<key>result_output_var_name</key>
-				<string>url</string>
+				<string>%SEARCH_PATTERN%</string>
 			</dict>
 		</dict>
 		<dict>
@@ -34,6 +35,8 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>url</key>
+				<string>%match%</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
