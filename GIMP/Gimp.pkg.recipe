@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of Gimp and builds a package.</string>
+	<string>Downloads the latest version of GIMP from gimp.org and builds a package.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.pkg.GIMP</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Gimp</string>
+		<string>GIMP</string>
 	</dict>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.GIMP</string>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.5.2</string>
 	<key>Process</key>
 	<array>
 		<dict>
