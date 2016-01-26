@@ -3,15 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of GIMP and imports into Munki.</string>
+	<string>Downloads the latest version of GIMP from gimp.org and imports into Munki.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.munki.GIMP</string>
 	<key>Input</key>
 	<dict>
-		<key>FLAVOUR</key>
-		<string>lisanet.de</string>
-		<key>SYSTEM_VERSION</key>
-		<string>MountainLion</string>
 		<key>NAME</key>
 		<string>GIMP</string>
 		<key>MUNKI_REPO_SUBDIR</key>
@@ -46,7 +42,7 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.5.2</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.GIMP</string>
 	<key>Process</key>
