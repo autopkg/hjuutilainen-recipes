@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>TextExpander</string>
 		<key>SPARKLE_FEED_URL</key>
-		<string>http://updates.smilesoftware.com/com.smileonmymac.textexpander.xml</string>
+		<string>https://updates.smilesoftware.com/com.smileonmymac.textexpander.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.1</string>
