@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import urllib2
+import subprocess
 import json
 
 from autopkglib import Processor, ProcessorError
@@ -52,7 +52,12 @@ class OnePasswordURLProvider(Processor):
             "description": "Where to download the disk image. "
             "Possible values are 'Amazon CloudFront', 'CacheFly' and 'AgileBits'. "
             "Default is Amazon CloudFront."
-        }
+        },
+        "CURL_PATH": {
+            "required": False,
+            "default": "/usr/bin/curl",
+            "description": "Path to curl binary. Defaults to /usr/bin/curl.",
+        },
     }
     output_variables = {
         "url": {
@@ -61,13 +66,36 @@ class OnePasswordURLProvider(Processor):
     }
     description = __doc__
     
+    def fetch_content(self, url, headers=None):
+        """Returns content retrieved by curl, given a url and an optional
+        dictionary of header-name/value mappings. Logic here borrowed from
+        URLTextSearcher processor."""
+
+        try:
+            cmd = [self.env['CURL_PATH'], '--location']
+            if headers:
+                for header, value in headers.items():
+                    cmd.extend(['--header', '%s: %s' % (header, value)])
+            cmd.append(url)
+            proc = subprocess.Popen(
+                cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            (data, stderr) = proc.communicate()
+            if proc.returncode:
+                raise ProcessorError(
+                    'Could not retrieve URL %s: %s' % (url, stderr))
+        except OSError:
+            raise ProcessorError('Could not retrieve URL: %s' % url)
+
+        return data
+    
     def download_update_info(self, base_url):
         """Downloads the update url and returns a json object"""
+        f = self.fetch_content(base_url, None)
         try:
-            f = urllib2.urlopen(base_url)
-            json_data = json.load(f)
-        except BaseException as e:
-            raise ProcessorError("Can't download %s: %s" % (base_url, e))
+            json_data = json.loads(f)
+        except (ValueError, KeyError, TypeError) as e:
+            self.output("JSON response was: %s" % f)
+            raise ProcessorError("JSON format error: %s" % e)
 
         return json_data
 
