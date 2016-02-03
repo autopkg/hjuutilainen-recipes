@@ -17,33 +17,18 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>CURLTextSearcher</string>
+			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>href="//download.gimp.org/mirror/pub/gimp/v([\d\.]+)/osx/gimp-[\d\.]+-x86_64.dmg"</string>
-				<key>result_output_var_name</key>
-				<string>major_version</string>
+				<string>href="//download.gimp.org/mirror/pub/gimp/v(?P&lt;major_version&gt;[\d\.]+)/osx/gimp-(?P&lt;full_version&gt;[\d\.]+)-x86_64.dmg"</string>
 				<key>url</key>
 				<string>https://www.gimp.org/downloads/</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>CURLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>re_pattern</key>
-				<string>href="//download.gimp.org/mirror/pub/gimp/v[\d\.]+/osx/gimp-([\d\.]+)-x86_64.dmg"</string>
-				<key>result_output_var_name</key>
-				<string>full_version</string>
-				<key>url</key>
-				<string>https://www.gimp.org/downloads/</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>CURLDownloader</string>
+			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>

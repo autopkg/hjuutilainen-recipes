@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>DaisyDisk</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://www.daisydiskapp.com/downloads/DaisyDisk.zip</string>
+		<string>https://daisydiskapp.com/downloads/DaisyDisk.zip</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
