@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current version of iTerm2. Set RELEASE to either "final" or "testing"</string>
+	<string>Downloads the current version of iTerm2. Set RELEASE to either "final" or "testing". For iTerm2 version 3 beta, set RELEASE to "testing3".</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.iTerm2</string>
 	<key>Input</key>
