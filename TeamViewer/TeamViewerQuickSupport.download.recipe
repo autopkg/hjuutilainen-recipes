@@ -14,7 +14,7 @@
 		<string>http://download.teamviewer.com/download/TeamViewerQS.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.3.1</string>
+	<string>0.5.2</string>
 	<key>Process</key>
 	<array>
 		<dict>
