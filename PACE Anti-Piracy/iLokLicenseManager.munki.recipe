@@ -87,19 +87,6 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_payload_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack/InterLok_Extensions.pkg/Payload</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/payload</string>
-				<key>purge_destination</key>
-				<false />
-			</dict>
-			<key>Processor</key>
-			<string>PkgPayloadUnpacker</string>
-		</dict>
-		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>pkg_payload_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack/License_Service.pkg/Payload</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload</string>
@@ -117,12 +104,8 @@
 				<key>installs_item_paths</key>
 				<array>
 					<string>/Applications/iLok License Manager.app</string>
-					<string>/Library/Application Support/PACE Anti-Piracy/InterLok Engine.bundle</string>
-					<string>/Library/Application Support/PACE Anti-Piracy/InterLok Helper.app</string>
-					<string>/Library/Application Support/PACE Anti-Piracy/iLokSupport.bundle</string>
 					<string>/Library/Frameworks/PACEEdenExperience.framework</string>
 					<string>/Library/PrivilegedHelperTools/licenseDaemon.app</string>
-					<string>/System/Library/Extensions/PACESupportFamily.kext</string>
 				</array>
 			</dict>
 			<key>Processor</key>
