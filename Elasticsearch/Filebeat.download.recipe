@@ -52,7 +52,7 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>ChecksumVerifier</string>
+			<string>io.github.hjuutilainen.SharedProcessors/ChecksumVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>algorithm</key>
