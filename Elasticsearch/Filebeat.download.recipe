@@ -5,11 +5,11 @@
 	<key>Description</key>
 	<string>Downloads the latest Elasticsearch Filebeat</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.download.Filebeat</string>
+	<string>io.github.hjuutilainen.download.filebeat</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Filebeat</string>
+		<string>filebeat</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.2</string>
@@ -59,19 +59,6 @@
 				<string>SHA1</string>
 				<key>checksum</key>
 				<string>%checksum%</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
 			</dict>
 		</dict>
 	</array>
