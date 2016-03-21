@@ -130,10 +130,8 @@
 				<string>%RECIPE_CACHE_DIR%/pkgroot/Applications</string>
 				<key>dmg_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-				<!--
 				<key>dmg_megabytes</key>
-				<string>400</string>
-				-->
+				<string>700</string>
 			</dict>
 		</dict>
 		<dict>
