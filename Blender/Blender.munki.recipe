@@ -41,6 +41,17 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Comment</key>
+			<string>We need to fix the permissions of already downloaded and extracted files</string>
+			<key>Processor</key>
+			<string>BlenderPermissionsFixer</string>
+			<key>Arguments</key>
+			<dict>
+				<key>downloaded_blender_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot/Applications</string>
+			</dict>
+		</dict>
+		<dict>
 			<key>Processor</key>
 			<string>PkgRootCreator</string>
 			<key>Arguments</key>
@@ -60,7 +71,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>source_path</key>
-				<string>%found_filename%</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/pkgroot/Applications/%NAME%</string>
 				<key>overwrite</key>
@@ -96,7 +107,7 @@
 				<key>faux_root</key>
 				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
 				<key>version_comparison_key</key>
-				<string>CFBundleVersion</string>
+				<string>CFBundleShortVersionString</string>
 				<key>installs_item_paths</key>
 				<array>
 					<string>/Applications/%NAME%/blender.app</string>
@@ -119,8 +130,10 @@
 				<string>%RECIPE_CACHE_DIR%/pkgroot/Applications</string>
 				<key>dmg_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+				<!--
 				<key>dmg_megabytes</key>
 				<string>400</string>
+				-->
 			</dict>
 		</dict>
 		<dict>

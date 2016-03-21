@@ -18,6 +18,17 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Comment</key>
+			<string>We need to fix the permissions of already downloaded and extracted files</string>
+			<key>Processor</key>
+			<string>BlenderPermissionsFixer</string>
+			<key>Arguments</key>
+			<dict>
+				<key>downloaded_blender_path</key>
+				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+			</dict>
+		</dict>
+		<dict>
 			<key>Processor</key>
 			<string>PkgRootCreator</string>
 			<key>Arguments</key>
@@ -37,7 +48,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>source_path</key>
-				<string>%found_filename%</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				<key>destination_path</key>
 				<string>%pkgroot%/Applications/%NAME%</string>
 				<key>purge_destination</key>

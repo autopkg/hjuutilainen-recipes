@@ -42,6 +42,17 @@
 			<string>EndOfCheckPhase</string>
 		</dict>
 		<dict>
+			<key>Comment</key>
+			<string>We need to fix the permissions of already downloaded and extracted files</string>
+			<key>Processor</key>
+			<string>BlenderPermissionsFixer</string>
+			<key>Arguments</key>
+			<dict>
+				<key>downloaded_blender_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+			</dict>
+		</dict>
+		<dict>
 			<key>Processor</key>
 			<string>Unarchiver</string>
 			<key>Arguments</key>
@@ -52,6 +63,17 @@
 				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				<key>purge_destination</key>
 				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Now fix the permissions of newly downloaded and extracted files</string>
+			<key>Processor</key>
+			<string>BlenderPermissionsFixer</string>
+			<key>Arguments</key>
+			<dict>
+				<key>downloaded_blender_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 			</dict>
 		</dict>
 		<dict>
