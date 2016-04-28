@@ -10,13 +10,18 @@
 	<dict>
 		<key>NAME</key>
 		<string>ATLAS.ti</string>
+		<key>DOWNLOAD_URL</key>
+		<string>http://update.atlasti.com/spk/mac/latest/ATLAS.ti.dmg</string>
+		<!--
 		<key>SPARKLE_FEED_URL</key>
 		<string>http://update.atlasti.com/spk/mac/atlasti-mac-beta-updates.xml</string>
+		-->
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
 	<key>Process</key>
 	<array>
+		<!--
 		<dict>
 			<key>Processor</key>
 			<string>SparkleUpdateInfoProvider</string>
@@ -26,9 +31,15 @@
 				<string>%SPARKLE_FEED_URL%</string>
 			</dict>
 		</dict>
+		-->
 		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%DOWNLOAD_URL%</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
