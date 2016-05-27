@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the current release version of Myo Connect and imports into Munki.</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.munki.MyoConnect</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>MyoConnect</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Education &amp; Research</string>
+		<key>MUNKI_DEVELOPER</key>
+		<string>Thalmic Labs Inc.</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>description</key>
+			<string>Myo on Mac OS X</string>
+			<key>developer</key>
+			<string>%MUNKI_DEVELOPER%</string>
+			<key>display_name</key>
+			<string>Myo Connect</string>
+			<key>name</key>
+			<string>%NAME%</string>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.MyoConnect</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>munkiimport_appname</key>
+				<string>Myo Connect.app</string>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
