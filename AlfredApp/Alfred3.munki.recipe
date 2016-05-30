@@ -32,7 +32,7 @@
 			<key>developer</key>
 			<string>Running with Crayons Ltd</string>
 			<key>display_name</key>
-			<string>Alfred 2</string>
+			<string>Alfred 3</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -42,7 +42,7 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.6.1</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.Alfred3</string>
 	<key>Process</key>
