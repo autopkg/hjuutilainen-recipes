@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of R and imports into Munki. Set OS_RELEASE to either "snowleopard" or "mavericks".</string>
+	<string>Downloads the current release version of R and imports into Munki.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.munki.R</string>
 	<key>Input</key>
