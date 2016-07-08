@@ -10,8 +10,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>CitrixReceiver</string>
-		<key>DOWNLOAD_URL</key>
-		<string>http://downloadplugins.citrix.com.edgesuite.net/Mac/CitrixReceiverWeb.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
@@ -19,13 +17,24 @@
 	<array>
 		<dict>
 			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://www.citrix.com/downloads/citrix-receiver/mac/receiver-for-mac-latest.html</string>
+				<key>re_pattern</key>
+				<string>(?P&lt;DYNAMIC_URL&gt;//downloads.citrix.com/[\d]+/CitrixReceiver(?P&lt;version&gt;[\d\.]+).dmg\?__gda__\=[\w]+)</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>https:%DYNAMIC_URL%</string>
 				<key>filename</key>
-				<string>%NAME%.dmg</string>
+				<string>%NAME%-%version%.dmg</string>
 			</dict>
 		</dict>
 		<dict>
