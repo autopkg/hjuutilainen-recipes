@@ -10,10 +10,8 @@
 	<dict>
 		<key>NAME</key>
 		<string>LibreOffice</string>
-		<key>TYPE</key>
-		<string>mac-x86_64</string>
-		<key>USER_AGENT</key>
-		<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.28.10 (KHTML, like Gecko) Version/6.0.3 Safari/536.28.10</string>
+		<key>RELEASE</key>
+		<string>fresh</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
@@ -21,11 +19,13 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>LibreOfficeURLProvider</string>
+			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
-				<key>type</key>
-				<string>%TYPE%</string>
+				<key>re_pattern</key>
+				<string>(?P&lt;DOWNLOAD_URL&gt;download.documentfoundation.org/libreoffice/stable/[\d\.]+/mac/x86_64/LibreOffice_(?P&lt;version&gt;[\d\.]+)_MacOS_x86-64.dmg)</string>
+				<key>url</key>
+				<string>https://www.libreoffice.org/download/libreoffice-%RELEASE%/?type=mac-x86_64</string>
 			</dict>
 		</dict>
 		<dict>
@@ -33,11 +33,8 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
-				<key>request_headers</key>
-				<dict>
-					<key>user-agent</key>
-					<string>%USER_AGENT%</string>
-				</dict>
+				<key>url</key>
+				<string>https://%DOWNLOAD_URL%</string>
 			</dict>
 		</dict>
 		<dict>
