@@ -10,8 +10,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>Subler</string>
-		<key>SPARKLE_FEED_URL</key>
-		<string>http://appcast.zipzapmac.com/go2shell.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
