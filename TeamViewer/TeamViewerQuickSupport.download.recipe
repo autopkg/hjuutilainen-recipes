@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>TeamViewerQS</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://download.teamviewer.com/download/TeamViewerQS.dmg</string>
+		<string>https://download.teamviewer.com/download/TeamViewerQS.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.2</string>

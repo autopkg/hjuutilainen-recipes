@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>TeamViewerHost</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://download.teamviewer.com/download/TeamViewerHost.dmg</string>
+		<string>https://download.teamviewer.com/download/TeamViewerHost.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.2</string>
