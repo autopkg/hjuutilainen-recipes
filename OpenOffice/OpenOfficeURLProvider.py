@@ -25,7 +25,7 @@ __all__ = ["OpenOfficeURLProvider"]
 
 
 LANGUAGE_CODE = "en-US"
-LOCATOR_URL = "http://www.apache.org/dyn/closer.lua/openoffice/"
+LOCATOR_URL = "https://www.apache.org/dyn/closer.lua/openoffice/"
 re_URL = re.compile(r'\<strong\>(?P<the_url>http://.+)\</strong\>')
 re_link = re.compile(r'<a href="(.*?)">.*?</a>', re.IGNORECASE)
 
