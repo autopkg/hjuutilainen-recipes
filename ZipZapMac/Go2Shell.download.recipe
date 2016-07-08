@@ -9,7 +9,7 @@
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Subler</string>
+		<string>Go2Shell</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
