@@ -3,7 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of GIMP from gimp.org.</string>
+	<string>Downloads the latest version of GIMP from gimp.org.
+	Note: Code signature verification cannot be done on GIMP.app at this time.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.GIMP</string>
 	<key>Input</key>
