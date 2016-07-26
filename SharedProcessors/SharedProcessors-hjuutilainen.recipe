@@ -11,6 +11,6 @@
 	<key>MinimumVersion</key>
 	<string>0.5.2</string>
 	<key>Process</key>
-	<dict/>
+	<array/>
 </dict>
 </plist>
