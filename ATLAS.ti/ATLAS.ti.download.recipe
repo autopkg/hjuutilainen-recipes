@@ -11,10 +11,10 @@
 		<key>NAME</key>
 		<string>ATLAS.ti</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://update.atlasti.com/spk/mac/latest/ATLAS.ti.dmg</string>
+		<string>https://update.atlasti.com/spk/mac/latest/ATLAS.ti.dmg</string>
 		<!--
 		<key>SPARKLE_FEED_URL</key>
-		<string>http://update.atlasti.com/spk/mac/atlasti-mac-beta-updates.xml</string>
+		<string>https://update.atlasti.com/spk/mac/atlasti-mac-beta-updates.xml</string>
 		-->
 	</dict>
 	<key>MinimumVersion</key>
