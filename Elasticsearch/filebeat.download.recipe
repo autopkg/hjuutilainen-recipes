@@ -23,7 +23,7 @@
 				<key>url</key>
 				<string>https://www.elastic.co/downloads/beats/filebeat</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://download.elastic.co/beats/filebeat/filebeat-(?P&lt;version&gt;[\d\.]+)+-darwin.tgz)</string>
+				<string>(?P&lt;url&gt;https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-(?P&lt;version&gt;[\d\.]+)-darwin-x86_64\.tar\.gz)</string>
 			</dict>
 		</dict>
 		<dict>
@@ -32,7 +32,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%-%version%-darwin.tgz</string>
+				<string>%NAME%-%version%-darwin-x86_64.tar.gz</string>
 			</dict>
 		</dict>
 		<dict>
@@ -45,9 +45,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://download.elastic.co/beats/filebeat/filebeat-%version%-darwin.tgz.sha1.txt</string>
+				<string>https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-%version%-darwin-x86_64.tar.gz.sha1</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;checksum&gt;\w+)\s+filebeat-%version%-darwin.tgz</string>
+				<string>(?P&lt;checksum&gt;\w+)</string>
 			</dict>
 		</dict>
 		<dict>
