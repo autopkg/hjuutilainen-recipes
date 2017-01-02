@@ -33,15 +33,13 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>Unarchiver</string>
+			<string>Copier</string>
 			<key>Arguments</key>
 			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
+				<key>source_path</key>
+				<string>%pathname%/GitKraken.app</string>
 				<key>destination_path</key>
-				<string>%pkgroot%/Applications</string>
-				<key>purge_destination</key>
-				<true/>
+				<string>%pkgroot%/Applications/GitKraken.app</string>
 			</dict>
 		</dict>
 		<dict>
