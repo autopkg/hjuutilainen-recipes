@@ -6,6 +6,9 @@
 	<string>Downloads and installs the current release version of ATLAS.ti.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.install.ATLAS.ti</string>
+	<key>Input</key>
+	<dict>
+	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
 	<key>ParentRecipe</key>
