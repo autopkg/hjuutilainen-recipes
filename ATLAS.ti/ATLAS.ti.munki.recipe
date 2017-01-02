@@ -47,6 +47,8 @@
 			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
+				<key>munkiimport_appname</key>
+				<string>ATLAS.ti.app</string>
 				<key>pkg_path</key>
 				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
