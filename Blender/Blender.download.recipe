@@ -23,9 +23,7 @@
 				<key>url</key>
 				<string>http://www.blender.org/download/</string>
 				<key>re_pattern</key>
-				<string>(http://.*/blender-(?:[^"']*)-OSX_(?:[^"']+)-x86_64.zip)</string>
-				<key>result_output_var_name</key>
-				<string>url</string>
+				<string>(?P&lt;url&gt;http://.*/blender-(?P&lt;version&gt;[1-9a-zA-Z\.]+)-OSX_10\.6-x86_64\.zip)</string>
 			</dict>
 		</dict>
 		<dict>
