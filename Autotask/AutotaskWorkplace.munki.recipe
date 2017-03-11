@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the current release version of AutotaskWorkplace and imports into Munki.</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.munki.AutotaskWorkplace</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>AutotaskWorkplace</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps/AutotaskWorkplace</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>File Sync</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>description</key>
+			<string>Autotask Workplace is an online file sharing and collaboration service, empowering business teams to be more productive and efficient through secure access to any type of business content, anywhere, using any device.</string>
+			<key>developer</key>
+			<string>Autotask Corporation</string>
+			<key>display_name</key>
+			<string>Autotask Workplace Desktop</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.AutotaskWorkplace</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>munkiimport_appname</key>
+				<string>Autotask Workplace Desktop.app</string>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
