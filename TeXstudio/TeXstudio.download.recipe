@@ -25,7 +25,7 @@
 				<key>url</key>
 				<string>https://sourceforge.net/projects/texstudio/rss?limit=10</string>
 				<key>re_pattern</key>
-				<string>https://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%20(?P&lt;version&gt;[0-9\.]+)/texstudio</string>
+				<string>https://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%20(?P&lt;version&gt;[0-9\.]+)/texstudio[_-][0-9\.]+[_-]osx[_-]qt[0-9\.]+\.zip</string>
 			</dict>
 		</dict>
 		<dict>
@@ -48,6 +48,8 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>CHECK_FILESIZE_ONLY</key>
+				<true />
 				<key>filename</key>
 				<string>%NAME%.zip</string>
 			</dict>
