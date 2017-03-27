@@ -3,19 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of IINA and imports into Munki.</string>
+	<string>Downloads the current release version of DiskDrill and imports into Munki.</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.munki.IINA</string>
+	<string>io.github.hjuutilainen.munki.DiskDrill</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>IINA</string>
+		<string>DiskDrill</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps</string>
+		<string>apps/DiskDrill</string>
 		<key>MUNKI_CATEGORY</key>
-		<string>Video</string>
-		<key>MUNKI_DEVELOPER</key>
-		<string>Collider LI</string>
+		<string>Utilities</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -25,21 +23,23 @@
 			<key>category</key>
 			<string>%MUNKI_CATEGORY%</string>
 			<key>description</key>
-			<string>The modern video player for macOS.</string>
+			<string>The Premier Mac Data Recovery Software. Recover deleted or lost data from any storage device, iOS and Android.</string>
 			<key>developer</key>
-			<string>%MUNKI_DEVELOPER%</string>
+			<string>CleverFiles</string>
 			<key>display_name</key>
-			<string>IINA</string>
+			<string>Disk Drill</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
 			<true/>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.IINA</string>
+	<string>io.github.hjuutilainen.download.DiskDrill</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -47,6 +47,8 @@
 			<string>MunkiImporter</string>
 			<key>Arguments</key>
 			<dict>
+				<key>munkiimport_appname</key>
+				<string>Disk Drill.app</string>
 				<key>pkg_path</key>
 				<string>%pathname%</string>
 				<key>repo_subdirectory</key>

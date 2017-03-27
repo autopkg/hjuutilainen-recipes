@@ -23,9 +23,7 @@
 				<key>url</key>
 				<string>http://www.blender.org/download/</string>
 				<key>re_pattern</key>
-				<string>(http://.*/blender-(?:[^"']*)-OSX_(?:[^"']+)-x86_64.zip)</string>
-				<key>result_output_var_name</key>
-				<string>url</string>
+				<string>(?P&lt;url&gt;http://.*/blender-(?P&lt;version&gt;[1-9a-zA-Z\.]+)-OSX_10\.6-x86_64\.zip)</string>
 			</dict>
 		</dict>
 		<dict>
@@ -42,17 +40,6 @@
 			<string>EndOfCheckPhase</string>
 		</dict>
 		<dict>
-			<key>Comment</key>
-			<string>We need to fix the permissions of already downloaded and extracted files</string>
-			<key>Processor</key>
-			<string>BlenderPermissionsFixer</string>
-			<key>Arguments</key>
-			<dict>
-				<key>downloaded_blender_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-			</dict>
-		</dict>
-		<dict>
 			<key>Processor</key>
 			<string>Unarchiver</string>
 			<key>Arguments</key>
@@ -66,23 +53,12 @@
 			</dict>
 		</dict>
 		<dict>
-			<key>Comment</key>
-			<string>Now fix the permissions of newly downloaded and extracted files</string>
-			<key>Processor</key>
-			<string>BlenderPermissionsFixer</string>
-			<key>Arguments</key>
-			<dict>
-				<key>downloaded_blender_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-			</dict>
-		</dict>
-		<dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/blender.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/blender-*/blender.app</string>
 				<key>requirement</key>
 				<string>identifier "org.blenderfoundation.blender" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "68UA947AUU"</string>
 			</dict>
@@ -93,7 +69,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/blenderplayer.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/blender-*/blenderplayer.app</string>
 				<key>requirement</key>
 				<string>identifier "org.blenderfoundation.blenderplayer" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "68UA947AUU"</string>
 			</dict>

@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of Blender and builds a package.</string>
+	<string>Downloads the current release version of Disk Drill and creates a package.</string>
 	<key>Identifier</key>
-	<string>io.github.hjuutilainen.pkg.Blender</string>
+	<string>io.github.hjuutilainen.pkg.DiskDrill</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
-		<string>Blender</string>
+		<string>DiskDrill</string>
 	</dict>
-	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.Blender</string>
 	<key>MinimumVersion</key>
-	<string>0.4.2</string>
+	<string>0.6.1</string>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.DiskDrill</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -23,7 +23,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkgroot</key>
-				<string>%RECIPE_CACHE_DIR%/pkgroot</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				<key>pkgdirs</key>
 				<dict>
 					<key>Applications</key>
@@ -37,11 +37,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>source_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/blender-*</string>
+				<string>%pathname%/Disk Drill.app</string>
 				<key>destination_path</key>
-				<string>%pkgroot%/Applications/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
+				<string>%pkgroot%/Applications/Disk Drill.app</string>
 			</dict>
 		</dict>
 		<dict>
@@ -50,9 +48,11 @@
 			<key>Arguments</key>
 			<dict>
 				<key>info_path</key>
-				<string>%pkgroot%/Applications/Blender/blender.app</string>
+				<string>%pkgroot%/Applications/Disk Drill.app</string>
 				<key>plist_keys</key>
 				<dict>
+					<key>CFBundleShortVersionString</key>
+					<string>version</string>
 					<key>CFBundleIdentifier</key>
 					<string>bundleid</string>
 					<key>CFBundleName</key>
@@ -65,12 +65,12 @@
 			<string>PkgCreator</string>
 			<key>Arguments</key>
 			<dict>
+				<key>pkgname</key>
+				<string>%NAME%-%version%</string>
 				<key>pkg_request</key>
 				<dict>
-					<key>pkgname</key>
-					<string>%NAME%-%version%</string>
-					<key>version</key>
-					<string>%version%</string>
+					<key>pkgdir</key>
+					<string>%RECIPE_CACHE_DIR%</string>
 					<key>id</key>
 					<string>%bundleid%</string>
 					<key>options</key>
@@ -84,23 +84,9 @@
 							<string>root</string>
 							<key>group</key>
 							<string>admin</string>
-							<key>mode</key>
-							<string>0755</string>
 						</dict>
 					</array>
 				</dict>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>PathDeleter</string>
-			<key>Arguments</key>
-			<dict>
-				<key>path_list</key>
-				<array>
-					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
-					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				</array>
 			</dict>
 		</dict>
 	</array>
