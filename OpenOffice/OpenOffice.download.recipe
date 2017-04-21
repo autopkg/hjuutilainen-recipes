@@ -37,6 +37,8 @@
 			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
+				<key>CHECK_FILESIZE_ONLY</key>
+				<true />
 			</dict>
 		</dict>
 		<dict>
