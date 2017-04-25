@@ -22,9 +22,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>href="//download.gimp.org/mirror/pub/gimp/v(?P&lt;major_version&gt;[\d\.]+)/osx/gimp-(?P&lt;full_version&gt;[\d\.]+)-x86_64-?\d?.dmg"</string>
+				<string>href="0.0_LATEST-IS-(?P&lt;full_version&gt;[\d\.]+)"</string>
 				<key>url</key>
-				<string>https://www.gimp.org/downloads/</string>
+				<string>https://download.gimp.org/pub/gimp/stable/</string>
 			</dict>
 		</dict>
 		<dict>
@@ -32,10 +32,8 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
-				<key>filename</key>
-				<string>%NAME%-%full_version%.dmg</string>
 				<key>url</key>
-				<string>https://download.gimp.org/mirror/pub/gimp/v%major_version%/osx/gimp-%full_version%-x86_64.dmg</string>
+				<string>https://download.gimp.org/pub/gimp/stable/osx/gimp-%full_version%-x86_64.dmg</string>
 			</dict>
 		</dict>
 		<dict>
