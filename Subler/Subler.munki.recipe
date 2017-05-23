@@ -25,7 +25,7 @@
 			<key>description</key>
 			<string>Subler is an Mac OS X app created to mux mp4 files.</string>
 			<key>developer</key>
-			<string>The Subler Project</string>
+			<string>Damiano Galassi</string>
 			<key>display_name</key>
 			<string>Subler</string>
 			<key>name</key>
@@ -35,24 +35,11 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>1.0</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.Subler</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>DmgCreator</string>

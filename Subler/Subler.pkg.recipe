@@ -14,7 +14,7 @@
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.Subler</string>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>1.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
