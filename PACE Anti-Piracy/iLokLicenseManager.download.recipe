@@ -63,7 +63,7 @@
 				<string>%found_filename%/License Support.pkg</string>
 				<key>expected_authority_names</key>
 				<array>
-					<string>Developer ID Installer: PACE Anti-Piracy, Inc.</string>
+					<string>Developer ID Installer: PACE Anti-Piracy, Inc. (TFZ8226T6X)</string>
 					<string>Developer ID Certification Authority</string>
 					<string>Apple Root CA</string>
 				</array>
