@@ -50,7 +50,7 @@
 				<string>%pathname%/Install Citrix Receiver.pkg</string>
 				<key>expected_authority_names</key>
 				<array>
-					<string>Developer ID Installer: Citrix Systems, Inc.</string>
+					<string>Developer ID Installer: Citrix Systems, Inc. (KBVSJ83SS9)</string>
 					<string>Developer ID Certification Authority</string>
 					<string>Apple Root CA</string>
 				</array>
