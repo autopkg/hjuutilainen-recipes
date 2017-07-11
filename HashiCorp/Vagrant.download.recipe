@@ -24,6 +24,8 @@
 				<string>vagrant</string>
 				<key>os</key>
 				<string>darwin</string>
+				<key>arch</key>
+				<string>x86_64</string>
 			</dict>
 		</dict>
 		<dict>
