@@ -16,14 +16,27 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Comment</key>
+			<string>Get a link to a redirect page from the official download page</string>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>http://www.blender.org/download/</string>
+				<string>https://www.blender.org/download/</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;http://.*/blender-(?P&lt;version&gt;[1-9a-zA-Z\.]+)-OSX_10\.6-x86_64\.zip)</string>
+				<string>(?P&lt;url&gt;https?://.*/blender-(?P&lt;version&gt;[1-9a-zA-Z\.]+)-OSX_10\.6-x86_64\.zip)</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Get the page from the previous URLTextSearcher match and find the actual (mirrored) download URL</string>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>(?P&lt;url&gt;https?://.*/blender-(?P&lt;version&gt;[1-9a-zA-Z\.]+)-OSX_10\.6-x86_64\.zip)</string>
 			</dict>
 		</dict>
 		<dict>
