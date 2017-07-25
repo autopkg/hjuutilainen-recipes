@@ -21,9 +21,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>http://www.blender.org/download/</string>
+				<string>https://www.blender.org/download/</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;http://.*/blender-(?P&lt;version&gt;[1-9a-zA-Z\.]+)-OSX_10\.6-x86_64\.zip)</string>
+				<string>https://.*/(?P&lt;urltail&gt;Blender[1-9a-zA-Z\.]+/blender-(?P&lt;version&gt;[1-9a-zA-Z\.]+)-OSX_10\.6-x86_64\.zip)</string>
 			</dict>
 		</dict>
 		<dict>
@@ -31,6 +31,8 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>url</key>
+				<string>https://ftp.nluug.nl/pub/graphics/blender/release/%urltail%</string>
 				<key>filename</key>
 				<string>%NAME%.zip</string>
 			</dict>
