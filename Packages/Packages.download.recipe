@@ -41,7 +41,7 @@
 				<string>%pathname%/packages/Packages.pkg</string>
 				<key>expected_authority_names</key>
 				<array>
-					<string>Developer ID Installer: Stephane Sudre</string>
+					<string>Developer ID Installer: Stephane Sudre (NL5M9E394P)</string>
 					<string>Developer ID Certification Authority</string>
 					<string>Apple Root CA</string>
 				</array>
