@@ -50,7 +50,7 @@
 				<string>%pathname%/vagrant.pkg</string>
 				<key>expected_authority_names</key>
 				<array>
-					<string>Developer ID Installer: Mitchell Hashimoto</string>
+					<string>Developer ID Installer: Hashicorp, Inc. (D38WU7D763)</string>
 					<string>Developer ID Certification Authority</string>
 					<string>Apple Root CA</string>
 				</array>
