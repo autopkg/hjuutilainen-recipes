@@ -31,6 +31,8 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>CHECK_FILESIZE_ONLY</key>
+				<true/>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
