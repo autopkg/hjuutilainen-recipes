@@ -60,7 +60,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>source_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/blender-*</string>
+				<string>%pathname%/Blender/</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/pkgroot/Applications/%NAME%</string>
 				<key>overwrite</key>
@@ -90,8 +90,8 @@
 				<string>CFBundleVersion</string>
 				<key>installs_item_paths</key>
 				<array>
-					<string>/Applications/%NAME%/blender.app</string>
-					<string>/Applications/%NAME%/blenderplayer.app</string>
+					<string>/Applications/Blender/blender.app</string>
+					<string>/Applications/Blender/blenderplayer.app</string>
 				</array>
 			</dict>
 		</dict>
@@ -122,7 +122,6 @@
 				<key>path_list</key>
 				<array>
 					<string>%RECIPE_CACHE_DIR%/pkgroot</string>
-					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
 				</array>
 			</dict>
 		</dict>
