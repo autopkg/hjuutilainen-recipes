@@ -90,8 +90,8 @@
 				<string>CFBundleVersion</string>
 				<key>installs_item_paths</key>
 				<array>
-					<string>/Applications/Blender/blender.app</string>
-					<string>/Applications/Blender/blenderplayer.app</string>
+					<string>/Applications/%NAME%/blender.app</string>
+					<string>/Applications/%NAME%/blenderplayer.app</string>
 				</array>
 			</dict>
 		</dict>
