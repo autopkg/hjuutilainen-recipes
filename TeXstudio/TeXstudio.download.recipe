@@ -23,9 +23,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://sourceforge.net/projects/texstudio/rss?limit=20</string>
+				<string>https://sourceforge.net/projects/texstudio/rss?limit=10</string>
 				<key>re_pattern</key>
-				<string>https://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%20(?P&lt;version&gt;[0-9\.]+)/texstudio[_-][0-9\.]+[_-]osx[_-]qt[0-9\.]+\.zip</string>
+				<string>https://sourceforge.net/projects/texstudio/files/(?P&lt;version&gt;[0-9\.]+)/texstudio[_-][0-9\.]+[_-]osx\.dmg</string>
 			</dict>
 		</dict>
 		<dict>
@@ -37,10 +37,10 @@
 			<dict>
 				<key>url</key>
 				<!--    https://sourceforge.net/projects/texstudio/rss?path=/texstudio/TeXstudio%202.10.4 -->
-				<string>https://sourceforge.net/projects/texstudio/rss?path=/texstudio/TeXstudio%20%version%</string>
+				<string>https://sourceforge.net/projects/texstudio/rss?path=/%version%</string>
 				<key>re_pattern</key>
 				<!-- https://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%202.10.4/texstudio-2.10.4-osx-qt5.5.1.zip/download -->
-				<string>(?P&lt;url&gt;https://.*/TeXstudio%20%version%/texstudio[_\-]%version%[_\-]osx[_\-]qt[0-9\.]+\.zip/download)</string>
+				<string>(?P&lt;url&gt;https://.*/%version%/texstudio[_\-]%version%[_\-]osx\.dmg/download)</string>
 			</dict>
 		</dict>
 		<dict>
@@ -51,26 +51,25 @@
 				<key>CHECK_FILESIZE_ONLY</key>
 				<true />
 				<key>filename</key>
-				<string>%NAME%.zip</string>
+				<string>%NAME%.dmg</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-		</dict>
+	    <dict>
+	               <key>Processor</key>
+	               <string>AppDmgVersioner</string>
+	               <key>Arguments</key>
+	               <dict>
+					   <key>dmg_path</key>
+					   <string>%pathname%</string>
+	                   <key>input_path</key>
+	                   <string>%pathname%/texstudio.app</string>
+	              
+	               </dict>
+			   </dict>
 	</array>
 </dict>
 </plist>
