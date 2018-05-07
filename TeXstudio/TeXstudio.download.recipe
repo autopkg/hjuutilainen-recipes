@@ -12,35 +12,18 @@
 		<string>TeXstudio</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.9</string>
+	<string>0.5.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Comment</key>
-			<string>First determine the latest version</string>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>GitHubReleasesInfoProvider</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>https://sourceforge.net/projects/texstudio/rss</string>
-				<key>re_pattern</key>
-				<string>https://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%20(?P&lt;version&gt;[0-9\.]+)/texstudio[_-][0-9\.]+[_-]osx[_-]qt[0-9\.]+\.zip</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Comment</key>
-			<string>Now use the latest version to request links to a specific language</string>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<!--    https://sourceforge.net/projects/texstudio/rss?path=/texstudio/TeXstudio%202.10.4 -->
-				<string>https://sourceforge.net/projects/texstudio/rss?path=/texstudio/TeXstudio%20%version%</string>
-				<key>re_pattern</key>
-				<!-- https://sourceforge.net/projects/texstudio/files/texstudio/TeXstudio%202.10.4/texstudio-2.10.4-osx-qt5.5.1.zip/download -->
-				<string>(?P&lt;url&gt;https://.*/TeXstudio%20%version%/texstudio[_\-]%version%[_\-]osx[_\-]qt[0-9\.]+\.zip/download)</string>
+				<key>github_repo</key>
+				<string>texstudio-org/texstudio</string>
+				<key>asset_regex</key>
+				<string>texstudio-[0-9\.]+-osx\.dmg</string>
 			</dict>
 		</dict>
 		<dict>
@@ -48,28 +31,13 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
-				<key>CHECK_FILESIZE_ONLY</key>
-				<true />
 				<key>filename</key>
-				<string>%NAME%.zip</string>
+				<string>%NAME%.dmg</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
 		</dict>
 	</array>
 </dict>
