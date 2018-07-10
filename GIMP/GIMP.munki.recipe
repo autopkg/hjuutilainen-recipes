@@ -55,7 +55,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>source_path</key>
-				<string>%pathname%/GIMP.app</string>
+				<string>%pathname%/G[iI][mM][pP]*.app</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%/GIMP.app</string>
 				<key>overwrite</key>
