@@ -43,8 +43,15 @@ fi
 
 /bin/ln -s "/Applications/GitUp.app/Contents/SharedSupport/gitup" "${DEST_DIR}/gitup"
 
-exit 0
-</string>
+exit 0</string>
+			<key>postuninstall_script</key>
+			<string>#!/bin/sh
+
+DEST_DIR="/usr/local/bin"
+
+/bin/unlink "${DEST_DIR}/gitup"
+
+exit 0</string>
 			<key>unattended_install</key>
 			<true/>
 			<key>unattended_uninstall</key>
