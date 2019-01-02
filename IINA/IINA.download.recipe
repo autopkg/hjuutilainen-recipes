@@ -23,7 +23,7 @@
 				<key>asset_regex</key>
 				<string>.*\.dmg</string>
 				<key>github_repo</key>
-				<string>lhc70000/iina</string>
+				<string>iina/iina</string>
 				<key>include_prereleases</key>
 				<true />
 			</dict>
