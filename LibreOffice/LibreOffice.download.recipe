@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest LibreOffice. Set RELEASE to either "fresh" or "still".
+	<string>Downloads the latest LibreOffice.
 
 LibreOffice Still is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
 LibreOffice Fresh is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our fresh version.</string>
@@ -13,8 +13,6 @@ LibreOffice Fresh is the stable version with the most recent features. Users int
 	<dict>
 		<key>NAME</key>
 		<string>LibreOffice</string>
-		<key>RELEASE</key>
-		<string>fresh</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
@@ -26,9 +24,24 @@ LibreOffice Fresh is the stable version with the most recent features. Users int
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>(?P&lt;DOWNLOAD_URL&gt;download.documentfoundation.org/libreoffice/stable/[\d\.]+/mac/x86_64/LibreOffice_(?P&lt;version&gt;[\d\.]+)_MacOS_x86-64.dmg)</string>
+                <string>(libreoffice.org/donate/dl/mac-x86_64/[\d\.]+/en-US/LibreOffice_(?P&lt;version&gt;[\d\.]+)_MacOS_x86-64.dmg)</string>
 				<key>url</key>
-				<string>https://www.libreoffice.org/download/libreoffice-%RELEASE%/?type=mac-x86_64</string>
+				<string>https://www.libreoffice.org/download/download/?type=mac-x86_64</string>
+                <key>result_output_var_name</key>
+                <string>DONATE_URL</string>
+			</dict>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLTextSearcher</string>
+            <key>Arguments</key>
+            <dict>
+                <key>re_pattern</key>
+				<string>(download.documentfoundation.org/libreoffice/stable/[\d\.]+/mac/x86_64/LibreOffice_[\d\.]+_MacOS_x86-64.dmg)</string>
+				<key>url</key>
+                <string>https://%DONATE_URL%</string>
+                <key>result_output_var_name</key>
+                <string>DOWNLOAD_URL</string>
 			</dict>
 		</dict>
 		<dict>
