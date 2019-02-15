@@ -4,9 +4,6 @@
 <dict>
 	<key>Description</key>
 	<string>Downloads the latest LibreOffice.
-
-LibreOffice Still is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
-LibreOffice Fresh is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our fresh version.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.LibreOffice</string>
 	<key>Input</key>

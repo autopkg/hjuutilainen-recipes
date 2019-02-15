@@ -3,18 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Installs the current release version of LibreOffice. Set RELEASE to either "fresh" or "still".
-
-LibreOffice Still is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
-LibreOffice Fresh is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our fresh version.</string>
+	<string>Installs the current release version of LibreOffice.
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.install.LibreOffice</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>LibreOffice</string>
-		<key>RELEASE</key>
-		<string>fresh</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.0</string>
