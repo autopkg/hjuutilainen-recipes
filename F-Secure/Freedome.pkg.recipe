@@ -18,73 +18,41 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Comment</key>
+			<string>Get version from the app</string>
 			<key>Processor</key>
-			<string>PkgRootCreator</string>
+			<string>Versioner</string>
 			<key>Arguments</key>
 			<dict>
-				<key>pkgroot</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>pkgdirs</key>
-				<dict>
-					<key>Applications</key>
-					<string>0775</string>
-				</dict>
+				<key>input_plist_path</key>
+				<string>%RECIPE_CACHE_DIR%/Applications/Freedome.app/Contents/Info.plist</string>
+				<key>plist_version_key</key>
+				<string>CFBundleShortVersionString</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>Copier</string>
+			<string>PkgCopier</string>
 			<key>Arguments</key>
 			<dict>
-				<key>source_path</key>
-				<string>%pathname%/Freedome.app</string>
-				<key>destination_path</key>
-				<string>%pkgroot%/Applications/Freedome.app</string>
+				<key>source_pkg</key>
+				<string>%pathname%</string>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+				<key>purge_destination</key>
+				<true/>
 			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>PlistReader</string>
+			<string>PathDeleter</string>
 			<key>Arguments</key>
 			<dict>
-				<key>info_path</key>
-				<string>%pkgroot%/Applications/Freedome.app</string>
-				<key>plist_keys</key>
-				<dict>
-					<key>CFBundleShortVersionString</key>
-					<string>version</string>
-					<key>CFBundleIdentifier</key>
-					<string>bundleid</string>
-				</dict>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>PkgCreator</string>
-			<key>Arguments</key>
-			<dict>
-				<key>pkgname</key>
-				<string>%NAME%-%version%</string>
-				<key>pkg_request</key>
-				<dict>
-					<key>pkgdir</key>
-					<string>%RECIPE_CACHE_DIR%</string>
-					<key>id</key>
-					<string>%bundleid%</string>
-					<key>options</key>
-					<string>purge_ds_store</string>
-					<key>chown</key>
-					<array>
-						<dict>
-							<key>path</key>
-							<string>Applications</string>
-							<key>user</key>
-							<string>root</string>
-							<key>group</key>
-							<string>admin</string>
-						</dict>
-					</array>
-				</dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+					<string>%RECIPE_CACHE_DIR%/Applications</string>
+				</array>
 			</dict>
 		</dict>
 	</array>
