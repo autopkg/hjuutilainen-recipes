@@ -12,7 +12,7 @@
 		<string>PlexMediaServer</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.3.1</string>
+	<string>1.0.4</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -21,9 +21,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://plex.tv/api/downloads/1.json</string>
+				<string>https://plex.tv/pms/downloads/5.json</string>
 				<key>re_pattern</key>
-				<string>(https://downloads.plex.tv/plex-media-server/[0-9\.]+-[a-z0-9]+/PlexMediaServer-[0-9\.]+-[a-z0-9]+-OSX.zip)</string>
+				<string>(https://downloads.plex.tv/plex-media-server-new/[0-9\.]+-[a-z0-9]+/macos/PlexMediaServer-[0-9\.]+-[a-z0-9]+-x86_64\.dmg)</string>
 				<key>result_output_var_name</key>
 				<string>url</string>
 			</dict>
@@ -34,7 +34,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.zip</string>
+				<string>%NAME%.dmg</string>
 			</dict>
 		</dict>
 		<dict>
@@ -43,24 +43,11 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>Unarchiver</string>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/Plex Media Server.app</string>
+				<string>%pathname%/Plex Media Server.app</string>
 				<key>requirement</key>
 				<string>anchor apple generic and identifier "com.plexapp.plexmediaserver" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = K4QJ56KR4A)</string>
 				<key>strict_verification</key>

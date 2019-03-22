@@ -14,7 +14,7 @@
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.PlexMediaServer</string>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>1.0.4</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -33,15 +33,13 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>Unarchiver</string>
+			<string>Copier</string>
 			<key>Arguments</key>
 			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
+				<key>source_path</key>
+				<string>%pathname%/Plex Media Server.app</string>
 				<key>destination_path</key>
-				<string>%pkgroot%/Applications</string>
-				<key>purge_destination</key>
-				<true/>
+				<string>%pkgroot%/Applications/Plex Media Server.app</string>
 			</dict>
 		</dict>
 		<dict>
