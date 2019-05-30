@@ -32,6 +32,11 @@ ALFRED2_UPDATE_URL_PRERELEASE = "https://cachefly.alfredapp.com/updater/prerelea
 ALFRED3_UPDATE_URL = "https://www.alfredapp.com/app/update/general.xml"
 ALFRED3_UPDATE_URL_PRERELEASE = "https://www.alfredapp.com/app/update/prerelease.xml"
 
+# Update URLs for Alfred version 4.x
+# Found in "Alfred 4.app/Contents/Frameworks/Alfred Framework.framework/Versions/A/Alfred Framework"
+ALFRED4_UPDATE_URL = "https://www.alfredapp.com/app/update4/general.xml"
+ALFRED4_UPDATE_URL_PRERELEASE = "https://www.alfredapp.com/app/update4/prerelease.xml"
+
 DEFAULT_MAJOR_VERSION = "2"
 DEFAULT_RELEASE_TYPE = "stable"
 
@@ -45,7 +50,7 @@ class AlfredURLProvider(Processor):
         "major_version": {
             "required": False,
             "description": "The Alfred major version to get. "
-            "Possible values are '2'or '3' and the default is '2'",
+            "Possible values are '2', '3' or '4' and the default is '2'",
         },
         "release_type": {
             "required": False,
@@ -125,6 +130,21 @@ class AlfredURLProvider(Processor):
         
         return location
     
+    def get_alfred4_url(self, base_url):
+        """Find and return a download URL for Alfred 4"""
+        
+        # Alfred 4 update check uses a standard plist file.
+        # The file has the same structure as the version 2 and 3 update files
+        # but we're keeping these methods separate in case something changes
+        # in future.
+        info_plist = self.download_info_plist(base_url)
+        version = info_plist.get('version', None)
+        self.env["version"] = version
+        self.output("Found version %s" % version)
+        location = info_plist.get('location', None)
+        
+        return location
+    
     def main(self):
         major_version = self.env.get("major_version", DEFAULT_MAJOR_VERSION)
         self.output("Major version is set to %s" % major_version)
@@ -152,6 +172,17 @@ class AlfredURLProvider(Processor):
                 raise ProcessorError("Unsupported value for release_type: %s" % release_type)
             self.output("Using URL %s" % base_url)
             self.env["url"] = self.get_alfred3_url(base_url)
+        
+        # Alfred 4
+        elif int(major_version) == 4:
+            if release_type == "stable":
+                base_url = self.env.get("base_url", ALFRED4_UPDATE_URL)
+            elif release_type == "prerelease":
+                base_url = self.env.get("base_url", ALFRED4_UPDATE_URL_PRERELEASE)
+            else:
+                raise ProcessorError("Unsupported value for release_type: %s" % release_type)
+            self.output("Using URL %s" % base_url)
+            self.env["url"] = self.get_alfred4_url(base_url)
         
         else:
             raise ProcessorError("Unsupported value for major_version: %s" % major_version)
