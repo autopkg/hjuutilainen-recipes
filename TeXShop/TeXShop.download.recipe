@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>TeXShop</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://pages.uoregon.edu/koch/texshop/texshop-64/texshop.zip</string>
+		<string>https://pages.uoregon.edu/koch/texshop/texshop-64/texshop.zip</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
