@@ -15,8 +15,9 @@
 # limitations under the License.
 
 from __future__ import absolute_import
-import os
+
 import hashlib
+import os
 
 from autopkglib import Processor, ProcessorError
 

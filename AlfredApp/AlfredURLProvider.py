@@ -15,11 +15,11 @@
 # limitations under the License.
 
 from __future__ import absolute_import
-import subprocess
+
 import plistlib
+import subprocess
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["AlfredURLProvider"]
 

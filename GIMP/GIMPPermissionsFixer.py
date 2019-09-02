@@ -15,10 +15,11 @@
 # limitations under the License.
 
 from __future__ import absolute_import
-from autopkglib import Processor, ProcessorError
 
-import subprocess
 import os
+import subprocess
+
+from autopkglib import Processor, ProcessorError
 
 __all__ = ["GIMPPermissionsFixer"]
 
