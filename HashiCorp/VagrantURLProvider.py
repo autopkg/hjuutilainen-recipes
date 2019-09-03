@@ -53,7 +53,7 @@ class VagrantURLProvider(Processor):
             f = urlopen(base_url)
             html = f.read()
             f.close()
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError("Can't download %s: %s" % (base_url, e))
 
         m = re_dmg_url.search(html)
