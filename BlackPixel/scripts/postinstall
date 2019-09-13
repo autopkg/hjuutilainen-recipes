@@ -1,0 +1,8 @@
+#!/bin/bash
+# Install ksdiff command line tool.
+[[ $3 == "/" ]] || exit 1
+KS_APP="/Applications/Kaleidoscope.app"
+KS_BIN_DIR="$KS_APP/Contents/Resources/bin"
+INSTALL_DIR="/usr/local/bin"
+"$KS_APP/Contents/Resources/Integration/scripts/install_ksdiff" "$KS_BIN_DIR" "$INSTALL_DIR"
+exit 0

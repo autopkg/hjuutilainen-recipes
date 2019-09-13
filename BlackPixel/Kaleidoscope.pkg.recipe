@@ -72,6 +72,8 @@
 					<string>com.blackpixel.kaleidoscope</string>
 					<key>options</key>
 					<string>purge_ds_store</string>
+					<key>scripts</key>
+					<string>scripts</string>
 					<key>chown</key>
 					<array>
 						<dict>

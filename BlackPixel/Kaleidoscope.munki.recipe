@@ -30,6 +30,16 @@
 			<string>Kaleidoscope</string>
 			<key>name</key>
 			<string>%NAME%</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/bash
+# Install ksdiff command line tool.
+[[ $3 == "/" ]] || exit 1
+KS_APP="/Applications/Kaleidoscope.app"
+KS_BIN_DIR="$KS_APP/Contents/Resources/bin"
+INSTALL_DIR="/usr/local/bin"
+"$KS_APP/Contents/Resources/Integration/scripts/install_ksdiff" "$KS_BIN_DIR" "$INSTALL_DIR"
+exit 0
+</string>
 			<key>unattended_install</key>
 			<true/>
 		</dict>
