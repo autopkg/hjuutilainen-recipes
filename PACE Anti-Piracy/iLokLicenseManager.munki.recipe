@@ -126,7 +126,16 @@
 				<key>input_plist_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload/Applications/iLok License Manager.app/Contents/Info.plist</string>
 				<key>plist_version_key</key>
-				<string>CFBundleVersion</string>
+				<string>CFBundleShortVersionString</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>com.github.homebysix.VersionSplitter/VersionSplitter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>version</key>
+				<string>%version%</string>
 			</dict>
 		</dict>
 		<dict>
