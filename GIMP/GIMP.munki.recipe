@@ -16,11 +16,6 @@
 		<string>Image Manipulation</string>
 		<key>pkginfo</key>
 		<dict>
-			<key>blocking_applications</key>
-			<array>
-				<string>Gimp</string>
-				<string>GIMP</string>
-			</array>
 			<key>catalogs</key>
 			<array>
 				<string>testing</string>
@@ -42,53 +37,23 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.5.2</string>
+	<string>1.0.4</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.GIMP</string>
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Comment</key>
-			<string>GIMP binary has execute bits only for owner. This needs to be fixed before MunkiImporter.</string>
-			<key>Processor</key>
-			<string>Copier</string>
-			<key>Arguments</key>
-			<dict>
-				<key>source_path</key>
-				<string>%pathname%/G[iI][mM][pP]*.app</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/GIMP.app</string>
-				<key>overwrite</key>
-				<true/>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>GIMPPermissionsFixer</string>
-			<key>Arguments</key>
-			<dict>
-				<key>gimp_app_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/GIMP.app</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>DmgCreator</string>
-			<key>Arguments</key>
-			<dict>
-				<key>dmg_root</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>dmg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-			</dict>
-		</dict>
-		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
+				<string>%pathname%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
+				<key>additional_makepkginfo_options</key>
+				<array>
+					<string>--destinationitemname</string>
+					<string>%NAME%.app</string>
+				</array>
 			</dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>
