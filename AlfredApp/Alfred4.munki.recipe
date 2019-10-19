@@ -33,6 +33,8 @@
 			<string>Running with Crayons Ltd</string>
 			<key>display_name</key>
 			<string>Alfred 4</string>
+			<key>minimum_os_version</key>
+			<string>10.10</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
