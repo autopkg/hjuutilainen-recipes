@@ -14,11 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import subprocess
+from __future__ import absolute_import
+
 import json
+import subprocess
 
 from autopkglib import Processor, ProcessorError
-
 
 __all__ = ["OnePasswordURLProvider"]
 

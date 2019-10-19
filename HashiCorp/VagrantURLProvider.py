@@ -14,11 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from __future__ import absolute_import
+
 import re
-import urllib2
 
 from autopkglib import Processor, ProcessorError
 
+try:
+    from urllib.request import urlopen  # For Python 3
+except ImportError:
+    from urllib2 import urlopen  # For Python 2
 
 __all__ = ["VagrantURLProvider"]
 
@@ -41,14 +46,14 @@ class VagrantURLProvider(Processor):
         },
     }
     description = __doc__
-    
+
     def parse_download_url(self, base_url):
         """Returns the URL"""
         try:
-            f = urllib2.urlopen(base_url)
+            f = urlopen(base_url)
             html = f.read()
             f.close()
-        except BaseException as e:
+        except Exception as e:
             raise ProcessorError("Can't download %s: %s" % (base_url, e))
 
         m = re_dmg_url.search(html)
@@ -56,21 +61,21 @@ class VagrantURLProvider(Processor):
         if not m:
             raise ProcessorError(
                 "Couldn't find dmg link in %s" % base_url)
-        
+
         dmg_url = m.group("dmg_url")
         self.output("Found dmg link: %s" % dmg_url)
         return dmg_url
-    
-    
+
+
     def get_vagrant_dmg_url(self, base_url):
         """Find and return a download URL"""
-        
+
         # Parse the download page to get a dmg link
         dmg_url = self.parse_download_url(base_url)
-        
+
         return dmg_url
-    
-    
+
+
     def main(self):
         base_url = self.env.get("base_url", MAIN_DOWNLOAD_URL)
         self.env["url"] = self.get_vagrant_dmg_url(base_url)

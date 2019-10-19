@@ -14,8 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
+from __future__ import absolute_import
+
 import hashlib
+import os
 
 from autopkglib import Processor, ProcessorError
 
