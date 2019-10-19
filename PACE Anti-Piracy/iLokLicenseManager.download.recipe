@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>iLokLicenseManager</string>
 		<key>DOWNLOAD_URL</key>
-		<string>http://installers.ilok.com/iloklicensemanager/LicenseSupportInstallerMac.zip</string>
+		<string>https://installers.ilok.com/iloklicensemanager/LicenseSupportInstallerMac.zip</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
