@@ -14,7 +14,7 @@
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.GIMP</string>
 	<key>MinimumVersion</key>
-	<string>0.5.2</string>
+	<string>1.0.4</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -53,15 +53,6 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>GIMPPermissionsFixer</string>
-			<key>Arguments</key>
-			<dict>
-				<key>gimp_app_path</key>
-				<string>%pkgroot%/Applications/GIMP.app</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
 			<string>PkgCreator</string>
 			<key>Arguments</key>
 			<dict>
@@ -87,6 +78,17 @@
 						</dict>
 					</array>
 				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%pkgroot%</string>
+				</array>
 			</dict>
 		</dict>
 	</array>
