@@ -28,8 +28,6 @@
 			<string>Software Ambience Corp.</string>
 			<key>display_name</key>
 			<string>DaisyDisk</string>
-			<key>minimum_os_version</key>
-			<string>10.7</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
