@@ -18,10 +18,9 @@ from __future__ import absolute_import
 
 import json
 import re
-import subprocess
 from distutils.version import LooseVersion
 
-from autopkglib import Processor, ProcessorError
+from autopkglib import Processor, ProcessorError, URLGetter
 
 __all__ = ["HashiCorpURLProvider"]
 
@@ -31,7 +30,7 @@ DEFAULT_ARCH = "all"
 RELEASE_RE = re.compile(r'^[0-9\.]+$')
 
 
-class HashiCorpURLProvider(Processor):
+class HashiCorpURLProvider(URLGetter):
     """Provides a download URL for a HashiCorp project using their releases API"""
     input_variables = {
         "project_name": {
@@ -47,11 +46,6 @@ class HashiCorpURLProvider(Processor):
             "required": False,
             "description": "Architecture to get: 386, amd64, arm",
         },
-        "CURL_PATH": {
-            "required": False,
-            "default": "/usr/bin/curl",
-            "description": "Path to curl binary. Defaults to /usr/bin/curl.",
-        },
     }
     output_variables = {
         "url": {
@@ -63,31 +57,9 @@ class HashiCorpURLProvider(Processor):
     }
     description = __doc__
 
-    def fetch_content(self, url, headers=None):
-        """Returns content retrieved by curl, given a url and an optional
-        dictionary of header-name/value mappings. Logic here borrowed from
-        URLTextSearcher processor."""
-
-        try:
-            cmd = [self.env['CURL_PATH'], '--location']
-            if headers:
-                for header, value in headers.items():
-                    cmd.extend(['--header', '%s: %s' % (header, value)])
-            cmd.append(url)
-            proc = subprocess.Popen(
-                cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            (data, stderr) = proc.communicate()
-            if proc.returncode:
-                raise ProcessorError(
-                    'Could not retrieve URL %s: %s' % (url, stderr))
-        except OSError:
-            raise ProcessorError('Could not retrieve URL: %s' % url)
-
-        return data
-
     def download_releases_info(self, base_url):
         """Downloads the update url and returns a json object"""
-        f = self.fetch_content(base_url, None)
+        f = self.download(base_url, None)
         try:
             json_data = json.loads(f)
         except (ValueError, KeyError, TypeError) as e:
@@ -134,5 +106,5 @@ class HashiCorpURLProvider(Processor):
 
 
 if __name__ == "__main__":
-    processor = HashiCorpURLProvider()
-    processor.execute_shell()
+    PROCESSOR = HashiCorpURLProvider()
+    PROCESSOR.execute_shell()
