@@ -17,6 +17,7 @@
 from __future__ import absolute_import
 
 import json
+import re
 import subprocess
 from distutils.version import LooseVersion
 
@@ -27,6 +28,7 @@ __all__ = ["HashiCorpURLProvider"]
 RELEASES_BASE_URL = "https://releases.hashicorp.com"
 DEFAULT_OS = "darwin"
 DEFAULT_ARCH = "all"
+RELEASE_RE = re.compile(r'^[0-9\.]+$')
 
 
 class HashiCorpURLProvider(Processor):
@@ -103,8 +105,9 @@ class HashiCorpURLProvider(Processor):
         # Sort versions with LooseVersion and get a dictionary for the latest version
         versions = releases.get('versions', None)
         version_numbers = versions.keys()
-        version_numbers.sort(key=LooseVersion, reverse=True)
-        latest_version = versions[version_numbers[0]]
+        release_numbers = [ v for v in version_numbers if RELEASE_RE.match(v) ]
+        release_numbers.sort(key=LooseVersion, reverse=True)
+        latest_version = versions[release_numbers[0]]
         # print(json.dumps(latest_version, sort_keys=True, indent=4, separators=(',', ': ')))
 
         # Set the version variable
