@@ -16,33 +16,41 @@
 
 from __future__ import absolute_import
 
-import plistlib
-import subprocess
+from autopkglib import Processor, ProcessorError, URLGetter
 
-from autopkglib import Processor, ProcessorError
+try:
+    from plistlib import loads as plist_from_string
+except ImportError:
+    from plistlib import readPlistFromString as plist_from_string
+
 
 __all__ = ["AlfredURLProvider"]
 
-# Update URLs for Alfred version 2.x
-# Found in "Alfred 2.app/Contents/Frameworks/Alfred Framework.framework/Versions/A/Alfred Framework"
-ALFRED2_UPDATE_URL = "https://cachefly.alfredapp.com/updater/info.plist"
-ALFRED2_UPDATE_URL_PRERELEASE = "https://cachefly.alfredapp.com/updater/prerelease.plist"
-
-# Update URLs for Alfred version 3.x
-# Found in "Alfred 3.app/Contents/Frameworks/Alfred Framework.framework/Versions/A/Alfred Framework"
-ALFRED3_UPDATE_URL = "https://www.alfredapp.com/app/update/general.xml"
-ALFRED3_UPDATE_URL_PRERELEASE = "https://www.alfredapp.com/app/update/prerelease.xml"
-
-# Update URLs for Alfred version 4.x
-# Found in "Alfred 4.app/Contents/Frameworks/Alfred Framework.framework/Versions/A/Alfred Framework"
-ALFRED4_UPDATE_URL = "https://www.alfredapp.com/app/update4/general.xml"
-ALFRED4_UPDATE_URL_PRERELEASE = "https://www.alfredapp.com/app/update4/prerelease.xml"
+# Update URLs for Alfred versions
+# Found in "Alfred (version).app/Contents/Frameworks/Alfred
+# Framework.framework/Versions/A/Alfred Framework"
+UPDATE_URLS = {
+    "2": {
+        "stable": "https://cachefly.alfredapp.com/updater/info.plist",
+        "prerelease": "https://cachefly.alfredapp.com/updater/prerelease.plist",
+    },
+    "3": {
+        "stable": "https://www.alfredapp.com/app/update/general.xml",
+        "prerelease": "https://www.alfredapp.com/app/update/prerelease.xml",
+    },
+    "4": {
+        "stable": "https://www.alfredapp.com/app/update4/general.xml",
+        "prerelease": "https://www.alfredapp.com/app/update4/prerelease.xml",
+    },
+}
 
 DEFAULT_MAJOR_VERSION = "2"
 DEFAULT_RELEASE_TYPE = "stable"
 
-class AlfredURLProvider(Processor):
-    """Provides a download URL for the latest Alfred"""
+
+class AlfredURLProvider(URLGetter):
+    """Provides a download URL for the latest Alfred."""
+
     input_variables = {
         "base_url": {
             "required": False,
@@ -51,146 +59,70 @@ class AlfredURLProvider(Processor):
         "major_version": {
             "required": False,
             "description": "The Alfred major version to get. "
-            "Possible values are '2', '3' or '4' and the default is '2'",
+            "The default value is %s. Possible values are: "
+            "'%s'" % (DEFAULT_MAJOR_VERSION, "', '".join(UPDATE_URLS)),
         },
         "release_type": {
             "required": False,
             "description": "The Alfred release type to get. "
             "Possible values are 'stable' or 'prerelease'",
         },
-        "CURL_PATH": {
-            "required": False,
-            "default": "/usr/bin/curl",
-            "description": "Path to curl binary. Defaults to /usr/bin/curl.",
-        },
     }
     output_variables = {
-        "url": {
-            "description": "URL to the latest Alfred release.",
-        },
-        "version": {
-            "description": "Version of the latest Alfred release.",
-        },
+        "url": {"description": "URL to the latest Alfred release.",},
+        "version": {"description": "Version of the latest Alfred release.",},
     }
     description = __doc__
-    
-    def fetch_content(self, url, headers=None):
-        """Returns content retrieved by curl, given a url and an optional
-        dictionary of header-name/value mappings. Logic here borrowed from
-        URLTextSearcher processor."""
 
-        try:
-            cmd = [self.env['CURL_PATH'], '--location']
-            if headers:
-                for header, value in headers.items():
-                    cmd.extend(['--header', '%s: %s' % (header, value)])
-            cmd.append(url)
-            proc = subprocess.Popen(
-                cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            (data, stderr) = proc.communicate()
-            if proc.returncode:
-                raise ProcessorError(
-                    'Could not retrieve URL %s: %s' % (url, stderr))
-        except OSError:
-            raise ProcessorError('Could not retrieve URL: %s' % url)
-
-        return data
-    
     def download_info_plist(self, base_url):
-        """Downloads the info.plist file and returns a plist object"""
-        f = self.fetch_content(base_url, None)
-        info_plist = plistlib.readPlistFromString(f)
-        
+        """Downloads the info.plist file and returns a plist object."""
+        f = self.download(base_url)
+        info_plist = plist_from_string(f)
+
         return info_plist
-    
-    def get_alfred2_url(self, base_url):
-        """Find and return a download URL for Alfred 2"""
-        
-        # Alfred 2 update check uses a standard plist file.
-        # Grab it and parse...
+
+    def get_alfred_url(self, base_url):
+        """Find and return a download URL for Alfred 2."""
+
+        # Alfred 2, 3, and 4 update check uses a standard plist file.
+        # If this changes in the future, we'll need to copy/adjust this method.
         info_plist = self.download_info_plist(base_url)
-        version = info_plist.get('version', None)
+        version = info_plist.get("version", None)
         self.env["version"] = version
         self.output("Found version %s" % version)
-        location = info_plist.get('location', None)
-        
+        location = info_plist.get("location", None)
+
         return location
-    
-    def get_alfred3_url(self, base_url):
-        """Find and return a download URL for Alfred 3"""
-        
-        # Alfred 3 update check uses a standard plist file.
-        # The file has the same structure as the version 2 update file
-        # but we're keeping these methods separate in case something changes
-        # in future.
-        info_plist = self.download_info_plist(base_url)
-        version = info_plist.get('version', None)
-        self.env["version"] = version
-        self.output("Found version %s" % version)
-        location = info_plist.get('location', None)
-        
-        return location
-    
-    def get_alfred4_url(self, base_url):
-        """Find and return a download URL for Alfred 4"""
-        
-        # Alfred 4 update check uses a standard plist file.
-        # The file has the same structure as the version 2 and 3 update files
-        # but we're keeping these methods separate in case something changes
-        # in future.
-        info_plist = self.download_info_plist(base_url)
-        version = info_plist.get('version', None)
-        self.env["version"] = version
-        self.output("Found version %s" % version)
-        location = info_plist.get('location', None)
-        
-        return location
-    
+
     def main(self):
+        """Main process."""
+
+        # Acquire input variables
         major_version = self.env.get("major_version", DEFAULT_MAJOR_VERSION)
         self.output("Major version is set to %s" % major_version)
         release_type = self.env.get("release_type", DEFAULT_RELEASE_TYPE)
         self.output("Release type is set to %s" % release_type)
-        
-        # Alfred 2
-        if int(major_version) == 2:
-            if release_type == "stable":
-                base_url = self.env.get("base_url", ALFRED2_UPDATE_URL)
-            elif release_type == "prerelease":
-                base_url = self.env.get("base_url", ALFRED2_UPDATE_URL_PRERELEASE)
-            else:
-                raise ProcessorError("Unsupported value for release_type: %s" % release_type)
-            self.output("Using URL %s" % base_url)
-            self.env["url"] = self.get_alfred2_url(base_url)
-        
-        # Alfred 3
-        elif int(major_version) == 3:
-            if release_type == "stable":
-                base_url = self.env.get("base_url", ALFRED3_UPDATE_URL)
-            elif release_type == "prerelease":
-                base_url = self.env.get("base_url", ALFRED3_UPDATE_URL_PRERELEASE)
-            else:
-                raise ProcessorError("Unsupported value for release_type: %s" % release_type)
-            self.output("Using URL %s" % base_url)
-            self.env["url"] = self.get_alfred3_url(base_url)
-        
-        # Alfred 4
-        elif int(major_version) == 4:
-            if release_type == "stable":
-                base_url = self.env.get("base_url", ALFRED4_UPDATE_URL)
-            elif release_type == "prerelease":
-                base_url = self.env.get("base_url", ALFRED4_UPDATE_URL_PRERELEASE)
-            else:
-                raise ProcessorError("Unsupported value for release_type: %s" % release_type)
-            self.output("Using URL %s" % base_url)
-            self.env["url"] = self.get_alfred4_url(base_url)
-        
-        else:
-            raise ProcessorError("Unsupported value for major_version: %s" % major_version)
-        
+
+        # Validate inputs
+        if major_version not in UPDATE_URLS:
+            raise ProcessorError(
+                "Unsupported value for major_version: %s" % major_version
+            )
+        if release_type not in ("stable", "prerelease"):
+            raise ProcessorError(
+                "Unsupported value for release_type: %s" % release_type
+            )
+
+        # Get base URL depending on major version and release type
+        base_url = self.env.get("base_url", UPDATE_URLS[major_version][release_type])
+        self.output("Using URL %s" % base_url)
+
+        # Get download URL by parsing content of base URL
+        self.env["url"] = self.get_alfred_url(base_url)
+
         self.output("Found URL %s" % self.env["url"])
 
 
 if __name__ == "__main__":
-    processor = AlfredURLProvider()
-    processor.execute_shell()
+    PROCESSOR = AlfredURLProvider()
+    PROCESSOR.execute_shell()
