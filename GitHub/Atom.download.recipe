@@ -16,23 +16,14 @@
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>github_repo</key>
-				<string>atom/atom</string>
-				<key>asset_regex</key>
-				<string>atom-mac\.zip</string>
-			</dict>
-			<key>Processor</key>
-			<string>GitHubReleasesInfoProvider</string>
-		</dict>
-		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
 				<string>%NAME%-mac.zip</string>
+				<key>url</key>
+				<string>https://atom.io/download/mac</string>
 			</dict>
 		</dict>
 		<dict>
@@ -62,7 +53,7 @@
 				<key>requirement</key>
 				<string>identifier "com.github.atom" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = VEKTX9H2N7</string>
 				<key>strict_verification</key>
-				<true />
+				<true/>
 			</dict>
 		</dict>
 	</array>
