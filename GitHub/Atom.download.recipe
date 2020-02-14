@@ -22,6 +22,8 @@
 				<string>atom/atom</string>
 				<key>asset_regex</key>
 				<string>atom-mac\.zip</string>
+				<key>include_prereleases</key>
+				<false />
 			</dict>
 			<key>Processor</key>
 			<string>GitHubReleasesInfoProvider</string>
