@@ -32,21 +32,23 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>blocking_applications</key>
+			<array>
+				<string>Plex Media Server.app</string>
+			</array>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.4</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.PlexMediaServer</string>
+	<string>io.github.hjuutilainen.pkg.PlexMediaServer</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>munkiimport_appname</key>
-				<string>Plex Media Server.app</string>
+				<string>%pkg_path%</string>
 				<key>repo_subdirectory</key>
 				<string>%MUNKI_REPO_SUBDIR%</string>
 			</dict>
