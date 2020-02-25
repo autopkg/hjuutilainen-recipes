@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest defined Elastic Beat product. Set BEAT_NAME to one of the following: filebeat, packetbeat, metricbeat, heartbeat, auditbeat, functionbeat. Note: winlogbeat and journalbeat do not have macOS binaries</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.download.elasticbeat</string>
+	<key>Input</key>
+	<dict>
+		<key>BEAT_NAME</key>
+		<string>filebeat</string>
+		<key>NAME</key>
+		<string>filebeat</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.4</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://www.elastic.co/downloads/beats/%BEAT_NAME%</string>
+				<key>re_pattern</key>
+				<string>(?P&lt;url&gt;https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%-(?P&lt;version&gt;[\d\.]+)-darwin-x86_64\.tar\.gz)</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>filename</key>
+				<string>%BEAT_NAME%-%version%-darwin-x86_64.tar.gz</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%-%version%-darwin-x86_64.tar.gz.sha512</string>
+				<key>re_pattern</key>
+				<string>(?P&lt;checksum&gt;\w+)</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>io.github.hjuutilainen.SharedProcessors/ChecksumVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>algorithm</key>
+				<string>SHA512</string>
+				<key>checksum</key>
+				<string>%checksum%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%BEAT_NAME%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/%BEAT_NAME%/%BEAT_NAME%-%version%-darwin-x86_64/%BEAT_NAME%</string>
+				<key>requirement</key>
+				<string>identifier %BEAT_NAME% and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2BT3HPN62Z"</string>
+				<key>strict_verification</key>
+				<true />
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
