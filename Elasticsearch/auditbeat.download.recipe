@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest Elastic auditbeat</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.download.auditbeat</string>
+	<key>Input</key>
+	<dict>
+		<key>BEAT_NAME</key>
+		<string>auditbeat</string>
+		<key>NAME</key>
+		<string>auditbeat</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.4</string>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.elasticbeat</string>
+	<key>Process</key>
+	<array>
+	</array>
+</dict>
+</plist>
