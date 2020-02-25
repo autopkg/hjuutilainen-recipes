@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest Elasticsearch Filebeat, creates a package and imports into Munki</string>
+	<string>Downloads the latest Elastic filebeat, creates a package and imports into Munki</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.munki.filebeat</string>
 	<key>Input</key>

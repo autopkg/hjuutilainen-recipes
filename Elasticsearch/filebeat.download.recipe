@@ -3,64 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest Elasticsearch Filebeat</string>
+	<string>Downloads the latest Elastic filebeat</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.filebeat</string>
 	<key>Input</key>
 	<dict>
+		<key>BEAT_NAME</key>
+		<string>filebeat</string>
 		<key>NAME</key>
 		<string>filebeat</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.5.2</string>
+	<string>1.0.4</string>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.elasticbeat</string>
 	<key>Process</key>
 	<array>
-		<dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>https://www.elastic.co/downloads/beats/filebeat</string>
-				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-(?P&lt;version&gt;[\d\.]+)-darwin-x86_64\.tar\.gz)</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%-%version%-darwin-x86_64.tar.gz</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-%version%-darwin-x86_64.tar.gz.sha512</string>
-				<key>re_pattern</key>
-				<string>(?P&lt;checksum&gt;\w+)</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>io.github.hjuutilainen.SharedProcessors/ChecksumVerifier</string>
-			<key>Arguments</key>
-			<dict>
-				<key>algorithm</key>
-				<string>SHA512</string>
-				<key>checksum</key>
-				<string>%checksum%</string>
-			</dict>
-		</dict>
 	</array>
 </dict>
 </plist>

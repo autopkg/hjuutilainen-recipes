@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads and installs the latest Elasticsearch Filebeat</string>
+	<string>Downloads and installs the latest Elastic filebeat</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.install.filebeat</string>
 	<key>Input</key>
 	<dict>
-		<key>NAME</key>
+		<key>BEAT_NAME</key>
 		<string>filebeat</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.5.2</string>
+	<string>1.0.4</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.pkg.filebeat</string>
 	<key>Process</key>
