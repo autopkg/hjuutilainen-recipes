@@ -21,7 +21,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>&gt;(gimp-.*-x86_64.dmg)&lt;</string>
+				<string>&gt;(gimp-.*-x86_64[\-0-9]*\.dmg)&lt;</string>
 				<key>url</key>
 				<string>https://download.gimp.org/pub/gimp/stable/osx/?C=M;O=D</string>
 			</dict>
