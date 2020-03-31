@@ -21,9 +21,24 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>&gt;(gimp-.*-x86_64[\-0-9]*\.dmg)&lt;</string>
+				<string>href='//download.gimp.org/mirror/pub/gimp/v(.*)/osx/'</string>
 				<key>url</key>
-				<string>https://download.gimp.org/pub/gimp/stable/osx/?C=M;O=D</string>
+				<string>https://www.gimp.org/downloads/</string>
+				<key>result_output_var_name</key>
+				<string>version_match</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>&gt;(gimp-.*-x86_64[\-0-9]*-1\.dmg)&lt;</string>
+				<key>url</key>
+				<string>https://download.gimp.org/pub/gimp/v%version_match%/osx/?C=N;O=D</string>
+				<key>result_output_var_name</key>
+				<string>dmg_match</string>				
 			</dict>
 		</dict>
 		<dict>
@@ -32,7 +47,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://download.gimp.org/pub/gimp/stable/osx/%match%</string>
+				<string>https://download.gimp.org/pub/gimp/v%version_match%/osx/%dmg_match%</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
