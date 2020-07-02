@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest defined Elastic Beat product. Set BEAT_NAME to one of the following: filebeat, packetbeat, metricbeat, heartbeat, auditbeat, functionbeat. Note: winlogbeat and journalbeat do not have macOS binaries</string>
+	<string>Downloads the latest defined Elastic Beat product. Use an override to set OPTIONAL_VERSION to -oss to download the Apache 2.0 licensed version of the Beat. Set BEAT_NAME to one of the following: filebeat, packetbeat, metricbeat, heartbeat, auditbeat, functionbeat. Note: winlogbeat and journalbeat do not have macOS binaries and functionbeat does not have an Apache 2.0 licensed version.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.elasticbeat</string>
 	<key>Input</key>
@@ -12,6 +12,8 @@
 		<string>filebeat</string>
 		<key>NAME</key>
 		<string>filebeat</string>
+		<key>OPTIONAL_VERSION</key>
+		<string></string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.4</string>
@@ -23,9 +25,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://www.elastic.co/downloads/beats/%BEAT_NAME%</string>
+				<string>https://www.elastic.co/downloads/beats/%BEAT_NAME%%OPTIONAL_VERSION%</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%-(?P&lt;version&gt;[\d\.]+)-darwin-x86_64\.tar\.gz)</string>
+				<string>(?P&lt;url&gt;https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%%OPTIONAL_VERSION%-(?P&lt;version&gt;[\d\.]+)-darwin-x86_64\.tar\.gz)</string>
 			</dict>
 		</dict>
 		<dict>
@@ -47,7 +49,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%-%version%-darwin-x86_64.tar.gz.sha512</string>
+				<string>https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%%OPTIONAL_VERSION%-%version%-darwin-x86_64.tar.gz.sha512</string>
 				<key>re_pattern</key>
 				<string>(?P&lt;checksum&gt;\w+)</string>
 			</dict>
