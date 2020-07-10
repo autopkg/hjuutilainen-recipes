@@ -7,7 +7,7 @@ on:
     - cron:  '0 0 1 * *'
 
 jobs:
-  lint:
+  autopkg_run:
     runs-on: macos-latest
     timeout-minutes: 90
 
@@ -38,6 +38,14 @@ jobs:
         defaults write com.github.autopkg MUNKI_REPO "$GITHUB_WORKSPACE"/munki_repo
         defaults write com.github.autopkg GITHUB_TOKEN "${{ secrets.GITHUB_TOKEN }}"
     
-    - name: Run AutoPkg
+    - name: Run 1Password.pkg.recipe
       run: |
-        /usr/local/bin/autopkg run -v -k CODE_SIGNATURE_VERIFICATION_DEBUG=True */*.download.recipe
+        /usr/local/bin/autopkg run -v -k CODE_SIGNATURE_VERIFICATION_DEBUG=True */1Password.pkg.recipe
+
+    - name: Run Alfred4.pkg.recipe
+      run: |
+        /usr/local/bin/autopkg run -v -k CODE_SIGNATURE_VERIFICATION_DEBUG=True */Alfred4.pkg.recipe
+
+    - name: Run ATLAS.ti.pkg.recipe
+      run: |
+        /usr/local/bin/autopkg run -v -k CODE_SIGNATURE_VERIFICATION_DEBUG=True */ATLAS.ti.pkg.recipe
