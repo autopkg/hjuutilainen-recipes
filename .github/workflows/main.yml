@@ -1,0 +1,15 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: macos-latest
+    timeout-minutes: 90 # Keeps your builds from running too long
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Lint all recipes
+      run: |
+        plutil -lint */*.recipe
