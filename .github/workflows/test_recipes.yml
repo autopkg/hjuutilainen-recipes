@@ -1,0 +1,42 @@
+name: Test recipes
+
+on: [push]
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 0 1 * *'
+
+jobs:
+  lint:
+    runs-on: macos-latest
+    timeout-minutes: 90
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Lint all recipes
+      run: |
+        plutil -lint */*.recipe
+    
+    - name: AutoPkg Cache
+      id: autopkg-cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/Library/AutoPkg/Cache
+          ~/Library/AutoPkg/RecipeRepos
+        key: ${{ runner.os }}-autopkg-cache
+    
+    - name: Install autopkg
+      run: |
+        curl -L https://github.com/autopkg/autopkg/releases/download/v2.1/autopkg-2.1.pkg --output /tmp/autopkg.pkg
+        sudo installer -pkg /tmp/autopkg.pkg -target /
+    
+    - name: Configure autopkg
+      run: |
+        defaults write com.github.autopkg FAIL_RECIPES_WITHOUT_TRUST_INFO -bool FALSE
+        defaults write com.github.autopkg MUNKI_REPO "$GITHUB_WORKSPACE"/munki_repo
+        defaults write com.github.autopkg GITHUB_TOKEN "${{ secrets.GITHUB_TOKEN }}"
+    
+    - name: Run AutoPkg
+      run: |
+        /usr/local/bin/autopkg run -v -k CODE_SIGNATURE_VERIFICATION_DEBUG=True */*.download.recipe
