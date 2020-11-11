@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the current release version of Big Sur Blocker and imports into Munki.</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.munki.BigSurBlocker</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>BigSurBlocker</string>
+		<key>MUNKI_REPO_SUBDIR</key>
+		<string>apps</string>
+		<key>MUNKI_CATEGORY</key>
+		<string>Utilities</string>
+		<key>pkginfo</key>
+		<dict>
+			<key>blocking_applications</key>
+			<array>
+			</array>
+			<key>catalogs</key>
+			<array>
+				<string>testing</string>
+			</array>
+			<key>category</key>
+			<string>%MUNKI_CATEGORY%</string>
+			<key>description</key>
+			<string>Detect when "Install macOS Big Sur.app" installer application has launched, terminate the process and display an alert.</string>
+			<key>developer</key>
+			<string>Hannes Juutilainen</string>
+			<key>display_name</key>
+			<string>Big Sur Blocker</string>
+			<key>minimum_os_version</key>
+			<string>10.12</string>
+			<key>maximum_os_version</key>
+			<string>10.15.99</string>
+			<key>name</key>
+			<string>%NAME%</string>
+			<key>unattended_install</key>
+			<true/>
+			<key>unattended_uninstall</key>
+			<true/>
+			<key>uninstall_method</key>
+			<string>uninstall_script</string>
+			<key>uninstall_script</key>
+			<string>#!/bin/bash
+
+current_user_uid=$( echo "show State:/Users/ConsoleUser" | scutil | awk '/UID :/ &amp;&amp; ! /loginwindow/ { print $3 }' )
+
+launchd_item_path="/Library/LaunchAgents/com.hjuutilainen.bigsurblocker.plist"
+launchctl bootout gui/${current_user_uid} "${launchd_item_path}"
+
+rm -f /Library/LaunchAgents/com.hjuutilainen.bigsurblocker.plist
+rm -f /usr/local/bin/bigsurblocker
+
+pkgutil --forget com.hjuutilainen.bigsurblocker
+
+exit 0
+</string>
+		</dict>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>1.0.4</string>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.BigSurBlocker</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>faux_root</key>
+				<string>%RECIPE_CACHE_DIR%/payload</string>
+				<key>installs_item_paths</key>
+				<array>
+					<string>/usr/local/bin/bigsurblocker</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiInstallsItemsCreator</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>path_list</key>
+				<array>
+					<string>%RECIPE_CACHE_DIR%/unpack</string>
+					<string>%RECIPE_CACHE_DIR%/payload</string>
+				</array>
+			</dict>
+			<key>Processor</key>
+			<string>PathDeleter</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiImporter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>pkg_path</key>
+				<string>%pathname%</string>
+				<key>repo_subdirectory</key>
+				<string>%MUNKI_REPO_SUBDIR%</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
