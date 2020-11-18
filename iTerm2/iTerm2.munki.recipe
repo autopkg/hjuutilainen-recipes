@@ -15,7 +15,7 @@
 		<key>MUNKI_CATEGORY</key>
 		<string>Utilities</string>
 		<key>RELEASE</key>
-		<string>final</string>
+		<string>final_modern</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
