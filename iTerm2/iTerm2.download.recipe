@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current version of iTerm2. Set RELEASE to either "final_new" or "testing". For iTerm2 version 3 beta, set RELEASE to "testing3".</string>
+	<string>Downloads the current version of iTerm2. Set RELEASE to either "final" or "testing". For iTerm2 version 3 beta, set RELEASE to "testing3".</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.iTerm2</string>
 	<key>Input</key>
@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>iTerm2</string>
 		<key>RELEASE</key>
-		<string>final_new</string>
+		<string>final</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
@@ -23,7 +23,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>appcast_url</key>
-				<string>https://iterm2.com/appcasts/%RELEASE%.xml</string>
+				<string>https://iterm2.com/appcasts/%RELEASE%_new.xml</string>
 			</dict>
 		</dict>
 		<dict>
