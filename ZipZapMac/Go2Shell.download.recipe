@@ -21,7 +21,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>http://zipzapmac.com/download/Go2Shell</string>
+				<string>https://zipzapmac.com/download/Go2Shell</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
