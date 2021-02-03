@@ -22,7 +22,7 @@
 			<dict>
 				<!-- https://www.getwsone.com/ -->
 				<key>url</key>
-				<string>https://storage.googleapis.com/getwsone-com-prod/downloads/VMwareWorkspaceONEIntelligentHub.pkg</string>
+				<string>https://packages.vmware.com/wsone/VMwareWorkspaceONEIntelligentHub.pkg</string>
 			</dict>
 		</dict>
 		<dict>
