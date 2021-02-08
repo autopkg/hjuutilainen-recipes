@@ -41,7 +41,6 @@
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
-		<!-- Disabled because BibDesk still uses a version 1 signature
 		<dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
@@ -50,10 +49,11 @@
 				<key>input_path</key>
 				<string>%pathname%/BibDesk.app</string>
 				<key>requirement</key>
-				<string>identifier "edu.ucsd.cs.mmccrack.bibdesk" and certificate root = H"893e3d0d906da4c7883ca266b61bde7050790b3b"</string>
+				<string>identifier "edu.ucsd.cs.mmccrack.bibdesk" and certificate root = H"3b969e5e49e0be2dd4973dbd8787ecee9ebb259a"</string>
+				<key>strict_verification</key>
+				<true />
 			</dict>
 		</dict>
-		-->
 	</array>
 </dict>
 </plist>
