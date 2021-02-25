@@ -59,6 +59,8 @@
 					<string>bundleid</string>
 					<key>CFBundleName</key>
 					<string>app_name</string>
+					<key>LSMinimumSystemVersion</key>
+					<string>min_os_version</string>
 				</dict>
 			</dict>
 		</dict>
