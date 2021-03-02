@@ -26,8 +26,6 @@
 				<string>%pathname%</string>
 				<key>pkg_path</key>
 				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
-				<key>purge_destination</key>
-				<true/>
 			</dict>
 		</dict>
 		<dict>
