@@ -21,19 +21,29 @@ LibreOffice Fresh is the stable version with the most recent features. Users int
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Comment</key>
+			<string>Try to parse the the latest fresh or still version from current release notes</string>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>(?P&lt;DOWNLOAD_URL&gt;download.documentfoundation.org/libreoffice/stable/[\d\.]+/mac/x86_64/LibreOffice_(?P&lt;version&gt;[\d\.]+)_MacOS_x86-64.dmg)</string>
+				<string>LibreOffice (?P&lt;version&gt;[\d\.]+) \([\d-]+\) - (?i)%RELEASE% Branch</string>
 				<key>url</key>
-				<string>https://www.libreoffice.org/download/libreoffice-%RELEASE%/?type=mac-x86_64</string>
-				<key>request_headers</key>
-				<dict>
-					<key>User-Agent</key>
-					<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.2 Safari/605.1.15</string>
-				</dict>
+				<string>https://www.libreoffice.org/download/release-notes/</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Validate the version we found above by searching the download page</string>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>(?P&lt;DOWNLOAD_URL&gt;download.documentfoundation.org/libreoffice/stable/%version%/mac/x86_64/LibreOffice_%version%_MacOS_x86-64.dmg)</string>
+				<key>url</key>
+				<string>https://www.libreoffice.org/download/download/?type=mac-x86_64</string>
 			</dict>
 		</dict>
 		<dict>
