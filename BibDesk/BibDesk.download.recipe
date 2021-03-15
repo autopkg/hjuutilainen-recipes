@@ -49,7 +49,7 @@
 				<key>input_path</key>
 				<string>%pathname%/BibDesk.app</string>
 				<key>requirement</key>
-				<string>identifier "edu.ucsd.cs.mmccrack.bibdesk" and certificate root = H"3b969e5e49e0be2dd4973dbd8787ecee9ebb259a"</string>
+				<string>identifier "edu.ucsd.cs.mmccrack.bibdesk" and cdhash H"79a83351c728f514b7a6a9ea012a3152fced980e" or cdhash H"4890020f2552f866efc303fa7c47c195cd986de0" or cdhash H"debe535723868d007a295fea5229abee393f9173" or cdhash H"72f0cebfdd966bea47dd3128f08eeba61fcc7297"</string>
 				<key>strict_verification</key>
 				<true />
 			</dict>
