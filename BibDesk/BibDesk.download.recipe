@@ -14,7 +14,7 @@
 		<string>http://bibdesk.sourceforge.net/bibdesk.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>1.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
@@ -31,10 +31,8 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
-				<key>CHECK_FILESIZE_ONLY</key>
-				<true/>
 				<key>filename</key>
-				<string>%NAME%.dmg</string>
+				<string>%NAME%.zip</string>
 			</dict>
 		</dict>
 		<dict>
@@ -43,13 +41,26 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/BibDesk.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/BibDesk.app</string>
 				<key>requirement</key>
-				<string>identifier "edu.ucsd.cs.mmccrack.bibdesk" and certificate root = H"3b969e5e49e0be2dd4973dbd8787ecee9ebb259a"</string>
+				<string>identifier "edu.ucsd.cs.mmccrack.bibdesk" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = J33JTA7SY9</string>
 				<key>strict_verification</key>
 				<true />
 			</dict>
