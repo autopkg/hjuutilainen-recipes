@@ -51,6 +51,15 @@
 			<dict>
 				<key>additional_pkginfo</key>
 				<dict>
+					<key>installs</key>
+					<array>
+					<dict>
+						<key>path</key>
+						<string>/Applications/TeamViewer.app</string>
+						<key>type</key>
+						<string>application</string>
+					</dict>
+					</array>
 					<key>version</key>
 					<string>%version%</string>
 				</dict>
