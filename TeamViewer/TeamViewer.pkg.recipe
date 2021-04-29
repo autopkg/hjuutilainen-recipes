@@ -65,15 +65,21 @@
 			<key>Processor</key>
 			<string>MunkiInstallsItemsCreator</string>
 		</dict>
-       <dict>
-           <key>Arguments</key>
-           <dict>
-               <key>info_path</key>
-               <string>%RECIPE_CACHE_DIR%/payload/root/Applications/TeamViewer.app</string>
-           </dict>
-           <key>Processor</key>
-           <string>PlistReader</string>
-       </dict>
+		<dict>
+			<key>Arguments</key>
+			<dict/>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>info_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/root/Applications/TeamViewer.app</string>
+			</dict>
+			<key>Processor</key>
+			<string>PlistReader</string>
+		</dict>
 		<dict>
 			<key>Arguments</key>
 			<dict>
