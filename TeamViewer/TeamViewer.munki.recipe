@@ -36,6 +36,9 @@
 			<true/>
 			<key>unattended_uninstall</key>
 			<true/>
+      <key>postuninstall_script</key>
+      <string>#!/bin/bash
+rm -rf /Applications/TeamViewer.app</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
