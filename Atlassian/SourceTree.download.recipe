@@ -23,7 +23,7 @@
 				<key>url</key>
 				<string>https://www.sourcetreeapp.com</string>
 				<key>re_pattern</key>
-				<string>(https://product-downloads.atlassian.com/software/sourcetree/ga/Source[Tt]ree_[0-9a-z\.]+_[0-9a-z\.]+\.zip)</string>
+				<string>"macURL":"(https://product-downloads.atlassian.com/software/sourcetree/ga/Source[Tt]ree_[0-9a-z\.]+_[0-9a-z\.]+\.zip)"</string>
 				<key>result_output_var_name</key>
 				<string>url</string>
 			</dict>
