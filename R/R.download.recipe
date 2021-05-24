@@ -23,7 +23,7 @@
 				<key>url</key>
 				<string>https://cloud.r-project.org/bin/macosx/</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;r_filename&gt;R-(?P&lt;r_version&gt;[0-9\.]+)\.pkg)</string>
+				<string>(?P&lt;r_filename&gt;base\/R-(?P&lt;r_version&gt;[0-9\.]+)\.pkg)</string>
 			</dict>
 		</dict>
 		<dict>
