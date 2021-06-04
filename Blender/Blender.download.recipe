@@ -3,13 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest Blender. The only supported architecture is (since v2.72) x86_64.</string>
+	<string>Downloads the latest Blender. (At least) Since v2.93 you may choose between x64 and amd64 as architecture. This recipes defaults to x64.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.Blender</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>Blender</string>
+		<key>ARCHITECTURE</key>
+		<string>x64</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.2</string>
@@ -25,7 +27,7 @@
 				<key>url</key>
 				<string>https://www.blender.org/download/</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;download_path&gt;Blender[0-9a-zA-Z\.]+/blender-(?P&lt;version&gt;[0-9a-zA-Z\.]+)-macOS.dmg)</string>
+				<string>(?P&lt;download_path&gt;Blender[0-9a-zA-Z\.]+/blender-(?P&lt;version&gt;[0-9a-zA-Z\.]+)-macos-%ARCHITECTURE%.dmg)</string>
 			</dict>
 		</dict>
 		<dict>
@@ -38,7 +40,7 @@
 				<key>url</key>
 				<string>https://www.blender.org/download/%download_path%</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://.*/blender-(?P&lt;version&gt;[0-9a-zA-Z\.]+)-macOS.dmg)</string>
+				<string>(?P&lt;url&gt;https://.*/blender-(?P&lt;version&gt;[0-9a-zA-Z\.]+)-macos-%ARCHITECTURE%.dmg)</string>
 			</dict>
 		</dict>
 		<dict>
