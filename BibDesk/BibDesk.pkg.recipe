@@ -23,18 +23,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>app_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/BibDesk.app</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>PathDeleter</string>
-			<key>Arguments</key>
-			<dict>
-				<key>path_list</key>
-				<array>
-					<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				</array>
+				<string>%pathname%/BibDesk.app</string>
 			</dict>
 		</dict>
 	</array>
