@@ -10,8 +10,8 @@
 	<dict>
 		<key>NAME</key>
 		<string>ATLAS.ti</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://update.atlasti.com/spk/mac/latest/ATLAS.ti.dmg</string>
+		<key>APPCAST_URL</key>
+		<string>https://cdn.atlasti.com/mac/sparklefeed_9.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
@@ -19,12 +19,16 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>URLDownloader</string>
+			<string>SparkleUpdateInfoProvider</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<key>appcast_url</key>
+				<string>%APPCAST_URL%</string>
 			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
 		</dict>
 		<dict>
 			<key>Processor</key>
