@@ -19,28 +19,11 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>URLDownloader</string>
+			<string>DeprecationWarning</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>Unarchiver</string>
-			<key>Arguments</key>
-			<dict>
-				<key>archive_path</key>
-				<string>%pathname%</string>
-				<key>destination_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
-				<key>purge_destination</key>
-				<true/>
+				 <key>warning_message</key>
+				 <string>This recipe has been deprecated and will be removed soon</string>
 			</dict>
 		</dict>
 	</array>

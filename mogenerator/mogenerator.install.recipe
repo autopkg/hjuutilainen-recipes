@@ -19,11 +19,11 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>Installer</string>
+			<string>DeprecationWarning</string>
 			<key>Arguments</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%/mogenerator-*.pkg</string>
+				 <key>warning_message</key>
+				 <string>This recipe has been deprecated and will be removed soon</string>
 			</dict>
 		</dict>
 	</array>

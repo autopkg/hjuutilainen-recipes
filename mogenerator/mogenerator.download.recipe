@@ -17,29 +17,12 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>DeprecationWarning</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>http://rentzsch.github.io/mogenerator/</string>
-				<key>re_pattern</key>
-				<string>(https://github.com/rentzsch/mogenerator/releases/download/[0-9\.]+/mogenerator-[0-9\.]+\.dmg)</string>
-				<key>result_output_var_name</key>
-				<string>url</string>
+				 <key>warning_message</key>
+				 <string>This recipe has been deprecated and will be removed soon</string>
 			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
 		</dict>
 	</array>
 </dict>
