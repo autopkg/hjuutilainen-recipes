@@ -35,24 +35,13 @@ LibreOffice Fresh is the stable version with the most recent features. Users int
 		</dict>
 		<dict>
 			<key>Comment</key>
-			<string>Validate the version we found above by searching the download page</string>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>re_pattern</key>
-				<string>(?P&lt;DOWNLOAD_URL&gt;download.documentfoundation.org/libreoffice/stable/%version%/mac/x86_64/LibreOffice_%version%_MacOS_x86-64.dmg)</string>
-				<key>url</key>
-				<string>https://www.libreoffice.org/download/download/?type=mac-x86_64</string>
-			</dict>
-		</dict>
-		<dict>
+			<string>Attempt to download LibreOffice using the last known download naming convention</string>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://%DOWNLOAD_URL%</string>
+				<string>https://download.documentfoundation.org/libreoffice/stable/%version%/mac/x86_64/LibreOffice_%version%_MacOS_x86-64.dmg</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
