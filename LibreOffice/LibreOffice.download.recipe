@@ -35,7 +35,13 @@ LibreOffice Fresh is the stable version with the most recent features. Users int
 		</dict>
 		<dict>
 			<key>Comment</key>
-			<string>Attempt to download LibreOffice using the last known download naming convention</string>
+			<string>
+				The current (late June 2021) dmg download URL at
+				https://www.libreoffice.org/download/download/?type=mac-x86_64
+				takes us to a JavaScript-heavy page that eventually redirects to
+				the download, but the download is at a predictable URL once we
+				know the version. So we just assemble that URL.
+			</string>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
