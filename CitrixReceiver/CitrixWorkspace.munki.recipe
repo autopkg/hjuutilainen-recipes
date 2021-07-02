@@ -96,8 +96,6 @@
 				<dict>
 					<key>CFBundleShortVersionString</key>
 					<string>version</string>
-					<key>LSMinimumSystemVersion</key>
-					<string>min_os_version</string>
 				</dict>
 			</dict>
 			<key>Processor</key>
@@ -109,7 +107,7 @@
 				<key>additional_pkginfo</key>
 				<dict>
 					<key>minimum_os_version</key>
-					<string>%min_os_version%</string>
+					<string>10.15</string>
 					<key>version</key>
 					<string>%version%</string>
 				</dict>
