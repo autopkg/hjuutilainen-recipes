@@ -32,8 +32,6 @@
 			<string>Citrix Systems, Inc.</string>
 			<key>display_name</key>
 			<string>Citrix Workspace</string>
-			<key>minimum_os_version</key>
-			<string>10.15</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -84,11 +82,38 @@
 			<string>MunkiInstallsItemsCreator</string>
 		</dict>
 		<dict>
+			<key>Arguments</key>
+			<dict/>
 			<key>Processor</key>
 			<string>MunkiPkginfoMerger</string>
+		</dict>
+		<dict>
 			<key>Arguments</key>
 			<dict>
+				<key>info_path</key>
+				<string>%RECIPE_CACHE_DIR%/payload/Applications/Citrix Workspace.app/Contents/Info.plist</string>
+				<key>plist_keys</key>
+				<dict>
+					<key>CFBundleShortVersionString</key>
+					<string>version</string>
+				</dict>
 			</dict>
+			<key>Processor</key>
+			<string>PlistReader</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>minimum_os_version</key>
+					<string>10.15</string>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
@@ -102,7 +127,6 @@
 			<key>Processor</key>
 			<string>PathDeleter</string>
 		</dict>
-		
 		<dict>
 			<key>Processor</key>
 			<string>MunkiImporter</string>

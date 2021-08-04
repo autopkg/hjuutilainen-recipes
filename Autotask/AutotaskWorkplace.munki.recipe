@@ -10,31 +10,6 @@
 	<dict>
 		<key>NAME</key>
 		<string>AutotaskWorkplace</string>
-		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/AutotaskWorkplace</string>
-		<key>MUNKI_CATEGORY</key>
-		<string>File Sync</string>
-		<key>pkginfo</key>
-		<dict>
-			<key>catalogs</key>
-			<array>
-				<string>testing</string>
-			</array>
-			<key>category</key>
-			<string>%MUNKI_CATEGORY%</string>
-			<key>description</key>
-			<string>Autotask Workplace is an online file sharing and collaboration service, empowering business teams to be more productive and efficient through secure access to any type of business content, anywhere, using any device.</string>
-			<key>developer</key>
-			<string>Autotask Corporation</string>
-			<key>display_name</key>
-			<string>Autotask Workplace Desktop</string>
-			<key>name</key>
-			<string>%NAME%</string>
-			<key>unattended_install</key>
-			<true/>
-			<key>unattended_uninstall</key>
-			<true/>
-		</dict>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
@@ -44,15 +19,11 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>MunkiImporter</string>
+			<string>DeprecationWarning</string>
 			<key>Arguments</key>
 			<dict>
-				<key>munkiimport_appname</key>
-				<string>Autotask Workplace Desktop.app</string>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
+				 <key>warning_message</key>
+				 <string>This recipe has been deprecated and will be removed soon</string>
 			</dict>
 		</dict>
 	</array>
