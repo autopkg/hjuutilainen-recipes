@@ -34,11 +34,11 @@
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>&gt;(gimp-.*-x86_64[\-0-9]*-1\.dmg)&lt;</string>
+				<string>&gt;(gimp-[\d\.]+-x86_64(-\d)?\.dmg)&lt;</string>
 				<key>url</key>
 				<string>https://download.gimp.org/pub/gimp/v%version_match%/osx/?C=N;O=D</string>
 				<key>result_output_var_name</key>
-				<string>dmg_match</string>				
+				<string>dmg_match</string>
 			</dict>
 		</dict>
 		<dict>
