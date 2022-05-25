@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>Kaleidoscope</string>
 		<key>SPARKLE_FEED_URL</key>
-		<string>https://updates.kaleidoscope.app/v2/prod/appcast</string>
+		<string>https://updates.kaleidoscope.app/v3/prod/appcast</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.3.1</string>
