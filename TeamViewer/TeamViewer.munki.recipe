@@ -34,11 +34,30 @@
 			<string>%NAME%</string>
 			<key>unattended_install</key>
 			<true/>
+			<key>preinstall_script</key>
+			<string>#!/bin/sh
+## preinstall script
+
+# Set TeamViewer to only restart the service
+# after installation, achieved by creating the
+# following file
+
+echo "1" > /tmp/tvonlystartservice
+			</string>
+			<key>postinstall_script</key>
+			<string>#!/bin/sh
+## postinstall script
+
+# Clean the tmp file created at preinstall phase.
+
+sudo rm -rf /tmp/tvonlystartservice
+			</string>
 			<key>unattended_uninstall</key>
 			<true/>
-      <key>postuninstall_script</key>
-      <string>#!/bin/bash
-rm -rf /Applications/TeamViewer.app</string>
+			<key>postuninstall_script</key>
+			<string>#!/bin/bash
+rm -rf /Applications/TeamViewer.app
+			</string>
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>

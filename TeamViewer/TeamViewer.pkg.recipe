@@ -41,7 +41,7 @@
 		</dict>
 		<dict>
 			<key>Comment</key>
-			<string>TeamViewer 9 installs in /Applications/TeamViewer.app so extract accordingly</string>
+			<string>TeamViewer installs in /Applications/TeamViewer.app so extract accordingly</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_payload_path</key>
@@ -50,7 +50,7 @@
 				<string>%RECIPE_CACHE_DIR%/payload/root/Applications</string>
 			</dict>
 			<key>Processor</key>
-			<string>PkgPayloadUnpacker</string>
+			<string>PBXZPayloadUnpacker</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
