@@ -42,6 +42,10 @@ UPDATE_URLS = {
         "stable": "https://www.alfredapp.com/app/update4/general.xml",
         "prerelease": "https://www.alfredapp.com/app/update4/prerelease.xml",
     },
+    "5": {
+        "stable": "https://www.alfredapp.com/app/update5/general.xml",
+        "prerelease": "https://www.alfredapp.com/app/update5/prerelease.xml",
+    },
 }
 
 DEFAULT_MAJOR_VERSION = "2"
