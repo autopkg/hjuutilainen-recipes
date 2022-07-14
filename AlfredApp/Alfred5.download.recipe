@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest Alfred 5.</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.download.Alfred5</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Alfred5</string>
+		<key>MAJOR_VERSION</key>
+		<string>5</string>
+		<key>RELEASE_TYPE</key>
+		<string>stable</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>AlfredURLProvider</string>
+			<key>Arguments</key>
+			<dict>
+				<key>major_version</key>
+				<string>%MAJOR_VERSION%</string>
+				<key>release_type</key>
+				<string>%RELEASE_TYPE%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Alfred 5.app</string>
+				<key>requirement</key>
+				<string>anchor apple generic and identifier "com.runningwithcrayons.Alfred" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = XZZXE9SED4)</string>
+				<key>strict_verification</key>
+				<true />
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
