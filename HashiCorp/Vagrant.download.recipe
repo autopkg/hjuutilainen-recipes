@@ -8,6 +8,8 @@
 	<string>io.github.hjuutilainen.download.Vagrant</string>
 	<key>Input</key>
 	<dict>
+		<key>DOWNLOAD_ARCH</key>
+		<string>amd64</string>
 		<key>NAME</key>
 		<string>Vagrant</string>
 	</dict>
@@ -20,12 +22,12 @@
 			<string>HashiCorpURLProvider</string>
 			<key>Arguments</key>
 			<dict>
-				<key>project_name</key>
-				<string>vagrant</string>
+				<key>arch</key>
+				<string>%DOWNLOAD_ARCH%</string>
 				<key>os</key>
 				<string>darwin</string>
-				<key>arch</key>
-				<string>x86_64</string>
+				<key>project_name</key>
+				<string>vagrant</string>
 			</dict>
 		</dict>
 		<dict>
