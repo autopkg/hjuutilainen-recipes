@@ -8,12 +8,10 @@
 	<string>io.github.hjuutilainen.download.Vagrant</string>
 	<key>Input</key>
 	<dict>
-		<key>NAME</key>
-		<string>Vagrant</string>
 		<key>DOWNLOAD_ARCH</key>
 		<string>amd64</string>
-		<key>DOWNLOAD_OS</key>
-		<string>darwin</string>
+		<key>NAME</key>
+		<string>Vagrant</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -27,7 +25,7 @@
 				<key>arch</key>
 				<string>%DOWNLOAD_ARCH%</string>
 				<key>os</key>
-				<string>%DOWNLOAD_OS%</string>
+				<string>darwin</string>
 				<key>project_name</key>
 				<string>vagrant</string>
 			</dict>
