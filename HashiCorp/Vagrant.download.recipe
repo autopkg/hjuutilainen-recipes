@@ -28,7 +28,7 @@
 				<string>vagrant</string>
 			</dict>
 			<key>Processor</key>
-			<string>HashiCorpURLProvider</string>
+			<string>io.github.hjuutilainen.SharedProcessors/HashiCorpURLProvider</string>
 		</dict>
 		<dict>
 			<key>Arguments</key>
