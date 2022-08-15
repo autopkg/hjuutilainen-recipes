@@ -27,6 +27,10 @@ __all__ = ["HashiCorpURLProvider"]
 RELEASES_BASE_URL = "https://releases.hashicorp.com"
 DEFAULT_OS = "darwin"
 DEFAULT_ARCH = "all"
+ARCH_MAP = {
+    "x86_64": "amd64",
+    "amd64": "x86_64"
+}
 RELEASE_RE = re.compile(r'^[0-9\.]+$')
 
 
@@ -68,7 +72,7 @@ class HashiCorpURLProvider(URLGetter):
 
         return json_data
 
-    def get_project_url(self, base_url, operating_system, architecture):
+    def get_project_url(self, base_url, operating_system, architectures):
         """Find and return a download URL"""
         # Download a JSON with all releases
         releases = self.download_releases_info(base_url)
@@ -87,21 +91,23 @@ class HashiCorpURLProvider(URLGetter):
 
         # Go through the builds and get the os and arch specific download URL
         builds = latest_version.get('builds', [])
-        found_build = next((build for build in builds if build['os'] == operating_system and build['arch'] == architecture), None)
+        found_build = next((build for build in builds if build['os'] == operating_system and build['arch'] in architectures), None)
         if found_build:
             source_url = found_build.get('url', None)
             if not source_url:
-                raise ProcessorError("No URL found for os: %s, arch: %s" % (operating_system, architecture))
+                raise ProcessorError("No URL found for os: %s, arch: %s" % (operating_system, architectures))
             return source_url
         else:
-            raise ProcessorError("No build for os: %s, arch: %s" % (operating_system, architecture))
+            raise ProcessorError("No build for os: %s, arch: %s" % (operating_system, architectures))
 
     def main(self):
         project_name = self.env.get("project_name")
         operating_system = self.env.get("os", DEFAULT_OS)
-        architecture = self.env.get("arch", DEFAULT_ARCH)
+        architectures = [ self.env.get("arch", DEFAULT_ARCH) ]
+        if architectures[0] in ARCH_MAP.keys():
+            architectures.append(ARCH_MAP[architectures[0]])
         base_url = "/".join([RELEASES_BASE_URL, project_name, "index.json"])
-        self.env["url"] = self.get_project_url(base_url, operating_system, architecture)
+        self.env["url"] = self.get_project_url(base_url, operating_system, architectures)
         self.output("Found URL %s" % self.env["url"])
 
 
