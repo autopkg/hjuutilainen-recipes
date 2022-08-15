@@ -12,7 +12,8 @@
 		<string>Vagrant</string>
 		<key>arch</key>
 		<string>amd64</string>
-		<!-- <string>arm64</string> -->
+		<key>Comment</key>
+		<string>Currently HashiCorp only provides amd64, but possibly they'll provide arm64 at some point</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -37,7 +38,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%NAME%.dmg</string>
+				<string>%NAME%-%arch%.dmg</string>
 			</dict>
 		</dict>
 		<dict>
