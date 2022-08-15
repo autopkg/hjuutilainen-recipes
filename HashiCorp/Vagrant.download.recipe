@@ -10,6 +10,9 @@
 	<dict>
 		<key>NAME</key>
 		<string>Vagrant</string>
+		<key>arch</key>
+		<string>amd64</string>
+		<!-- <string>arm64</string> -->
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.5.0</string>
@@ -25,7 +28,7 @@
 				<key>os</key>
 				<string>darwin</string>
 				<key>arch</key>
-				<string>x86_64</string>
+				<string>%arch%</string>
 			</dict>
 		</dict>
 		<dict>
