@@ -8,6 +8,8 @@
 	<string>io.github.hjuutilainen.download.Vagrant</string>
 	<key>Input</key>
 	<dict>
+		<key>DOWNLOAD_ARCH</key>
+		<string>amd64</string>
 		<key>NAME</key>
 		<string>Vagrant</string>
 	</dict>
@@ -16,45 +18,45 @@
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Processor</key>
-			<string>HashiCorpURLProvider</string>
 			<key>Arguments</key>
 			<dict>
-				<key>project_name</key>
-				<string>vagrant</string>
+				<key>arch</key>
+				<string>%DOWNLOAD_ARCH%</string>
 				<key>os</key>
 				<string>darwin</string>
-				<key>arch</key>
-				<string>x86_64</string>
+				<key>project_name</key>
+				<string>vagrant</string>
 			</dict>
+			<key>Processor</key>
+			<string>io.github.hjuutilainen.SharedProcessors/HashiCorpURLProvider</string>
 		</dict>
 		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 			</dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
 		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>EndOfCheckPhase</string>
 		</dict>
 		<dict>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
 			<key>Arguments</key>
 			<dict>
-				<key>input_path</key>
-				<string>%pathname%/vagrant.pkg</string>
 				<key>expected_authority_names</key>
 				<array>
 					<string>Developer ID Installer: Hashicorp, Inc. (D38WU7D763)</string>
 					<string>Developer ID Certification Authority</string>
 					<string>Apple Root CA</string>
 				</array>
+				<key>input_path</key>
+				<string>%pathname%/vagrant.pkg</string>
 			</dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
 		</dict>
 	</array>
 </dict>

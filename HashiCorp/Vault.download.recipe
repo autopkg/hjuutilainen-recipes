@@ -8,6 +8,8 @@
 	<string>io.github.hjuutilainen.download.Vault</string>
 	<key>Input</key>
 	<dict>
+		<key>DOWNLOAD_ARCH</key>
+		<string>amd64</string>
 		<key>NAME</key>
 		<string>Vault</string>
 	</dict>
@@ -16,17 +18,17 @@
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Processor</key>
-			<string>HashiCorpURLProvider</string>
 			<key>Arguments</key>
 			<dict>
-				<key>project_name</key>
-				<string>vault</string>
+				<key>arch</key>
+				<string>%DOWNLOAD_ARCH%</string>
 				<key>os</key>
 				<string>darwin</string>
-				<key>arch</key>
-				<string>amd64</string>
+				<key>project_name</key>
+				<string>vault</string>
 			</dict>
+			<key>Processor</key>
+			<string>io.github.hjuutilainen.SharedProcessors/HashiCorpURLProvider</string>
 		</dict>
 		<dict>
 			<key>Processor</key>
