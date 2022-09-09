@@ -50,7 +50,7 @@
                 <string>%RECIPE_CACHE_DIR%/payload/root/Applications</string>
             </dict>
             <key>Processor</key>
-            <string>PkgPayloadUnpacker</string>
+            <string>PBXZPayloadUnpacker</string>
         </dict>
         <dict>
             <key>Arguments</key>
