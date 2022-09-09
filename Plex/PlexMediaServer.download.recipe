@@ -21,9 +21,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://plex.tv/pms/downloads/5.json</string>
+				<string>https://plex.tv/api/downloads/5.json</string>
 				<key>re_pattern</key>
-				<string>(https://downloads.plex.tv/plex-media-server-new/[0-9\.]+-[a-z0-9]+/macos/PlexMediaServer-[0-9\.]+-[a-z0-9]+-x86_64\.zip)</string>
+				<string>(https://downloads.plex.tv/plex-media-server-new/[0-9\.]+-[a-z0-9]+/macos/PlexMediaServer-[0-9\.]+-[a-z0-9]+-universal\.zip)</string>
 				<key>result_output_var_name</key>
 				<string>url</string>
 			</dict>
