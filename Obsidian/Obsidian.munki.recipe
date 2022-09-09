@@ -42,59 +42,13 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>Copier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>destination_path</key>
-                <string>%RECIPE_CACHE_DIR%/Applications/Obsidian.app</string>
-                <key>overwrite</key>
-                <true/>
-                <key>source_path</key>
-                <string>%pathname%/Obsidian.app</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>com.github.grahampugh.recipes.commonprocessors/ChangeModeOwner</string>
-            <key>Arguments</key>
-            <dict>
-                <key>resource_path</key>
-                <string>%RECIPE_CACHE_DIR%/Applications/Obsidian.app/Contents/Resources/Obsidian.icns</string>
-                <key>mode</key>
-                <string>644</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>DmgCreator</string>
-            <key>Arguments</key>
-            <dict>
-                <key>dmg_root</key>
-                <string>%RECIPE_CACHE_DIR%/Applications</string>
-                <key>dmg_path</key>
-                <string>%RECIPE_CACHE_DIR%/%NAME%.dmg</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
             <string>MunkiImporter</string>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%dmg_path%</string>
+                <string>%pathname%</string>
                 <key>repo_subdirectory</key>
                 <string>%MUNKI_REPO_SUBDIR%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/Applications</string>
-                </array>
             </dict>
         </dict>
     </array>

@@ -44,17 +44,6 @@
 		</dict>
 		<dict>
 			<key>Processor</key>
-			<string>com.github.grahampugh.recipes.commonprocessors/ChangeModeOwner</string>
-			<key>Arguments</key>
-			<dict>
-				<key>resource_path</key>
-				<string>%pkgroot%/Applications/Obsidian.app/Contents/Resources/Obsidian.icns</string>
-				<key>mode</key>
-				<string>644</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
 			<string>PlistReader</string>
 			<key>Arguments</key>
 			<dict>
