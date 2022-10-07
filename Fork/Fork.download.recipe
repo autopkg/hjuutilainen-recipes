@@ -10,20 +10,27 @@
 	<dict>
 		<key>NAME</key>
 		<string>Fork</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://git-fork.com/update/files/Fork.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>appcast_url</key>
+				<string>https://git-fork.com/update/feed.xml</string>
+			</dict>
+			<key>Processor</key>
+			<string>SparkleUpdateInfoProvider</string>
+		</dict>
+		<dict>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<key>filename</key>
+				<string>%NAME%.dmg</string>
 			</dict>
 		</dict>
 		<dict>
