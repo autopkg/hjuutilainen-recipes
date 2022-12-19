@@ -1,63 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>Description</key>
-	<string>Downloads the latest version of GIMP from gimp.org and imports into Munki.</string>
-	<key>Identifier</key>
-	<string>io.github.hjuutilainen.munki.GIMP</string>
-	<key>Input</key>
 	<dict>
-		<key>NAME</key>
-		<string>GIMP</string>
-		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/GIMP</string>
-		<key>MUNKI_CATEGORY</key>
-		<string>Image Manipulation</string>
-		<key>pkginfo</key>
+		<key>Description</key>
+		<string>Downloads the latest version of GIMP from gimp.org and imports into Munki.
+
+This recipe supports two architecture values:
+	- x86_64
+	- arm64</string>
+		<key>Identifier</key>
+		<string>io.github.hjuutilainen.munki.GIMP</string>
+		<key>Input</key>
 		<dict>
-			<key>catalogs</key>
-			<array>
-				<string>testing</string>
-			</array>
-			<key>category</key>
-			<string>%MUNKI_CATEGORY%</string>
-			<key>description</key>
-			<string>GIMP is the GNU Image Manipulation Program. It is a freely distributed piece of software for such tasks as photo retouching, image composition and image authoring. It works on many operating systems, in many languages.</string>
-			<key>developer</key>
-			<string>The GIMP Team</string>
-			<key>display_name</key>
+			<key>NAME</key>
 			<string>GIMP</string>
-			<key>name</key>
-			<string>%NAME%</string>
-			<key>unattended_install</key>
-			<true/>
-			<key>unattended_uninstall</key>
-			<true/>
-		</dict>
-	</dict>
-	<key>MinimumVersion</key>
-	<string>1.0.4</string>
-	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.GIMP</string>
-	<key>Process</key>
-	<array>
-		<dict>
-			<key>Arguments</key>
+			<key>ARCH</key>
+			<string>x86_64</string>
+			<key>MUNKI_REPO_SUBDIR</key>
+			<string>apps/GIMP</string>
+			<key>MUNKI_CATEGORY</key>
+			<string>Image Manipulation</string>
+			<key>pkginfo</key>
 			<dict>
-				<key>pkg_path</key>
-				<string>%pathname%</string>
-				<key>repo_subdirectory</key>
-				<string>%MUNKI_REPO_SUBDIR%</string>
-				<key>additional_makepkginfo_options</key>
+				<key>catalogs</key>
 				<array>
-					<string>--destinationitemname</string>
-					<string>%NAME%.app</string>
+					<string>testing</string>
+				</array>
+				<key>category</key>
+				<string>%MUNKI_CATEGORY%</string>
+				<key>description</key>
+				<string>GIMP is the GNU Image Manipulation Program. It is a freely distributed piece of software for such tasks as photo retouching, image composition and image authoring. It works on many operating systems, in many languages.</string>
+				<key>developer</key>
+				<string>The GIMP Team</string>
+				<key>display_name</key>
+				<string>GIMP</string>
+				<key>name</key>
+				<string>%NAME%</string>
+				<key>unattended_install</key>
+				<true />
+				<key>unattended_uninstall</key>
+				<true />
+				<key>supported_architectures</key>
+				<array>
+					<string>%ARCH%</string>
 				</array>
 			</dict>
-			<key>Processor</key>
-			<string>MunkiImporter</string>
 		</dict>
-	</array>
-</dict>
+		<key>MinimumVersion</key>
+		<string>1.0.4</string>
+		<key>ParentRecipe</key>
+		<string>io.github.hjuutilainen.download.GIMP</string>
+		<key>Process</key>
+		<array>
+			<dict>
+				<key>Arguments</key>
+				<dict>
+					<key>pkg_path</key>
+					<string>%pathname%</string>
+					<key>repo_subdirectory</key>
+					<string>%MUNKI_REPO_SUBDIR%</string>
+					<key>additional_makepkginfo_options</key>
+					<array>
+						<string>--destinationitemname</string>
+						<string>%NAME%.app</string>
+					</array>
+				</dict>
+				<key>Processor</key>
+				<string>MunkiImporter</string>
+			</dict>
+		</array>
+	</dict>
 </plist>
