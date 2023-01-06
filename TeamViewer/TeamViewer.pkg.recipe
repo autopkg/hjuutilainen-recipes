@@ -3,16 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of TeamViewer and extracts the app information.</string>
+	<string>Downloads the current release version of TeamViewer and extracts the app information.
+
+Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.pkg.TeamViewer</string>
 	<key>Input</key>
 	<dict>
+		<key>DERIVE_MIN_OS</key>
+		<string>YES</string>
 		<key>NAME</key>
 		<string>TeamViewer</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>2.7</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.TeamViewer</string>
 	<key>Process</key>
@@ -61,6 +65,8 @@
 				<array>
 					<string>/Applications/TeamViewer.app</string>
 				</array>
+				<key>derive_minimum_os_version</key>
+				<string>%DERIVE_MIN_OS%</string>
 			</dict>
 			<key>Processor</key>
 			<string>MunkiInstallsItemsCreator</string>
