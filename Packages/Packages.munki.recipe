@@ -3,11 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of Packages and imports into Munki.</string>
+	<string>Downloads the current release version of Packages and imports into Munki.
+
+Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.munki.Packages</string>
 	<key>Input</key>
 	<dict>
+		<key>DERIVE_MIN_OS</key>
+		<string>YES</string>
 		<key>NAME</key>
 		<string>Packages</string>
 		<key>MUNKIIMPORT_PKG_NAME</key>
@@ -30,8 +34,6 @@
 			<string>Stéphane Sudre</string>
 			<key>display_name</key>
 			<string>Packages</string>
-			<key>minimum_os_version</key>
-			<string>10.5</string>
 			<key>name</key>
 			<string>%NAME%</string>
 			<key>unattended_install</key>
@@ -75,7 +77,7 @@ exit 0
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>2.7</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.Packages</string>
 	<key>Process</key>
@@ -124,6 +126,8 @@ exit 0
 					<string>/usr/local/bin/packagesbuild</string>
 					<string>/usr/local/bin/packagesutil</string>
 				</array>
+				<key>derive_minimum_os_version</key>
+				<string>%DERIVE_MIN_OS%</string>
 			</dict>
 			<key>Processor</key>
 			<string>MunkiInstallsItemsCreator</string>
