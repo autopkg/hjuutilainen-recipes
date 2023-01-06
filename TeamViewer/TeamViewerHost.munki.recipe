@@ -3,11 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the current release version of TeamViewerHost and imports into Munki.</string>
+    <string>Downloads the current release version of TeamViewerHost and imports into Munki.
+
+Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.</string>
     <key>Identifier</key>
     <string>io.github.hjuutilainen.munki.TeamViewerHost</string>
     <key>Input</key>
     <dict>
+        <key>DERIVE_MIN_OS</key>
+        <string>YES</string>
         <key>MUNKI_CATEGORY</key>
         <string>Internet</string>
         <key>MUNKI_REPO_SUBDIR</key>
@@ -37,7 +41,7 @@
         </dict>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>2.7</string>
     <key>ParentRecipe</key>
     <string>io.github.hjuutilainen.pkg.TeamViewerHost</string>
     <key>Process</key>
@@ -53,6 +57,8 @@
                 <array>
                     <string>/Applications/TeamViewerHost.app</string>
                 </array>
+                <key>derive_minimum_os_version</key>
+                <string>%DERIVE_MIN_OS%</string>
             </dict>
         </dict>
         <dict>
