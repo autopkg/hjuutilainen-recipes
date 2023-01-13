@@ -1,74 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>Description</key>
-	<string>Downloads the latest version of GIMP from gimp.org.</string>
-	<key>Identifier</key>
-	<string>io.github.hjuutilainen.download.GIMP</string>
-	<key>Input</key>
 	<dict>
-		<key>NAME</key>
-		<string>GIMP</string>
+		<key>Description</key>
+		<string>Downloads the latest version of GIMP from gimp.org.
+
+This recipe supports two architecture values:
+	- x86_64
+	- arm64</string>
+		<key>Identifier</key>
+		<string>io.github.hjuutilainen.download.GIMP</string>
+		<key>Input</key>
+		<dict>
+			<key>NAME</key>
+			<string>GIMP</string>
+			<key>ARCH</key>
+			<string>x86_64</string>
+		</dict>
+		<key>MinimumVersion</key>
+		<string>1.0.4</string>
+		<key>Process</key>
+		<array>
+			<dict>
+				<key>Processor</key>
+				<string>URLTextSearcher</string>
+				<key>Arguments</key>
+				<dict>
+					<key>re_pattern</key>
+					<string>//download\.gimp\.org/gimp/v[0-9\.]*/macos/gimp-[0-9\.\-]*-%ARCH%\.dmg</string>
+					<key>url</key>
+					<string>https://www.gimp.org/downloads/</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>URLDownloader</string>
+				<key>Arguments</key>
+				<dict>
+					<key>url</key>
+					<string>https:%match%</string>
+					<key>filename</key>
+					<string>%NAME%.dmg</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>EndOfCheckPhase</string>
+			</dict>
+			<dict>
+				<key>Processor</key>
+				<string>CodeSignatureVerifier</string>
+				<key>Arguments</key>
+				<dict>
+					<key>input_path</key>
+					<string>%pathname%/GIMP*.app</string>
+					<key>requirement</key>
+					<string>identifier "org.gimp.gimp-2.10:" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = T25BQ8HSJF</string>
+					<key>strict_verification</key>
+					<true />
+				</dict>
+			</dict>
+		</array>
 	</dict>
-	<key>MinimumVersion</key>
-	<string>1.0.4</string>
-	<key>Process</key>
-	<array>
-		<dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>re_pattern</key>
-				<string>href='//download.gimp.org/gimp/v(.*)/osx/'</string>
-				<key>url</key>
-				<string>https://www.gimp.org/downloads/</string>
-				<key>result_output_var_name</key>
-				<string>version_match</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>re_pattern</key>
-				<string>&gt;(gimp-[\d\.]+-x86_64(-\d)?\.dmg)&lt;</string>
-				<key>url</key>
-				<string>https://download.gimp.org/pub/gimp/v%version_match%/osx/?C=M&amp;O=D</string>
-				<key>result_output_var_name</key>
-				<string>dmg_match</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>URLDownloader</string>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>https://download.gimp.org/pub/gimp/v%version_match%/osx/%dmg_match%</string>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>EndOfCheckPhase</string>
-		</dict>
-		<dict>
-			<key>Processor</key>
-			<string>CodeSignatureVerifier</string>
-			<key>Arguments</key>
-			<dict>
-				<key>input_path</key>
-				<string>%pathname%/GIMP*.app</string>
-				<key>requirement</key>
-				<string>identifier "org.gimp.gimp-2.10:" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = T25BQ8HSJF</string>
-				<key>strict_verification</key>
-				<true />
-			</dict>
-		</dict>
-	</array>
-</dict>
 </plist>
