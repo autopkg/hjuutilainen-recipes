@@ -6,7 +6,9 @@
 	<string>Downloads the latest LibreOffice. Set RELEASE to either "fresh" or "still".
 
 LibreOffice Still is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
-LibreOffice Fresh is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our fresh version.</string>
+LibreOffice Fresh is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our fresh version.
+The architecture (ARCH) can be 'x86-64' or 'aarch64'
+</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.LibreOffice</string>
 	<key>Input</key>
@@ -15,11 +17,24 @@ LibreOffice Fresh is the stable version with the most recent features. Users int
 		<string>LibreOffice</string>
 		<key>RELEASE</key>
 		<string>fresh</string>
+		<key>ARCH</key>
+		<string>x86_64</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.2.0</string>
 	<key>Process</key>
 	<array>
+		<dict>
+			<key>Comment</key>
+			<string>LibreOffice uses both x86_64 AND x86-64 in the download path. Here we build the x86-64 or aarch64 part.</string>
+			<key>Processor</key>
+			<string>CreateLibreOfficeAuxArchName</string>
+			<key>Arguments</key>
+			<dict>
+				<key>arch_name</key>
+				<string>%ARCH%</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>Comment</key>
 			<string>Try to parse the the latest fresh or still version from current release notes</string>
@@ -47,9 +62,9 @@ LibreOffice Fresh is the stable version with the most recent features. Users int
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://download.documentfoundation.org/libreoffice/stable/%version%/mac/x86_64/LibreOffice_%version%_MacOS_x86-64.dmg</string>
+				<string>https://download.documentfoundation.org/libreoffice/stable/%version%/mac/%ARCH%/LibreOffice_%version%_MacOS_%aux_arch_name%.dmg</string>
 				<key>filename</key>
-				<string>%NAME%.dmg</string>
+				<string>%NAME%-%ARCH%.dmg</string>
 			</dict>
 		</dict>
 		<dict>
