@@ -68,7 +68,7 @@
 				<key>pkg_request</key>
 				<dict>
 					<key>pkgname</key>
-					<string>%NAME%-%version%</string>
+					<string>%NAME%-%ARCHITECTURE%-%version%</string>
 					<key>version</key>
 					<string>%version%</string>
 					<key>id</key>
