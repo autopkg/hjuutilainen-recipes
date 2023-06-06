@@ -40,7 +40,7 @@
 				<key>url</key>
 				<string>https://www.blender.org/download/release/%download_path%</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://.*/blender-(?P&lt;version&gt;[0-9a-zA-Z\.]+)-macos-%ARCHITECTURE%.dmg)</string>
+				<string>"(?P&lt;url&gt;https://.*/blender-(?P&lt;version&gt;[0-9a-zA-Z\.]+)-macos-%ARCHITECTURE%.dmg)"</string>
 			</dict>
 		</dict>
 		<dict>
