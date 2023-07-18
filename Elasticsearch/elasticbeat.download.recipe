@@ -14,6 +14,8 @@
 		<string>filebeat</string>
 		<key>OPTIONAL_VERSION</key>
 		<string></string>
+		<key>PREFERRED_MAJOR_VERSION</key>
+		<string></string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.4</string>
@@ -27,7 +29,7 @@
 				<key>url</key>
 				<string>https://www.elastic.co/downloads/beats/%BEAT_NAME%%OPTIONAL_VERSION%</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%%OPTIONAL_VERSION%-(?P&lt;version&gt;[\d\.]+)-darwin-x86_64\.tar\.gz)</string>
+				<string>(?P&lt;url&gt;https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%%OPTIONAL_VERSION%-(?P&lt;version&gt;%PREFERRED_MAJOR_VERSION%[\d\.]+)-darwin-x86_64\.tar\.gz)</string>
 			</dict>
 		</dict>
 		<dict>
