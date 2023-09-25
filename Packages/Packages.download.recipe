@@ -38,7 +38,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%pathname%/packages/Packages.pkg</string>
+				<string>%pathname%/Install Packages.pkg</string>
 				<key>expected_authority_names</key>
 				<array>
 					<string>Developer ID Installer: Stephane Sudre (NL5M9E394P)</string>
