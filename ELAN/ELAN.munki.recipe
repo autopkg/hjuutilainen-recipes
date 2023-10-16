@@ -3,13 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of ELAN and imports into Munki.</string>
+	<string>Downloads the current release version of ELAN and imports into Munki. This recipe downloads the Intel version by default. To get the Apple Silicon version, set ARCH variable to "M1"</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.munki.ELAN</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>ELAN</string>
+		<key>ARCH</key>
+		<string></string>
 		<key>MUNKI_REPO_SUBDIR</key>
 		<string>apps/ELAN</string>
 		<key>MUNKI_CATEGORY</key>
