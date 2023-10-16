@@ -6,6 +6,9 @@
 	<string>Downloads and installs the current release version of Freedome.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.install.Freedome</string>
+	<key>Input</key>
+	<dict>
+	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0</string>
 	<key>ParentRecipe</key>
