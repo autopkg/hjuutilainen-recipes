@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of LibreOffice and builds a package. Set RELEASE to either "fresh" or "still".
+	<string>Downloads the latest version of LibreOffice and builds a package. Set RELEASE to either 'Latest' or 'Previous'.
 
-LibreOffice Still is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
-LibreOffice Fresh is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our fresh version.</string>
+LibreOffice Previous is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
+LibreOffice Latest is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our Latest version.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.pkg.LibreOffice</string>
 	<key>Input</key>
@@ -14,7 +14,7 @@ LibreOffice Fresh is the stable version with the most recent features. Users int
 		<key>NAME</key>
 		<string>LibreOffice</string>
 		<key>RELEASE</key>
-		<string>fresh</string>
+		<string>Latest</string>
 		<key>ARCH</key>
 		<string>x86_64</string>
 	</dict>

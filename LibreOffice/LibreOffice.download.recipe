@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest LibreOffice. Set RELEASE to either "fresh" or "still".
+	<string>Downloads the latest LibreOffice. Set RELEASE to either 'Latest' or 'Previous'.
 
-LibreOffice Still is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
-LibreOffice Fresh is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our fresh version.
+LibreOffice Previous is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
+LibreOffice Latest is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our Latest version.
 The architecture (ARCH) can be 'x86-64' or 'aarch64'
 </string>
 	<key>Identifier</key>
@@ -16,7 +16,7 @@ The architecture (ARCH) can be 'x86-64' or 'aarch64'
 		<key>NAME</key>
 		<string>LibreOffice</string>
 		<key>RELEASE</key>
-		<string>fresh</string>
+		<string>Latest</string>
 		<key>ARCH</key>
 		<string>x86_64</string>
 	</dict>
@@ -37,13 +37,13 @@ The architecture (ARCH) can be 'x86-64' or 'aarch64'
 		</dict>
 		<dict>
 			<key>Comment</key>
-			<string>Try to parse the the latest fresh or still version from current release notes</string>
+			<string>Try to parse the the 'Latest' or 'Previous' version from current release notes</string>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>LibreOffice (?P&lt;version&gt;[\d\.]+) \([\d-]+\) - (?i)%RELEASE% Branch</string>
+				<string>LibreOffice (?P&lt;version&gt;\d+\.\d+(\.\d+)?) \(\d{4}-\d{2}-\d{2}\) - %RELEASE% Release</string>
 				<key>url</key>
 				<string>https://www.libreoffice.org/download/release-notes/</string>
 			</dict>
