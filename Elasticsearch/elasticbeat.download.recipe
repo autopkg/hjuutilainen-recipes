@@ -16,6 +16,9 @@
 		<string></string>
 		<key>PREFERRED_MAJOR_VERSION</key>
 		<string></string>
+		<!-- ARCH can be either aarch64 or x86_64 -->
+		<key>ARCH</key>
+		<string>x86_64</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.4</string>
@@ -29,7 +32,7 @@
 				<key>url</key>
 				<string>https://www.elastic.co/downloads/beats/%BEAT_NAME%%OPTIONAL_VERSION%</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%%OPTIONAL_VERSION%-(?P&lt;version&gt;%PREFERRED_MAJOR_VERSION%[\d\.]+)-darwin-x86_64\.tar\.gz)</string>
+				<string>(?P&lt;url&gt;https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%%OPTIONAL_VERSION%-(?P&lt;version&gt;%PREFERRED_MAJOR_VERSION%[\d\.]+)-darwin-%ARCH%\.tar\.gz)</string>
 			</dict>
 		</dict>
 		<dict>
@@ -38,7 +41,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
-				<string>%BEAT_NAME%-%version%-darwin-x86_64.tar.gz</string>
+				<string>%BEAT_NAME%-%version%-darwin-%ARCH%.tar.gz</string>
 			</dict>
 		</dict>
 		<dict>
@@ -51,7 +54,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%%OPTIONAL_VERSION%-%version%-darwin-x86_64.tar.gz.sha512</string>
+				<string>https://artifacts.elastic.co/downloads/beats/%BEAT_NAME%/%BEAT_NAME%%OPTIONAL_VERSION%-%version%-darwin-%ARCH%.tar.gz.sha512</string>
 				<key>re_pattern</key>
 				<string>(?P&lt;checksum&gt;\w+)</string>
 			</dict>
@@ -86,7 +89,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%BEAT_NAME%/%BEAT_NAME%-%version%-darwin-x86_64/%BEAT_NAME%</string>
+				<string>%RECIPE_CACHE_DIR%/%BEAT_NAME%/%BEAT_NAME%-%version%-darwin-%ARCH%/%BEAT_NAME%</string>
 				<key>requirement</key>
 				<string>identifier %BEAT_NAME% and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "2BT3HPN62Z"</string>
 				<key>strict_verification</key>
