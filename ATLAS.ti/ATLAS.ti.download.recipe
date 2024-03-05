@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>ATLAS.ti</string>
 		<key>APPCAST_URL</key>
-		<string>https://cdn.atlasti.com/mac.v23/sparklefeed_23.xml</string>
+		<string>https://releases.atlasti.com/mac/sparklefeed.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
