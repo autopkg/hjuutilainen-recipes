@@ -7,7 +7,7 @@
 
 LibreOffice Previous is the stable version that has undergone more testing (over a longer time). It is usually recommended for more conservative use.
 LibreOffice Latest is the stable version with the most recent features. Users interested in taking advantage of our most innovative features should download and use our Latest version.
-The architecture (ARCH) can be 'x86-64' or 'aarch64'
+The architecture (ARCH) can be 'x86_64' or 'aarch64'
 </string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.LibreOffice</string>
