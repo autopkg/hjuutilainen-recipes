@@ -3,13 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of ELAN.</string>
+	<string>Downloads the current release version of ELAN. This recipe downloads the Intel version by default. To get the Apple Silicon version, set ARCH variable to "M1"</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.ELAN</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>ELAN</string>
+		<key>ARCH</key>
+		<string></string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0</string>
@@ -23,7 +25,7 @@
 				<key>url</key>
 				<string>https://archive.mpi.nl/tla/elan/download</string>
 				<key>re_pattern</key>
-				<string>(https://www.mpi.nl/tools/elan/ELAN_[0-9\-]+_mac\.zip)</string>
+				<string>(https://www.mpi.nl/tools/elan/ELAN_[0-9\-]+_?%ARCH%_mac\.zip)</string>
 				<key>result_output_var_name</key>
 				<string>url</string>
 			</dict>
