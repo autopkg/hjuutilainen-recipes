@@ -23,7 +23,7 @@
 				<key>github_repo</key>
 				<string>obsidianmd/obsidian-releases</string>
 				<key>asset_regex</key>
-				<string>Obsidian-[0-9\.]+-universal\.dmg</string>
+				<string>Obsidian-[0-9\.]+\.dmg</string>
 			</dict>
 		</dict>
 		<dict>
