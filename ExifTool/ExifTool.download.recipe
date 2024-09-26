@@ -21,11 +21,11 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://owl.phy.queensu.ca/~phil/exiftool/</string>
+				<string>https://exiftool.org/ver.txt</string>
 				<key>re_pattern</key>
-				<string>(ExifTool-[0-9\.]+\.dmg)</string>
+				<string>[0-9\.]+</string>
 				<key>result_output_var_name</key>
-				<string>dmg</string>
+				<string>version</string>
 			</dict>
 		</dict>
 		<dict>
@@ -34,9 +34,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://owl.phy.queensu.ca/~phil/exiftool/%dmg%</string>
-				<key>filename</key>
-				<string>%NAME%.dmg</string>
+				<string>https://exiftool.org/ExifTool-%version%.pkg</string>
 			</dict>
 		</dict>
 		<dict>
