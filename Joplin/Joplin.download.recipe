@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Joplin.
+
+The architecture (ARCH) can be 'x86_64' or 'arm64'</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.download.Joplin</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Joplin</string>
+		<key>ARCH</key>
+		<string>arm64</string>
+	</dict>
+	<key>MinimumVersion</key>
+	<string>0.6.1</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Comment</key>
+			<string>Joplin uses 'mac' for x86_64 and 'arm64' for arm64</string>
+			<key>Processor</key>
+			<string>CreateJoplinAuxArchName</string>
+			<key>Arguments</key>
+			<dict>
+				<key>arch_name</key>
+				<string>%ARCH%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>GitHubReleasesInfoProvider</string>
+			<key>Arguments</key>
+			<dict>
+				<key>asset_regex</key>
+				<string>Joplin-[0-9\.]+-%aux_arch_name%\.zip</string>
+				<key>github_repo</key>
+				<string>laurent22/joplin</string>
+				<key>include_prereleases</key>
+				<false />
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>EndOfCheckPhase</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>Unarchiver</string>
+			<key>Arguments</key>
+			<dict>
+				<key>archive_path</key>
+				<string>%pathname%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%</string>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>input_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Joplin.app</string>
+				<key>requirement</key>
+				<string>identifier "net.cozic.joplin-desktop" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = A9BXAFS6CT</string>
+				<key>strict_verification</key>
+				<true />
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
