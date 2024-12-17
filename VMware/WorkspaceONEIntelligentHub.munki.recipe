@@ -11,11 +11,11 @@
 		<key>NAME</key>
 		<string>WorkspaceONEIntelligentHub</string>
 		<key>MUNKI_REPO_SUBDIR</key>
-		<string>apps/vmware</string>
+		<string>apps/omnissa</string>
 		<key>MUNKI_CATEGORY</key>
 		<string>Utilities</string>
 		<key>MUNKI_DEVELOPER</key>
-		<string>VMware, Inc.</string>
+		<string>Omnissa, LLC</string>
 		<key>pkginfo</key>
 		<dict>
 			<key>catalogs</key>
@@ -59,7 +59,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_payload_path</key>
-				<string>%RECIPE_CACHE_DIR%/unpack/VMwareWorkspaceONEIntelligentHub.pkg/Payload</string>
+				<string>%RECIPE_CACHE_DIR%/unpack/WorkspaceONEIntelligentHub.pkg/Payload</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/payload</string>
 			</dict>
