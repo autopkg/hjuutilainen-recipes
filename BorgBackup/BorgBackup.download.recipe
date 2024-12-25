@@ -25,7 +25,7 @@
 				<key>include_prereleases</key>
 				<false />
 				<key>asset_regex</key>
-				<string>^borg-macosx64$</string>
+				<string>^borg-macos.+\.tgz$</string>
 			</dict>
 		</dict>
 		<dict>
