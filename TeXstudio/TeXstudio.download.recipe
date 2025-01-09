@@ -23,7 +23,7 @@
 				<key>github_repo</key>
 				<string>texstudio-org/texstudio</string>
 				<key>asset_regex</key>
-				<string>texstudio-[0-9\.]+-osx\.dmg</string>
+				<string>texstudio-[0-9\.]+-osx\.zip</string>
 			</dict>
 		</dict>
 		<dict>
