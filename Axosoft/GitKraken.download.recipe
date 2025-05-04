@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the current release version of GitKraken.</string>
+	<string>Downloads the current release version of GitKraken. Set ARCH to either x64 or arm64. Defaults to x64.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.GitKraken</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>GitKraken</string>
-		<key>DOWNLOAD_URL</key>
-		<string>https://release.gitkraken.com/darwin/installGitKraken.dmg</string>
+		<key>ARCH</key>
+		<string>x64</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.6.1</string>
@@ -25,7 +25,7 @@
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
+				<string>https://api.gitkraken.dev/releases/production/darwin/%ARCH%/active/installGitKraken.dmg</string>
 			</dict>
 		</dict>
 		<dict>
