@@ -79,6 +79,8 @@
 							<string>root</string>
 							<key>group</key>
 							<string>admin</string>
+                                                        <key>mode</key>
+                                                        <string>0755</string>
 						</dict>
 					</array>
 				</dict>
