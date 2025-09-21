@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>BibDesk</string>
 		<key>SPARKLE_FEED_URL</key>
-		<string>http://bibdesk.sourceforge.net/bibdesk.xml</string>
+		<string>https://bibdesk.sourceforge.net/bibdesk.xml</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0</string>
