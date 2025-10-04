@@ -95,8 +95,6 @@
 					<string>%RECIPE_CACHE_DIR%</string>
 					<key>id</key>
 					<string>net.sourceforge.TeXstudio</string>
-					<key>options</key>
-					<string>purge_ds_store</string>
 					<key>chown</key>
 					<array>
 						<dict>

@@ -78,8 +78,6 @@ The architecture (ARCH) can be 'x86_64' or 'arm64'</string>
 					<string>%version%</string>
 					<key>id</key>
 					<string>%bundleid%</string>
-					<key>options</key>
-					<string>purge_ds_store</string>
 					<key>chown</key>
 					<array>
 						<dict>
