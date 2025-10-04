@@ -71,8 +71,6 @@ LibreOffice Latest is the stable version with the most recent features. Users in
 					<string>%RECIPE_CACHE_DIR%</string>
 					<key>id</key>
 					<string>org.libreoffice.script</string>
-					<key>options</key>
-					<string>purge_ds_store</string>
 					<key>chown</key>
 					<array>
 						<dict>
