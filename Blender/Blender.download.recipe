@@ -3,15 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest Blender. (At least) Since v2.93 you may choose between x64 and arm64 as architecture. This recipes defaults to x64.</string>
+	<string>Downloads the latest Blender. (At least) Since v2.93 you may choose between x64 and arm64 as architecture. This recipes defaults to x64 (intel_url), swap in "arm_url" for the url key to get arm64.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.Blender</string>
 	<key>Input</key>
 	<dict>
 		<key>NAME</key>
 		<string>Blender</string>
-		<key>ARCHITECTURE</key>
-		<string>x64</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.2</string>
@@ -19,37 +17,21 @@
 	<array>
 		<dict>
 			<key>Comment</key>
-			<string>Get a link to a redirect page from the official download page</string>
+			<string>Get the links for both arch builds of blender</string>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>https://www.blender.org/download/</string>
-				<key>re_pattern</key>
-				<string>(?P&lt;download_path&gt;Blender[0-9a-zA-Z\.]+/blender-(?P&lt;version&gt;[0-9a-zA-Z\.]+)-macos-%ARCHITECTURE%.dmg)</string>
-			</dict>
+			<string>BlenderURLFinder</string>
 		</dict>
 		<dict>
 			<key>Comment</key>
-			<string>Get the page from the previous URLTextSearcher match and find the actual (mirrored) download URL</string>
-			<key>Processor</key>
-			<string>URLTextSearcher</string>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>https://www.blender.org/download/release/%download_path%</string>
-				<key>re_pattern</key>
-				<string>"(?P&lt;url&gt;https://.*/blender-(?P&lt;version&gt;[0-9a-zA-Z\.]+)-macos-%ARCHITECTURE%.dmg)"</string>
-			</dict>
-		</dict>
-		<dict>
+			<string>Swap "intel_url" for "arm_url" in the URL key to get the arm64 version.</string>
 			<key>Processor</key>
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
+				<key>url</key>
+				<string>%intel_url%</string>
 			</dict>
 		</dict>
 		<dict>
