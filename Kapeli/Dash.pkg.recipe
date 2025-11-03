@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads the latest version of Dash specified by MAJOR_VERSION and creates a pkg.</string>
+	<key>Identifier</key>
+	<string>io.github.hjuutilainen.pkg.Dash</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Dash</string>
+	</dict>
+	<key>ParentRecipe</key>
+	<string>io.github.hjuutilainen.download.Dash</string>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>app_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/Dash.app</string>
+			</dict>
+			<key>Processor</key>
+			<string>AppPkgCreator</string>
+		</dict>
+	</array>
+</dict>
+</plist>
