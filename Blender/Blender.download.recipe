@@ -11,7 +11,7 @@
 		<key>NAME</key>
 		<string>Blender</string>
 		<key>ARCHITECTURE</key>
-		<string>x64</string>
+		<string>arm64</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>0.4.2</string>
