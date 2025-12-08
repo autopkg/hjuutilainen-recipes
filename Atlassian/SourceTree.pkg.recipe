@@ -68,8 +68,6 @@
 					<string>%version%</string>
 					<key>id</key>
 					<string>com.torusknot.SourceTreeNotMAS</string>
-					<key>options</key>
-					<string>purge_ds_store</string>
 					<key>chown</key>
 					<array>
 						<dict>
@@ -79,6 +77,8 @@
 							<string>root</string>
 							<key>group</key>
 							<string>admin</string>
+                                                        <key>mode</key>
+                                                        <string>0755</string>
 						</dict>
 					</array>
 				</dict>
