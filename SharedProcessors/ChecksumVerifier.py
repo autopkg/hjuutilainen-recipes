@@ -30,7 +30,7 @@ DEFAULT_ALGORITHM = "SHA1"
 class ChecksumVerifier(Processor):
     """Verifies the checksum of a given file"""
     input_variables = {
-        "pathname": {
+        "checksum_pathname": {
             "required": True,
             "description": "File path to verify.",
         },
@@ -65,7 +65,7 @@ class ChecksumVerifier(Processor):
 
     def main(self):
         # We absolutely need the input path and an expected checksum
-        input_path = self.env.get("pathname", None)
+        input_path = self.env.get("checksum_pathname", None)
         if not os.path.exists(input_path):
             raise ProcessorError("Error: File %s does not exist." % input_path)
         checksum = self.env.get("checksum", None)
