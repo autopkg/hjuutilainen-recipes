@@ -68,6 +68,8 @@
 				<string>SHA512</string>
 				<key>checksum</key>
 				<string>%checksum%</string>
+				<key>checksum_pathname</key>
+				<string>%pathname%</string>
 			</dict>
 		</dict>
 		<dict>
