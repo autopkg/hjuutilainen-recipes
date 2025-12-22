@@ -47,14 +47,14 @@ Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_versi
 	<key>MinimumVersion</key>
 	<string>2.7</string>
 	<key>ParentRecipe</key>
-	<string>io.github.hjuutilainen.download.CitrixWorkspace</string>
+	<string>com.github.rtrouton.download.citrixworkspace</string>
 	<key>Process</key>
 	<array>
 		<dict>
 			<key>Arguments</key>
 			<dict>
 				<key>flat_pkg_path</key>
-				<string>%pathname%/*.pkg</string>
+				<string>%pathname%</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/unpack</string>
 			</dict>
