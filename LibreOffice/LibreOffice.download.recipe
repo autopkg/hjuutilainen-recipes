@@ -43,9 +43,9 @@ The architecture (ARCH) can be 'x86_64' or 'aarch64'
 			<key>Arguments</key>
 			<dict>
 				<key>re_pattern</key>
-				<string>LibreOffice (?P&lt;version&gt;\d+\.\d+(\.\d+)?) \(\d{4}-\d{2}-\d{2}\) - %RELEASE% Release</string>
+				<string>LibreOffice (?P&lt;version&gt;\d+\.\d+(\.\d+)?) \(\w+ \d{2}, \d{4}\) - %RELEASE% Branch</string>
 				<key>url</key>
-				<string>https://www.libreoffice.org/download/release-notes/</string>
+				<string>https://www.libreoffice.org/release-notes/</string>
 			</dict>
 		</dict>
 		<dict>
