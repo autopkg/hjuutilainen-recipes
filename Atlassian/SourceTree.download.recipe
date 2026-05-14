@@ -17,15 +17,11 @@
 	<array>
 		<dict>
 			<key>Processor</key>
-			<string>URLTextSearcher</string>
+			<string>SparkleUpdateInfoProvider</string>
 			<key>Arguments</key>
 			<dict>
-				<key>url</key>
-				<string>https://www.sourcetreeapp.com</string>
-				<key>re_pattern</key>
-				<string>"macURL":"(https://product-downloads.atlassian.com/software/sourcetree/ga/Source[Tt]ree_[0-9a-z\.]+_[0-9a-z\.]+\.zip)"</string>
-				<key>result_output_var_name</key>
-				<string>url</string>
+				<key>appcast_url</key>
+				<string>https://product-downloads.atlassian.com/software/sourcetree/Appcast/SparkleAppcast.xml</string>
 			</dict>
 		</dict>
 		<dict>
