@@ -52,7 +52,7 @@ With ELAN a user can add an unlimited number of textual annotations to audio and
 			<key>Arguments</key>
 			<dict>
 				<key>source_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/ELAN*.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/ELAN*/ELAN*.app</string>
 				<key>destination_path</key>
 				<string>%RECIPE_CACHE_DIR%/dmg_root/ELAN.app</string>
 				<key>overwrite</key>
