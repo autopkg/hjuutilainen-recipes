@@ -62,9 +62,9 @@
 			<key>Arguments</key>
 			<dict>
 				<key>input_path</key>
-				<string>%RECIPE_CACHE_DIR%/%NAME%/ELAN*.app</string>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/ELAN*/ELAN*.app</string>
 				<key>requirement</key>
-				<string>identifier "nl.mpi.elan" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = CUYD764JW9</string>
+				<string>identifier "nl.mpi.elan" and anchor apple generic and certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = P7N398ZW7F</string>
 				<key>strict_verification</key>
 				<true />
 			</dict>
