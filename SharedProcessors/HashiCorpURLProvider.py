@@ -18,8 +18,8 @@ from __future__ import absolute_import
 
 import json
 import re
-from distutils.version import LooseVersion
 
+from autopkglib import APLooseVersion as LooseVersion
 from autopkglib import Processor, ProcessorError, URLGetter
 
 __all__ = ["HashiCorpURLProvider"]
