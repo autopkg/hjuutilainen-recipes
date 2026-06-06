@@ -41,7 +41,7 @@
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>2.0.1</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.Vagrant</string>
 	<key>Process</key>
