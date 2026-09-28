@@ -19,15 +19,15 @@
 	<array>
 		<dict>
 			<key>Comment</key>
-			<string>Get download link from SourceForge project RSS feed</string>
+			<string>Get latest version from SourceForge project best release info</string>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://sourceforge.net/projects/openofficeorg.mirror/rss?limit=1000</string>
+				<string>https://sourceforge.net/projects/openofficeorg.mirror/best_release.json</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://sourceforge.net/projects/openofficeorg.mirror/files/(?P&lt;version&gt;[0-9\.]+)/binaries/%LANGUAGE%/(?P&lt;filename&gt;Apache_OpenOffice_[0-9\.]+_MacOS_x86-64_install_%LANGUAGE%\.dmg)/download)</string>
+				<string>"mac": \{[^}]*"filename": "/(?P&lt;version&gt;[0-9\.]+)/binaries/</string>
 			</dict>
 		</dict>
 		<dict>
@@ -37,6 +37,8 @@
 			<dict>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
+				<key>url</key>
+				<string>https://sourceforge.net/projects/openofficeorg.mirror/files/%version%/binaries/%LANGUAGE%/Apache_OpenOffice_%version%_MacOS_x86-64_install_%LANGUAGE%.dmg/download</string>
 				<key>CHECK_FILESIZE_ONLY</key>
 				<true />
 			</dict>
