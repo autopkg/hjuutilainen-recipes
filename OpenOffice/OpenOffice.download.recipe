@@ -19,15 +19,30 @@
 	<array>
 		<dict>
 			<key>Comment</key>
-			<string>Get download link from SourceForge project RSS feed</string>
+			<string>Detect the latest version from the SourceForge project RSS feed</string>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://sourceforge.net/projects/openofficeorg.mirror/rss?limit=1000</string>
+				<string>https://sourceforge.net/projects/openofficeorg.mirror/rss</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://sourceforge.net/projects/openofficeorg.mirror/files/(?P&lt;version&gt;[0-9\.]+)/binaries/%LANGUAGE%/(?P&lt;filename&gt;Apache_OpenOffice_[0-9\.]+_MacOS_x86-64_install_%LANGUAGE%\.dmg)/download)</string>
+				<string>/files/(?P&lt;version&gt;[0-9]+(?:\.[0-9]+)+)/</string>
+				<key>result_output_var_name</key>
+				<string>version</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Get the download link from the version-scoped RSS feed</string>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>https://sourceforge.net/projects/openofficeorg.mirror/rss?path=/%version%/binaries/%LANGUAGE%</string>
+				<key>re_pattern</key>
+				<string>(?P&lt;url&gt;https://sourceforge.net/projects/openofficeorg.mirror/files/%version%/binaries/%LANGUAGE%/(?P&lt;filename&gt;Apache_OpenOffice_[0-9\.]+_MacOS_x86-64_install_%LANGUAGE%\.dmg)/download)</string>
 			</dict>
 		</dict>
 		<dict>
