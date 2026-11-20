@@ -19,15 +19,15 @@
 	<array>
 		<dict>
 			<key>Comment</key>
-			<string>Get download link from SourceForge project RSS feed</string>
+			<string>sourceforge.net now blocks curl entirely at the Cloudflare TLS-fingerprint level (every path, including this RSS feed, returns the challenge page instead of content), so the SourceForge mirror this recipe used is permanently dead. Apache's own archive mirror hosts the same releases without Cloudflare. The top-level listing sorts by name, not version order (e.g. "4.1.2-patch1" sorts after "4.1.17"), so request it sorted by last-modified descending (?C=M;O=D) and take the first "4.x.y/" match, which is always the newest release.</string>
 			<key>Processor</key>
 			<string>URLTextSearcher</string>
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://sourceforge.net/projects/openofficeorg.mirror/rss?limit=1000</string>
+				<string>https://archive.apache.org/dist/openoffice/?C=M;O=D</string>
 				<key>re_pattern</key>
-				<string>(?P&lt;url&gt;https://sourceforge.net/projects/openofficeorg.mirror/files/(?P&lt;version&gt;[0-9\.]+)/binaries/%LANGUAGE%/(?P&lt;filename&gt;Apache_OpenOffice_[0-9\.]+_MacOS_x86-64_install_%LANGUAGE%\.dmg)/download)</string>
+				<string>href="(?P&lt;version&gt;4\.[0-9]+\.[0-9]+)/"</string>
 			</dict>
 		</dict>
 		<dict>
@@ -35,6 +35,8 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
+				<key>url</key>
+				<string>https://archive.apache.org/dist/openoffice/%version%/binaries/%LANGUAGE%/Apache_OpenOffice_%version%_MacOS_x86-64_install_%LANGUAGE%.dmg</string>
 				<key>filename</key>
 				<string>%NAME%.dmg</string>
 				<key>CHECK_FILESIZE_ONLY</key>
