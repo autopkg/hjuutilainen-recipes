@@ -50,11 +50,52 @@ exit 0
 		</dict>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>2.9.0</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.SourceTree</string>
 	<key>Process</key>
 	<array>
+		<dict>
+			<key>Comment</key>
+			<string>Get version details from the Info.plist</string>
+			<key>Processor</key>
+			<string>PlistReader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>info_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%/SourceTree.app/Contents/Info.plist</string>
+				<key>plist_keys</key>
+				<dict>
+					<key>CFBundleShortVersionString</key>
+					<string>CFBundleShortVersionString</string>
+					<key>CFBundleVersion</key>
+					<string>CFBundleVersion</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Comment</key>
+			<string>Set version</string>
+			<key>Processor</key>
+			<string>VariableSetter</string>
+			<key>Arguments</key>
+			<dict>
+				<key>version</key>
+				<string>%CFBundleShortVersionString%.%CFBundleVersion%</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>MunkiPkginfoMerger</string>
+			<key>Arguments</key>
+			<dict>
+				<key>additional_pkginfo</key>
+				<dict>
+					<key>version</key>
+					<string>%version%</string>
+				</dict>
+			</dict>
+		</dict>
 		<dict>
 			<key>Processor</key>
 			<string>DmgCreator</string>
@@ -84,6 +125,8 @@ exit 0
 			<dict>
 				<key>munkiimport_appname</key>
 				<string>SourceTree.app</string>
+				<key>version_comparison_key</key>
+				<string>CFBundleVersion</string>
 				<key>pkg_path</key>
 				<string>%dmg_path%</string>
 				<key>repo_subdirectory</key>
