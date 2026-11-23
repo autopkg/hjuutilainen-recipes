@@ -34,7 +34,7 @@
 			<key>Arguments</key>
 			<dict>
 				<key>url</key>
-				<string>https://exiftool.org/ExifTool-%version%.pkg</string>
+				<string>https://downloads.sourceforge.net/project/exiftool/ExifTool-%version%.pkg</string>
 			</dict>
 		</dict>
 		<dict>
