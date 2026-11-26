@@ -14,7 +14,7 @@
 		<string>https://pages.uoregon.edu/koch/texshop/texshop-64/texshop.zip</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.3.1</string>
+	<string>1.0.3</string>
 	<key>Process</key>
 	<array>
 		<dict>

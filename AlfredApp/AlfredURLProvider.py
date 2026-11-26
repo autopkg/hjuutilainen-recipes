@@ -45,7 +45,7 @@ UPDATE_URLS = {
     "5": {
         "stable": "https://www.alfredapp.com/app/update5/general.xml",
         "prerelease": "https://www.alfredapp.com/app/update5/prerelease.xml",
-    },    
+    },
     "6": {
         "stable": "https://www.alfredapp.com/app/update6/general.xml",
         "prerelease": "https://www.alfredapp.com/app/update6/prerelease.xml",

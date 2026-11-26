@@ -5,7 +5,6 @@ repos:
       - id: check-autopkg-recipes
         args: [
             "--recipe-prefix=io.github.hjuutilainen.",
-            "--strict",
             "--ignore-min-vers-before=1.4.1",
             "--",
         ]

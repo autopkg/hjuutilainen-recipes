@@ -14,7 +14,7 @@
 		<string>https://download.teamviewer.com/download/TeamViewerQJ.dmg</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.5.2</string>
+	<string>1.0.3</string>
 	<key>Process</key>
 	<array>
 		<dict>

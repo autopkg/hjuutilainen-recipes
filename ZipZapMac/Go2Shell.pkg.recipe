@@ -12,7 +12,7 @@
 		<string>Go2Shell</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.2.5</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.Go2Shell</string>
 	<key>Process</key>
