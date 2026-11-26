@@ -12,7 +12,7 @@
 		<string>CodeRunner</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>0.2.5</string>
 	<key>ParentRecipe</key>
 	<string>io.github.hjuutilainen.download.CodeRunner2</string>
 	<key>Process</key>

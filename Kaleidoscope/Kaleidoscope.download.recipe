@@ -14,7 +14,7 @@
 		<string>https://updates.kaleidoscope.app/v3/prod/appcast</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.3.1</string>
+	<string>1.0.3</string>
 	<key>Process</key>
 	<array>
 		<dict>

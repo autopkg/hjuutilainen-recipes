@@ -5,7 +5,7 @@ __all__ = ["CreateJoplinAuxArchName"]
 
 class CreateJoplinAuxArchName(Processor):
     """This processor provides the extra architecture name needed for Joplin download paths for x86_64."""
-	
+
     input_variables = {
         "arch_name": {
             "required": True,

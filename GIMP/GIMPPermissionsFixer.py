@@ -34,10 +34,10 @@ class GIMPPermissionsFixer(Processor):
     }
     output_variables = {}
     description = __doc__
-    
+
     def main(self):
         gimp_app_path = self.env.get("gimp_app_path")
-        
+
         if os.path.exists(gimp_app_path):
             gimp_bin_path = os.path.join(gimp_app_path, "Contents/MacOS/GIMP")
             cmd = ["/bin/chmod", "+x", gimp_bin_path]

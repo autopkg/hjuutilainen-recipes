@@ -21,7 +21,7 @@ Input options:
 		<string>5</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.4.2</string>
+	<string>1.0.3</string>
 	<key>Process</key>
 	<array>
 		<dict>

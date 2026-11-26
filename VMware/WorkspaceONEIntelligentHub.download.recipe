@@ -20,7 +20,6 @@
 			<string>URLDownloader</string>
 			<key>Arguments</key>
 			<dict>
-				<!-- https://www.getwsone.com/ -->
 				<key>url</key>
 				<string>https://packages.omnissa.com/wsone/HubMacOS.pkg</string>
 			</dict>

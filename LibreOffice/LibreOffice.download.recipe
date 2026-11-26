@@ -21,7 +21,7 @@ The architecture (ARCH) can be 'x86_64' or 'aarch64'
 		<string>x86_64</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.2.0</string>
+	<string>1.0.3</string>
 	<key>Process</key>
 	<array>
 		<dict>

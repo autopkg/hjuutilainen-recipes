@@ -1,0 +1,21 @@
+repos:
+  - repo: https://github.com/homebysix/pre-commit-macadmin
+    rev: v1.25.1
+    hooks:
+      - id: check-autopkg-recipes
+        args: [
+            "--recipe-prefix=io.github.hjuutilainen.",
+            "--strict",
+            "--ignore-min-vers-before=1.4.1",
+            "--",
+        ]
+      - id: forbid-autopkg-overrides
+      - id: forbid-autopkg-trust-info
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0  # Use the ref you want to point at
+    hooks:
+      - id: trailing-whitespace
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: mixed-line-ending

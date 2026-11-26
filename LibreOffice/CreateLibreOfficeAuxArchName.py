@@ -5,7 +5,7 @@ __all__ = ["CreateLibreOfficeAuxArchName"]
 
 class CreateLibreOfficeAuxArchName(Processor):
     """This processor provides the extra architecture name needed for LibreOffice download paths for x86_64."""
-	
+
     input_variables = {
         "arch_name": {
             "required": True,

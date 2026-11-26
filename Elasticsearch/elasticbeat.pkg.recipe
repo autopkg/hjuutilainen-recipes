@@ -12,9 +12,8 @@
 		<string>filebeat</string>
 		<key>NAME</key>
 		<string>filebeat</string>
-		<!-- ARCH can be either aarch64 or x86_64 -->
 		<key>ARCH</key>
-		<string>x86_64</string>
+		<string>aarch64</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>1.0.4</string>

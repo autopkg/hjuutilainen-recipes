@@ -4,7 +4,7 @@
 <dict>
 	<key>Description</key>
 	<string>Downloads the latest version of Dash specified by MAJOR_VERSION.
-    
+
 Tested successfully with major versions 4, 5, 6, 7, and 8 in November 2025.</string>
 	<key>Identifier</key>
 	<string>io.github.hjuutilainen.download.Dash</string>

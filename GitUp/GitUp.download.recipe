@@ -16,7 +16,7 @@ Set PRERELEASE to a non-empty string to download prereleases, either via Input i
 		<string></string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.5.0</string>
+	<string>1.0.3</string>
 	<key>Process</key>
 	<array>
 		<dict>
